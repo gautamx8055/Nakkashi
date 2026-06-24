@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gautamx8055.github.io',
-  base: '/Nakkashi',
+  site: 'https://nakkashi.com',
 });
