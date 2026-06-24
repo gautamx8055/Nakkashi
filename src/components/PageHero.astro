@@ -1,0 +1,25 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  crumb?: string;
+}
+const { eyebrow = 'Nakkashi', title, lead, crumb = 'Home' } = Astro.props;
+---
+<section class="page-hero">
+  <div class="hero-grain"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="page-hero-content">
+      <div class="crumb">
+        <a href="/">{crumb}</a>
+        <span>›</span>
+        <span>{eyebrow}</span>
+      </div>
+      <h1><slot name="title">{title}</slot></h1>
+      {lead && <p class="lead">{lead}</p>}
+      <slot />
+    </div>
+  </div>
+</section>

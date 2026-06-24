@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const assurances = [
+  {
+    title: 'Transparent Pricing',
+    desc: 'No hidden costs. No last-minute surprises. Complete clarity from quotation to completion — every line item is documented and explained.',
+    icon: `<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/>`,
+  },
+  {
+    title: 'Premium Materials',
+    desc: 'Only high-quality products and proven systems for exceptional finishes and long-lasting performance. We use materials from trusted, premium manufacturers — never generic substitutes.',
+    icon: `<path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/>`,
+  },
+  {
+    title: 'Skilled Craftsmanship',
+    desc: 'Experienced applicators delivering precision, consistency, and attention to every detail. Our craftsmen are continuously trained on new techniques and finish systems.',
+    icon: `<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>`,
+  },
+  {
+    title: 'On-Time Delivery',
+    desc: 'Professional project planning and execution that respects your time and commitments. Every project comes with a clear timeline — and we stick to it.',
+    icon: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`,
+  },
+];
+
+const privileges = [
+  {
+    n: '01',
+    title: 'Complimentary Site Visit',
+    desc: 'Our experts visit your site, understand your requirements, assess the space, and recommend the most suitable textures and finishes — completely free of charge.',
+    icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>`,
+  },
+  {
+    n: '02',
+    title: 'Free Interior Designer Consultation',
+    desc: 'Receive professional guidance on colour palettes, texture selection, feature walls, and design concepts to create a space that reflects your vision.',
+    icon: `<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0114 0v1"/>`,
+  },
+  {
+    n: '03',
+    title: 'Priority Scheduling',
+    desc: 'Enjoy preferred project scheduling and dedicated coordination to ensure faster execution, on-time delivery, and clear communication throughout your project.',
+    icon: `<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/>`,
+  },
+  {
+    n: '04',
+    title: 'Complimentary 6-Month Inspection',
+    desc: 'Our commitment continues even after project completion. We offer a free inspection after 6 months to ensure your walls maintain their beauty and performance.',
+    icon: `<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>`,
+  },
+];
+---
+<Layout title="The Nakkashi Assurance & Customer Privileges">
+  <PageHero
+    eyebrow="The Assurance"
+    title="Promises that hold up — long after the paint dries."
+    lead="The Nakkashi Assurance is our written commitment to every client. Combined with our customer privileges, it's our guarantee that the experience matches the finish — premium from start to finish, and well beyond."
+  />
+
+  <!-- ASSURANCE -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">The Nakkashi Assurance</div>
+        <h2>Four pillars that define <em>every</em> Nakkashi project.</h2>
+        <p>
+          These aren't marketing slogans — they're operating standards that
+          govern how every Nakkashi project is planned, priced, and executed.
+        </p>
+      </div>
+
+      <div class="assure-grid">
+        {assurances.map((a, i) => (
+          <div class="assure-card reveal">
+            <div class="num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" set:html={a.icon}></svg>
+            </div>
+            <h3>{a.title}</h3>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER PRIVILEGES -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">Customer Privileges</div>
+        <h2>Complimentary benefits — every Nakkashi client receives.</h2>
+        <p>
+          Premium projects deserve a premium experience. These privileges are
+          included with every project — no add-ons, no upgrades, no fine print.
+        </p>
+      </div>
+
+      <div class="assure-grid">
+        {privileges.map(p => (
+          <div class="assure-card reveal" style="background:linear-gradient(160deg,#fff,var(--cream))">
+            <div class="num">{p.n}</div>
+            <div class="icon-circle" style="background:linear-gradient(135deg,var(--navy-deep),var(--navy-700))">
+              <svg viewBox="0 0 24 24" set:html={p.icon}></svg>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S NOT INCLUDED -->
+  <section class="section bg-dark">
+    <div class="hero-glow"></div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="content-grid">
+        <div class="reveal">
+          <div class="eyebrow" style="color:var(--gold-soft)">No Surprises</div>
+          <h2 style="color:#fff">What you'll never find in a <em>Nakkashi</em> project.</h2>
+          <p style="color:rgba(247,243,234,.78)">
+            We've built our reputation on what we don't do as much as what we
+            do. Here's a short list of practices you won't encounter when you
+            work with us.
+          </p>
+          <ul class="feature-list" style="margin-top:1.5rem">
+            <li style="color:rgba(247,243,234,.92)"><span class="tick" style="background:var(--gold)">✕</span><span>Vague, lump-sum quotations without itemisation</span></li>
+            <li style="color:rgba(247,243,234,.92)"><span class="tick" style="background:var(--gold)">✕</span><span>Mid-project price changes or hidden material upgrades</span></li>
+            <li style="color:rgba(247,243,234,.92)"><span class="tick" style="background:var(--gold)">✕</span><span>Substituting premium materials with cheaper alternatives</span></li>
+            <li style="color:rgba(247,243,234,.92)"><span class="tick" style="background:var(--gold)">✕</span><span>Skipping surface preparation to save time</span></li>
+            <li style="color:rgba(247,243,234,.92)"><span class="tick" style="background:var(--gold)">✕</span><span>Dropping you the moment the final invoice is paid</span></li>
+          </ul>
+        </div>
+        <div class="image-card reveal" style="background:linear-gradient(135deg,#163152,#022044)">
+          <span class="overlay-tag">Transparent. Premium. Accountable.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Premium finish. <em>Premium</em> experience."
+    text="See the Nakkashi Assurance in action. Book your complimentary site visit today."
+    primaryLabel="Book Free Site Visit"
+    primaryHref="/quote"
+    secondaryLabel="View Our Work"
+    secondaryHref="/gallery"
+  />
+</Layout>

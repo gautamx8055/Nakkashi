@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<Layout title="Get a Free Quote — Nakkashi Signature Painting">
+  <PageHero
+    eyebrow="Get a Quote"
+    title="Tell us about your space — get a tailored quotation."
+    lead="Nakkashi doesn't sell off-the-shelf packages. Every quotation is custom-built around your space, your finish selection, and your timeline. Share a few details below — we'll respond within 24 hours."
+  />
+
+  <!-- HOW IT WORKS -->
+  <section class="section bg-paper" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">How Our Quoting Works</div>
+        <h2>Four steps to a <em>transparent</em> proposal.</h2>
+        <p>No surprise pricing. No vague lump sums. Every line item documented and explained.</p>
+      </div>
+      <div class="quote-steps">
+        <div class="quote-step reveal">
+          <div class="step-n">1</div>
+          <h4>Share Details</h4>
+          <p>Fill the form below or call us — takes 2 minutes.</p>
+        </div>
+        <div class="quote-step reveal">
+          <div class="step-n">2</div>
+          <h4>Free Site Visit</h4>
+          <p>We visit, measure, and understand the project on-site.</p>
+        </div>
+        <div class="quote-step reveal">
+          <div class="step-n">3</div>
+          <h4>Tailored Proposal</h4>
+          <p>Itemised quotation with materials, timeline &amp; pricing.</p>
+        </div>
+        <div class="quote-step reveal">
+          <div class="step-n">4</div>
+          <h4>Project Kick-off</h4>
+          <p>Once you approve, we schedule and get started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="form-wrap">
+        <div class="form-card reveal">
+          <h3>Project Details</h3>
+          <form name="quote" method="POST" onsubmit="event.preventDefault(); alert('Thanks! We will respond within 24 hours.'); this.reset();">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full Name *</label>
+                <input id="name" name="name" type="text" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone *</label>
+                <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" />
+              </div>
+              <div class="field full">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="property">Property Type *</label>
+                <select id="property" name="property" required>
+                  <option value="">Select…</option>
+                  <option>Residential — Independent home / villa</option>
+                  <option>Residential — Apartment</option>
+                  <option>Commercial — Office</option>
+                  <option>Commercial — Retail / Showroom</option>
+                  <option>Hospitality — Hotel / Restaurant</option>
+                  <option>Institutional</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="service">Service Interest *</label>
+                <select id="service" name="service" required>
+                  <option value="">Select…</option>
+                  <option>Signature Texture Collection</option>
+                  <option>Elite Interior Finishes</option>
+                  <option>Luxury Surface Artistry</option>
+                  <option>Statement Wall</option>
+                  <option>ShieldPro Waterproofing</option>
+                  <option>Design &amp; Finish Consultancy</option>
+                  <option>Bespoke / Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="area">Approx. Area (sq ft)</label>
+                <input id="area" name="area" type="text" placeholder="e.g. 1,200" />
+              </div>
+              <div class="field">
+                <label for="timeline">Preferred Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Select…</option>
+                  <option>Within 2 weeks</option>
+                  <option>Within 1 month</option>
+                  <option>1 – 3 months</option>
+                  <option>3+ months / Planning</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="address">Project Address / Locality</label>
+                <input id="address" name="address" type="text" placeholder="Area, city — full address shared after we connect" />
+              </div>
+              <div class="field full">
+                <label for="message">Tell us about your project</label>
+                <textarea id="message" name="message" placeholder="Style preferences, surfaces involved, designer involvement, or anything else you'd like us to know."></textarea>
+              </div>
+              <div class="field full">
+                <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:1rem">
+                  Request My Quote
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <p style="font-size:.82rem;color:var(--muted);text-align:center;margin-top:.8rem">
+                  By submitting, you agree to be contacted by Nakkashi about your enquiry. We never share your details.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="form-aside">
+          <div class="aside-card reveal">
+            <h4>Talk to us directly</h4>
+            <p>Prefer a quick call? Reach our project team — we're happy to answer questions before you fill out anything.</p>
+            <div class="row">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span><strong>+91 98765 43210</strong><br /><span style="color:var(--muted);font-size:.88rem">Mon – Sat · 9am – 7pm</span></span>
+            </div>
+            <div class="row">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+              <span><strong>hello@nakkashi.in</strong><br /><span style="color:var(--muted);font-size:.88rem">Response within 24 hours</span></span>
+            </div>
+          </div>
+
+          <div class="aside-card reveal" style="background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:var(--cream);border:none">
+            <h4 style="color:#fff">What you'll get</h4>
+            <ul style="list-style:none;padding:0;display:grid;gap:.7rem;margin-top:.8rem">
+              <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
+                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
+                <span>A response within <strong style="color:var(--gold-soft)">24 hours</strong></span>
+              </li>
+              <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
+                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
+                <span>A <strong style="color:var(--gold-soft)">free site visit</strong> at a time that suits you</span>
+              </li>
+              <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
+                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
+                <span>An <strong style="color:var(--gold-soft)">itemised proposal</strong> — never a vague lump sum</span>
+              </li>
+              <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
+                <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
+                <span><strong style="color:var(--gold-soft)">Zero obligation</strong> — no pressure to proceed</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="aside-card reveal">
+            <h4>Designer or Architect?</h4>
+            <p>We work closely with design professionals on premium specifications. Let's discuss your client's project together.</p>
+            <a href="/contact" style="color:var(--gold-deep);font-weight:600;font-size:.95rem;margin-top:.6rem;display:inline-block">Set up a partner call →</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ MICRO -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">Quick Questions</div>
+        <h2>Common questions about our <em>quoting</em>.</h2>
+      </div>
+      <div style="display:grid;gap:1rem;max-width:840px;margin:0 auto">
+        <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
+          <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+            Is the site visit really free?
+            <span style="color:var(--gold);font-weight:700">+</span>
+          </summary>
+          <p style="color:var(--muted);margin-top:.8rem">Yes — and there's no obligation to proceed. We believe a good quotation can only come from seeing the space. So the visit, the measurement, and the initial recommendations are all complimentary.</p>
+        </details>
+        <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
+          <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+            How quickly do you respond?
+            <span style="color:var(--gold);font-weight:700">+</span>
+          </summary>
+          <p style="color:var(--muted);margin-top:.8rem">Within 24 hours, Monday to Saturday. For urgent projects, call us directly — we'll do our best to schedule a same-day or next-day visit.</p>
+        </details>
+        <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
+          <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+            Why don't you publish standard prices?
+            <span style="color:var(--gold);font-weight:700">+</span>
+          </summary>
+          <p style="color:var(--muted);margin-top:.8rem">Premium decorative finishes vary widely based on surface area, condition, finish selection, material grade, and site complexity. A standard price card would force us to either overcharge simple projects or undercharge complex ones — neither matches our standard of honesty. Every quotation is built around your specific project.</p>
+        </details>
+        <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
+          <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
+            Do you work with my designer or architect?
+            <span style="color:var(--gold);font-weight:700">+</span>
+          </summary>
+          <p style="color:var(--muted);margin-top:.8rem">Absolutely. We collaborate regularly with architects and interior designers and are happy to align our execution to their specifications. Let us know in your enquiry and we'll coordinate directly with them.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</Layout>

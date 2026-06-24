@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<Layout title="Contact Nakkashi — Talk to Our Project Team">
+  <PageHero
+    eyebrow="Contact"
+    title="We'd love to hear about your space."
+    lead="Whether you're ready to start, exploring ideas, or just want to chat finishes — our team is here. Reach us by phone, email, or the form below."
+  />
+
+  <!-- CONTACT GRID -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="form-wrap">
+        <div class="form-card reveal">
+          <h3>Send Us a Message</h3>
+          <form name="contact" method="POST" onsubmit="event.preventDefault(); alert('Thanks! Our team will reach out shortly.'); this.reset();">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name *</label>
+                <input id="name" name="name" type="text" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone *</label>
+                <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" />
+              </div>
+              <div class="field full">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com" />
+              </div>
+              <div class="field full">
+                <label for="topic">What's this about?</label>
+                <select id="topic" name="topic">
+                  <option value="">Select…</option>
+                  <option>General enquiry</option>
+                  <option>Project quotation</option>
+                  <option>Designer / architect partnership</option>
+                  <option>Career enquiry</option>
+                  <option>Press / media</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">Your message *</label>
+                <textarea id="message" name="message" required placeholder="Tell us how we can help."></textarea>
+              </div>
+              <div class="field full">
+                <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:1rem">
+                  Send Message
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="form-aside">
+          <div class="aside-card reveal" style="background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:var(--cream);border:none">
+            <h4 style="color:#fff">Get in touch</h4>
+            <div class="row" style="color:rgba(247,243,234,.9)">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span><strong>+91 98765 43210</strong><br /><span style="opacity:.7;font-size:.88rem">Mon – Sat · 9am – 7pm</span></span>
+            </div>
+            <div class="row" style="color:rgba(247,243,234,.9)">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+              <span><strong>hello@nakkashi.in</strong><br /><span style="opacity:.7;font-size:.88rem">Replies within 24 hours</span></span>
+            </div>
+            <div class="row" style="color:rgba(247,243,234,.9)">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><strong>Connaught Place</strong><br /><span style="opacity:.7;font-size:.88rem">New Delhi, India</span></span>
+            </div>
+          </div>
+
+          <div class="aside-card reveal">
+            <h4>Ready to begin?</h4>
+            <p style="margin-bottom:1rem">Skip the back-and-forth and request a quotation directly. We'll respond within 24 hours.</p>
+            <a href="/quote" class="btn btn-dark" style="font-size:.9rem;padding:.75rem 1.3rem">Request a Quote →</a>
+          </div>
+
+          <div class="aside-card reveal">
+            <h4>Follow our work</h4>
+            <p>See our latest projects, behind-the-scenes craft, and texture inspiration on social.</p>
+            <div class="foot-soc" style="margin-top:1rem">
+              <a href="#" aria-label="Instagram" style="border-color:var(--line)">
+                <svg viewBox="0 0 24 24" style="stroke:var(--navy-deep)">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook" style="border-color:var(--line)">
+                <svg viewBox="0 0 24 24" style="stroke:var(--navy-deep)">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                </svg>
+              </a>
+              <a href="#" aria-label="WhatsApp" style="border-color:var(--line)">
+                <svg viewBox="0 0 24 24" style="stroke:var(--navy-deep)">
+                  <path d="M21 11.5a8.38 8.38 0 01-9 8.5 8.5 8.5 0 01-3.9-.9L3 21l1.9-5A8.5 8.5 0 1121 11.5z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT INFO STRIP -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Visit Our Studio</div>
+        <h2>Drop by — explore textures in person.</h2>
+        <p>Our Delhi studio displays our full signature texture collection on sample boards. Walk in to feel the finishes, see the colours, and discuss your project face-to-face.</p>
+      </div>
+
+      <div style="border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:#fff;display:grid;grid-template-columns:1.4fr 1fr;min-height:340px;box-shadow:var(--shadow)" class="reveal">
+        <div style="padding:clamp(2rem,4vw,3rem);display:flex;flex-direction:column;justify-content:center">
+          <div style="font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--gold-soft);margin-bottom:.8rem">Nakkashi Studio</div>
+          <h3 style="font-family:var(--display);font-size:2rem;font-weight:400;line-height:1.1;margin-bottom:1rem">Connaught Place,<br/>New Delhi</h3>
+          <p style="color:rgba(247,243,234,.78);font-weight:300;max-width:40ch;margin-bottom:1.6rem">
+            By appointment, Monday to Saturday. Call ahead so we can have your
+            preferred finish samples ready when you arrive.
+          </p>
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+            <a href="tel:+919876543210" class="btn btn-gold" style="font-size:.9rem;padding:.75rem 1.3rem">Call to Book Visit</a>
+            <a href="/quote" class="btn btn-outline-gold" style="font-size:.9rem;padding:.75rem 1.3rem">Or Request a Quote</a>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,#E0AA3E,#C8902A);display:flex;align-items:flex-end;padding:2rem;position:relative">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,18,32,.5))"></div>
+          <div style="position:relative;z-index:2;color:#fff">
+            <div style="font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;opacity:.9">Studio Hours</div>
+            <div style="font-family:var(--display);font-size:1.4rem;margin-top:.5rem">Mon – Sat<br/>9am – 7pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

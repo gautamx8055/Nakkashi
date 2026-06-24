@@ -1,0 +1,36 @@
+---
+interface Props {
+  heading?: string;
+  text?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+const {
+  heading = 'Ready to give your walls a <em>signature</em> finish?',
+  text = "Book a free, no-obligation site visit. We'll measure up, suggest a palette, and send you a transparent quotation within 24 hours.",
+  primaryHref = '/quote',
+  primaryLabel = 'Request a Quote',
+  secondaryHref = '/contact',
+  secondaryLabel = 'Book a Visit',
+} = Astro.props;
+---
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <div class="hero-glow"></div>
+      <h2 set:html={heading}></h2>
+      <p>{text}</p>
+      <div class="hero-cta">
+        <a href={primaryHref} class="btn btn-gold">
+          {primaryLabel}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href={secondaryHref} class="btn btn-light">{secondaryLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>

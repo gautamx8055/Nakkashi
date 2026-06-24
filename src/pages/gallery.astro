@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const projects = [
+  { t: 'Hillside Villa Exterior', s: 'Exterior · Weather-shield', cls: 'g1', cat: 'exterior' },
+  { t: 'Gilded Living Room', s: 'Interior · Metallic Accent', cls: 'g2', cat: 'interior' },
+  { t: 'Master Suite Refresh', s: 'Interior · Royale Texture', cls: 'g3', cat: 'interior' },
+  { t: 'Feature Wall Detail', s: 'Texture · Stucco', cls: 'g4', cat: 'texture' },
+  { t: 'Boutique Café Fit-out', s: 'Commercial · Full Repaint', cls: 'g5', cat: 'commercial' },
+  { t: 'Penthouse Foyer', s: 'Interior · Venetian Plaster', cls: 'g6', cat: 'texture' },
+  { t: 'Studio Apartment', s: 'Interior · Limewash', cls: 'g7', cat: 'interior' },
+  { t: 'Office Lobby', s: 'Commercial · Statement Wall', cls: 'g8', cat: 'commercial' },
+];
+---
+<Layout title="Project Gallery — Nakkashi Signature Painting">
+  <PageHero
+    eyebrow="Gallery"
+    title="Spaces signed by Nakkashi."
+    lead="A growing collection of homes, offices, hospitality projects, and statement spaces — each finished with our signature combination of craft, colour, and care."
+  />
+
+  <!-- GALLERY -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Selected Projects</div>
+        <h2>A glimpse of <em>recent</em> transformations.</h2>
+        <p>From villa exteriors to boutique fit-outs — every project is approached with the same standard of craftsmanship.</p>
+      </div>
+
+      <div class="gallery-filters reveal">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="interior">Interior</button>
+        <button data-filter="exterior">Exterior</button>
+        <button data-filter="texture">Texture</button>
+        <button data-filter="commercial">Commercial</button>
+      </div>
+
+      <div class="gallery reveal" id="gallery">
+        {projects.map(p => (
+          <div class={`gtile ${p.cls}`} data-cat={p.cat}>
+            <div class="gmeta">
+              <div class="t">{p.t}</div>
+              <div class="s">{p.s}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BY THE NUMBERS -->
+  <section class="section bg-dark">
+    <div class="hero-glow"></div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">By the Numbers</div>
+        <h2>Fifteen years. Twelve hundred <em>spaces.</em></h2>
+        <p>A track record built one wall at a time.</p>
+      </div>
+      <div class="stat-strip">
+        <div class="stat-item">
+          <div class="num">1,200+</div>
+          <div class="lbl">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">50+</div>
+          <div class="lbl">Master Craftsmen</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">120+</div>
+          <div class="lbl">Designer Partners</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">4.9★</div>
+          <div class="lbl">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Want your space <em>here</em>?"
+    text="Every project in our gallery began with a free site visit. Yours could too. Tell us about your space and we'll plan the next step together."
+    primaryLabel="Start Your Project"
+    primaryHref="/quote"
+    secondaryLabel="Talk to a Designer"
+    secondaryHref="/contact"
+  />
+
+  <script is:inline>
+    (function () {
+      const buttons = document.querySelectorAll('.gallery-filters button');
+      const tiles = document.querySelectorAll('#gallery .gtile');
+      buttons.forEach(b => {
+        b.addEventListener('click', () => {
+          buttons.forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          const f = b.dataset.filter;
+          tiles.forEach(t => {
+            t.style.display = (f === 'all' || t.dataset.cat === f) ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+</Layout>

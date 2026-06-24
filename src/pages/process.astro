@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Consultation',
+    desc: 'We begin with an in-depth conversation to understand your vision, lifestyle, design preferences, and project goals. Whether you have a fully formed brief or just a feeling about the space, this is where we listen.',
+    detail: 'A relaxed conversation — over a call or in person — covering your style, your space, and what success looks like for the project.',
+  },
+  {
+    n: '02',
+    title: 'Site Assessment',
+    desc: 'Our team visits your site for a detailed inspection. We measure each surface, evaluate existing finishes, identify repair needs, check for moisture issues, and document conditions.',
+    detail: 'On-site visit with measurements, surface evaluation, moisture testing, and project scope mapping. Always complimentary.',
+  },
+  {
+    n: '03',
+    title: 'Design &amp; Texture Selection',
+    desc: 'We curate the ideal textures, finishes, and colour palettes to complement your space. Sample panels, digital previews, and material swatches help you see and feel the finish before committing.',
+    detail: 'Curated samples, on-wall mock-ups, and digital previews so you see your space before a brush is lifted.',
+  },
+  {
+    n: '04',
+    title: 'Proposal &amp; Planning',
+    desc: "We deliver a transparent quotation with itemised pricing, materials specified, timeline, and execution plan. No hidden costs, no last-minute surprises — what you see is exactly what you'll pay.",
+    detail: 'A clear, itemised proposal with timelines, materials, and crew allocation. Transparent from line one to last.',
+  },
+  {
+    n: '05',
+    title: 'Surface Preparation',
+    desc: 'The foundation of a flawless finish. We clean, repair, sand, and prime every surface with industry-leading techniques. Damaged areas are restored, cracks are sealed, and surfaces are primed for adhesion.',
+    detail: 'Cleaning, sanding, repair, and priming — the unsexy work that makes the visible finish extraordinary.',
+  },
+  {
+    n: '06',
+    title: 'Professional Application',
+    desc: 'Our trained craftsmen execute the selected finish using premium materials and proven techniques. Workspaces are masked and protected, crews work in disciplined shifts, and quality is checked continuously.',
+    detail: 'Trained applicators using premium materials, clean workmanship, and proven techniques for every signature finish.',
+  },
+  {
+    n: '07',
+    title: 'Quality Inspection',
+    desc: 'Every detail is thoroughly checked — consistency of texture, colour uniformity, edge sharpness, surface durability, and overall craftsmanship. We touch up anything that doesn’t meet our standard.',
+    detail: 'A senior-led walk-through with our quality checklist. Anything we flag, we fix — before you ever see it.',
+  },
+  {
+    n: '08',
+    title: 'Project Handover',
+    desc: "We walk through the finished space together. Workspace is cleaned, surfaces are protected during drying, and you receive care instructions. Six months later, we'll come back for a complimentary inspection.",
+    detail: 'Clean handover, care guide, and a complimentary 6-month inspection — because our commitment continues.',
+  },
+];
+---
+<Layout title="Our 8-Step Process — Nakkashi Signature Painting">
+  <PageHero
+    eyebrow="Process"
+    title="Planned with precision. Executed with excellence."
+    lead="Every Nakkashi project follows the same 8-step process — from first call to final walk-through — so you always know what's happening, when, and why."
+  />
+
+  <!-- INTRO -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">Eight Steps. One Standard.</div>
+        <h2>A process built to <em>respect your time</em> and exceed your expectations.</h2>
+        <p>
+          We've refined our process across hundreds of projects to remove
+          uncertainty, eliminate surprises, and keep every project on track —
+          for you, your designer, and our crew.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED PROCESS -->
+  <section class="section bg-dark">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="process-detail">
+        {steps.map(s => (
+          <div class="pd-step reveal">
+            <div class="pd-num">{s.n}</div>
+            <div>
+              <h3 set:html={s.title}></h3>
+              <p>{s.desc}</p>
+              <p style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(224,170,62,.2);font-style:italic;color:var(--gold-soft);font-size:.95rem">
+                <span style="opacity:.6">What it looks like in practice — </span>{s.detail}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- stat strip -->
+      <div class="stat-strip">
+        <div class="stat-item">
+          <div class="num">24h</div>
+          <div class="lbl">Quote Turnaround</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">100%</div>
+          <div class="lbl">Transparent Pricing</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">6 mo</div>
+          <div class="lbl">Free Inspection</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">15 yr</div>
+          <div class="lbl">Of Craft Expertise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY OUR PROCESS WORKS -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="content-grid">
+        <div class="image-card reveal">
+          <span class="overlay-tag">From first call to final walk-through, we manage every detail.</span>
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">Why It Works</div>
+          <h2>The boring stuff — done <em>brilliantly</em>.</h2>
+          <p>
+            A flawless finish isn't only about the topcoat. It's about the prep
+            no one sees, the masking that protects your floors, the daily site
+            cleanup, the quality checks before you ever inspect the work.
+          </p>
+          <ul class="feature-list">
+            <li><span class="tick">✓</span><span>Single point of contact for your entire project</span></li>
+            <li><span class="tick">✓</span><span>Daily progress updates from your project manager</span></li>
+            <li><span class="tick">✓</span><span>Disciplined site management — clean, safe, on-schedule</span></li>
+            <li><span class="tick">✓</span><span>Senior-led quality inspection before handover</span></li>
+            <li><span class="tick">✓</span><span>Complimentary 6-month inspection after completion</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Ready to begin? Start with a <em>free</em> consultation."
+    text="Steps 1 and 2 — the consultation and site assessment — are completely complimentary. Tell us about your space and we'll take it from there."
+    primaryLabel="Book Free Consultation"
+    primaryHref="/quote"
+    secondaryLabel="Talk to Us"
+    secondaryHref="/contact"
+  />
+</Layout>

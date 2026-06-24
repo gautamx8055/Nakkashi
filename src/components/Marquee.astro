@@ -1,0 +1,17 @@
+---
+const items = [
+  'Signature Textures',
+  'Elite Interior Finishes',
+  'Luxury Surface Artistry',
+  'ShieldPro Waterproofing',
+  'Statement Walls',
+  'Design Consultancy',
+  'Bespoke Innovations',
+];
+const all = [...items, ...items];
+---
+<div class="marquee">
+  <div class="marquee-track">
+    {all.map(t => <span>{t}</span>)}
+  </div>
+</div>

@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const principles = [
+  { letter: 'N', name: 'Novel Thinking', desc: 'We embrace fresh ideas, evolving design trends, and creative solutions to transform every space.' },
+  { letter: 'A', name: 'Artistic Craftsmanship', desc: 'We blend creativity, precision, and skill to deliver finishes that leave a lasting impression.' },
+  { letter: 'K', name: 'Knowledge-Driven Execution', desc: 'Our expertise guides every project, ensuring technical excellence and superior outcomes.' },
+  { letter: 'K', name: 'Keen Attention to Detail', desc: 'From surface preparation to final finish, every detail matters and every detail is perfected.' },
+  { letter: 'A', name: 'Absolute Accountability', desc: 'We take complete ownership of our commitments, delivering with responsibility and professionalism.' },
+  { letter: 'S', name: 'Superior Quality', desc: 'We maintain uncompromising standards in materials, workmanship, and customer experience.' },
+  { letter: 'H', name: 'Honest Commitments', desc: 'We build trust through transparency, integrity, and clear communication.' },
+  { letter: 'I', name: 'Innovative Solutions', desc: "We create customised textures and decorative finishes tailored to every client's vision." },
+];
+
+const promises = [
+  'Crafted to Impress.',
+  'Built to Last.',
+  'Delivered on Time.',
+  'Designed Around You.',
+  'Executed with Precision.',
+  'Driven by Excellence.',
+];
+
+const whyUs = [
+  'Signature Texture Expertise',
+  'Premium Quality Standards',
+  'Professional Project Management',
+  'Customised Design Solutions',
+  'Skilled Craftsmanship',
+  'Trusted &amp; Transparent Execution',
+];
+---
+<Layout title="About Nakkashi — Premium Painting & Decorative Finishes">
+  <PageHero
+    eyebrow="About"
+    title="Where creativity meets craftsmanship."
+    lead="Nakkashi is a premium painting and decorative finishes brand redefining how India experiences walls and spaces — through signature textures, master craftsmanship, and uncompromising professionalism."
+  />
+
+  <!-- BRAND STORY -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="content-grid">
+        <div class="reveal">
+          <div class="eyebrow">Our Story</div>
+          <h2>Walls are more than structure — they're <em>identity</em>.</h2>
+          <p>
+            Nakkashi is a premium painting and decorative finishes brand dedicated
+            to transforming spaces through exceptional craftsmanship, innovative
+            textures, and professional execution.
+          </p>
+          <p>
+            We believe that walls are more than structural elements — they define
+            the character, mood, and identity of a space. With a passion for
+            design and a commitment to quality, Nakkashi specialises in luxury
+            textures, decorative finishes, and customised painting solutions that
+            bring architectural visions to life.
+          </p>
+          <p>
+            Our expertise spans residential, commercial, hospitality, and
+            institutional projects, delivering finishes that combine aesthetics,
+            durability, and precision. Every project is executed by skilled
+            professionals using premium materials and industry-leading
+            techniques.
+          </p>
+        </div>
+        <div class="image-card reveal">
+          <span class="overlay-tag">Turning ordinary walls into extraordinary experiences.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION / MISSION / VALUES -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Vision &amp; Mission</div>
+        <h2>Driven by purpose. <em>Powered by craft.</em></h2>
+      </div>
+
+      <div class="assure-grid">
+        <div class="assure-card reveal">
+          <div class="num">01</div>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>
+            To become India's most trusted brand for premium decorative finishes
+            and texture solutions — and to build India's leading ecosystem for
+            decorative finishes that connects homeowners, architects, designers,
+            and skilled craftsmen through quality, innovation, and trust.
+          </p>
+        </div>
+        <div class="assure-card reveal">
+          <div class="num">02</div>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M3 12l3-3 3 3 3-7 3 7 3-3 3 3"/><path d="M3 18h18"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>
+            To transform spaces through innovative designs, superior craftsmanship,
+            and professional execution standards — making premium-grade finishes
+            accessible to every space that deserves to be remembered.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem">
+        <div class="eyebrow" style="color:var(--gold-deep);margin-bottom:1rem">Our Core Values</div>
+        <div class="values-bar reveal">
+          <span class="val">Quality</span>
+          <span class="val">Innovation</span>
+          <span class="val">Trust</span>
+          <span class="val">Professionalism</span>
+          <span class="val">Excellence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER'S VISION -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">From the Founder</div>
+        <h2>A vision for a new <em>standard</em> in painting.</h2>
+        <p>The story behind why Nakkashi exists — and where we're headed.</p>
+      </div>
+
+      <div class="founder-block reveal">
+        <div class="hero-glow"></div>
+        <div class="mark">"</div>
+        <blockquote>
+          When I started Nakkashi, my vision was not to build just another painting
+          company. I envisioned a brand that would redefine how people experience
+          walls and spaces. Nakkashi was created to bridge the gap between
+          creative design and quality execution by bringing together innovation,
+          craftsmanship, and professionalism under one trusted name.
+          <br /><br />
+          My goal is to build Nakkashi into India's most respected decorative
+          finishes and texture brand — one that empowers skilled craftsmen,
+          partners with architects and designers, and transforms ordinary spaces
+          into extraordinary experiences. Every project we undertake is a step
+          towards creating a future where quality, trust, and artistic excellence
+          become the standard, not the exception.
+        </blockquote>
+        <div class="signature">
+          <div class="av">SM</div>
+          <div class="who">
+            <div class="nm">Shubham Mehrishi</div>
+            <div class="rl">Founder &amp; CEO, Nakkashi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">The N·A·K·K·A·S·H·I Principles</div>
+        <h2>Eight letters. <em>One philosophy.</em></h2>
+        <p>
+          At Nakkashi, every wall is a canvas, every project is a commitment,
+          and every finish is a reflection of our pursuit of excellence.
+        </p>
+      </div>
+      <div class="principles">
+        {principles.map(p => (
+          <div class="principle-card reveal">
+            <div class="letter">{p.letter}</div>
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROMISE -->
+  <section class="section bg-dark">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="sec-head center reveal" style="position:relative;z-index:2">
+        <div class="eyebrow">The Nakkashi Promise</div>
+        <h2>Six commitments. <em>Every project.</em></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;z-index:2;margin-top:1rem" class="promise-grid">
+        {promises.map((p, i) => (
+          <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(224,170,62,.2);border-radius:18px;padding:1.8rem;text-align:center">
+            <div style="font-family:var(--display);font-style:italic;color:var(--gold);font-size:2.4rem;line-height:1">{String(i + 1).padStart(2, '0')}</div>
+            <div style="font-family:var(--display);font-size:1.25rem;color:#fff;margin-top:.6rem">{p}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NAKKASHI -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="content-grid reverse">
+        <div class="reveal">
+          <div class="eyebrow">Why Nakkashi</div>
+          <h2>Where creativity meets <em>craftsmanship.</em></h2>
+          <p>
+            We don't just paint walls. We design surfaces that hold stories,
+            create moods, and elevate the spaces people live, work, and
+            celebrate in. Here's what every Nakkashi client gets.
+          </p>
+          <ul class="feature-list">
+            {whyUs.map(item => (
+              <li>
+                <span class="tick">✓</span>
+                <span set:html={item}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="image-card reveal" style="background:linear-gradient(135deg,#E0AA3E,#C8902A)">
+          <span class="overlay-tag" style="color:#fff">Every wall is a canvas. Every project, a commitment.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Want to see what Nakkashi can do for <em>your</em> space?"
+    text="A complimentary site visit is the best place to start. We'll meet you, understand your vision, and share our recommendation — no obligation."
+    primaryLabel="Book a Free Site Visit"
+    primaryHref="/quote"
+    secondaryLabel="Explore Services"
+    secondaryHref="/services"
+  />
+</Layout>

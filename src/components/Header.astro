@@ -1,0 +1,64 @@
+---
+const { pathname } = Astro.url;
+const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href));
+
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/process', label: 'Process' },
+  { href: '/assurance', label: 'Assurance' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<header class="site-header" id="header">
+  <div class="wrap">
+    <nav class="primary">
+      <a href="/" class="brand">
+        <img src="/Nakashi-logo-final-Transparent.png" alt="Nakkashi Signature Painting" />
+        <div class="brand-text">
+          <span class="name">Nakkashi</span>
+          <span class="tag">Signature Painting</span>
+        </div>
+      </a>
+
+      <ul class="navlinks" id="navlinks">
+        {links.map(l => (
+          <li><a href={l.href} class:list={{ active: isActive(l.href) }}>{l.label}</a></li>
+        ))}
+      </ul>
+
+      <div class="nav-cta">
+        <a href="/contact" class="btn btn-ghost">Book a Visit</a>
+        <a href="/quote" class="btn btn-gold">
+          Get a Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    const ham = document.getElementById('hamburger');
+    const nl = document.getElementById('navlinks');
+    if (ham && nl) {
+      ham.addEventListener('click', () => nl.classList.toggle('open'));
+      nl.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => nl.classList.remove('open'))
+      );
+    }
+    const hd = document.getElementById('header');
+    if (hd) {
+      const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 20);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  })();
+</script>
