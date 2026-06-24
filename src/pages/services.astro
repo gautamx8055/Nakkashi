@@ -7,7 +7,7 @@ const services = [
   {
     title: 'Signature Texture Collection',
     tag: 'Texture',
-    desc: 'Artistic textures designed to bring depth, character, and sophistication to every surface. Our curated collection includes stucco, lime-wash, metallic textures, and exclusive Nakkashi-original patterns.',
+    desc: 'Artistic textures that bring depth, character, and sophistication — stucco, lime-wash, metallic, and exclusive Nakkashi-original patterns.',
     bullets: [
       'Royale-play & art-effect textures',
       'Stucco, travertino & limewash',
@@ -19,7 +19,7 @@ const services = [
   {
     title: 'Elite Interior Finishes',
     tag: 'Interior',
-    desc: 'Premium painting solutions crafted to deliver flawless aesthetics and enduring beauty. Smooth, premium emulsion finishes for living spaces, bedrooms, and ceilings — low-odour, washable, and built to last.',
+    desc: 'Premium smooth emulsion finishes for living spaces, bedrooms, and ceilings — low-odour, washable, and built to last.',
     bullets: [
       'Premium emulsion & enamel systems',
       'Low-VOC, washable finishes',
@@ -31,7 +31,7 @@ const services = [
   {
     title: 'Luxury Surface Artistry',
     tag: 'Decorative',
-    desc: 'Exclusive decorative finishes inspired by contemporary architecture and luxury interiors. From Italian-inspired Venetian plaster to bespoke metallic effects, we create surfaces that feel as good as they look.',
+    desc: 'Italian-inspired Venetian plaster, bespoke metallic effects, and polished concrete — surfaces that feel as good as they look.',
     bullets: [
       'Venetian plaster & marmorino',
       'Metallic glazes & gold leaf',
@@ -43,7 +43,7 @@ const services = [
   {
     title: 'Statement Wall Creations',
     tag: 'Feature',
-    desc: 'Bespoke feature walls designed to become the focal point of exceptional spaces. We collaborate with you and your designer to create one-of-a-kind walls that anchor a room.',
+    desc: 'Bespoke feature walls designed to anchor a room — custom murals, 3D textured panels, and architectural accent walls.',
     bullets: [
       'Architectural feature walls',
       'Custom-designed murals',
@@ -55,7 +55,7 @@ const services = [
   {
     title: 'ShieldPro Waterproofing',
     tag: 'Protection',
-    desc: 'Advanced protection systems engineered to safeguard structures from moisture and seepage. Terrace, bathroom, and crack-sealing solutions that stop seepage at the source and protect your structure for years.',
+    desc: 'Terrace, bathroom, and crack-sealing solutions that stop seepage at the source and protect your structure for years.',
     bullets: [
       'Terrace & roof waterproofing',
       'Bathroom & wet-area sealing',
@@ -67,7 +67,7 @@ const services = [
   {
     title: 'Design & Finish Consultancy',
     tag: 'Consultancy',
-    desc: 'Expert guidance in selecting textures, finishes, and colour palettes that align with your vision. Free on-site visits and digital previews so you can see your palette on your walls before a single brush is lifted.',
+    desc: 'Free on-site visits and digital previews so you can see your palette on your walls before a single brush is lifted.',
     bullets: [
       'Free on-site colour consultation',
       'Digital palette previews',
@@ -79,7 +79,7 @@ const services = [
   {
     title: 'Bespoke Surface Innovations',
     tag: 'Custom',
-    desc: 'Tailor-made texture concepts and customised finishes developed for unique design requirements. When the standard collection doesn’t fit your vision, we engineer something new.',
+    desc: "When the standard collection doesn't fit your vision, we engineer something new — R&D textures and bespoke formulations.",
     bullets: [
       'R&D for custom textures',
       'Architect-led collaborations',
@@ -89,6 +89,47 @@ const services = [
     icon: `<path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/>`,
   },
 ];
+
+const steps = [
+  { n: '01', title: 'Consultation', desc: 'An in-depth conversation covering your vision, style, and what success looks like for the project.' },
+  { n: '02', title: 'Site Assessment', desc: 'On-site visit with measurements, surface evaluation, and moisture testing. Always complimentary.' },
+  { n: '03', title: 'Design &amp; Texture Selection', desc: 'Curated samples, on-wall mock-ups, and digital previews before a single brush is lifted.' },
+  { n: '04', title: 'Proposal &amp; Planning', desc: 'A clear, itemised quotation with timelines, materials, and crew allocation.' },
+  { n: '05', title: 'Surface Preparation', desc: 'Cleaning, sanding, repair, and priming — the unsexy work that makes the finish extraordinary.' },
+  { n: '06', title: 'Professional Application', desc: 'Trained applicators using premium materials and proven techniques for every signature finish.' },
+  { n: '07', title: 'Quality Inspection', desc: 'A senior-led walk-through. Anything flagged is fixed before you ever see it.' },
+  { n: '08', title: 'Project Handover', desc: 'Clean handover, care guide, and a complimentary 6-month inspection.' },
+];
+
+const assurances = [
+  {
+    title: 'Transparent Pricing',
+    desc: 'No hidden costs. Every line item documented and explained — complete clarity from quotation to completion.',
+    icon: `<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/>`,
+  },
+  {
+    title: 'Premium Materials',
+    desc: 'High-quality products and proven systems from trusted premium manufacturers — never generic substitutes.',
+    icon: `<path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/>`,
+  },
+  {
+    title: 'Skilled Craftsmanship',
+    desc: 'Experienced applicators delivering precision and consistency — continuously trained on new techniques.',
+    icon: `<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>`,
+  },
+  {
+    title: 'On-Time Delivery',
+    desc: 'Professional planning that respects your time — clear timelines, and we stick to them.',
+    icon: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`,
+  },
+];
+
+const privileges = [
+  { n: '01', title: 'Complimentary Site Visit', desc: 'Experts visit your site, assess the space, and recommend the most suitable textures — free of charge.' },
+  { n: '02', title: 'Free Designer Consultation', desc: 'Professional guidance on colour palettes, textures, and feature walls to bring your vision to life.' },
+  { n: '03', title: 'Priority Scheduling', desc: 'Preferred project scheduling, dedicated coordination, and clear communication throughout.' },
+  { n: '04', title: '6-Month Free Inspection', desc: 'Our commitment continues — a complimentary inspection after 6 months to ensure lasting beauty.' },
+];
 ---
 <Layout title="Our Services — Nakkashi Signature Painting">
   <PageHero
@@ -97,17 +138,12 @@ const services = [
     lead="From signature textures to ShieldPro waterproofing — every Nakkashi service is delivered with the same standard of craftsmanship, material quality, and project care."
   />
 
-  <!-- SIGNATURE SERVICES INTRO -->
+  <!-- SERVICES -->
   <section class="section bg-paper">
     <div class="wrap">
       <div class="sec-head center reveal wide">
         <div class="eyebrow">Our Signature Services</div>
         <h2>Crafted for every space — <em>residential, commercial, hospitality.</em></h2>
-        <p>
-          Whether it's a single feature wall, a luxury villa, or an entire
-          commercial fit-out — Nakkashi delivers premium results with master
-          craftsmanship and uncompromising attention to detail.
-        </p>
       </div>
 
       <div style="display:grid;gap:1.5rem;grid-template-columns:1fr">
@@ -142,55 +178,169 @@ const services = [
     </div>
   </section>
 
-  <!-- WHO IT'S FOR -->
+  <!-- 8-STEP PROCESS -->
+  <section class="section bg-dark process-section">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="sec-head center reveal" style="position:relative;z-index:2">
+        <div class="eyebrow">Our Process</div>
+        <h2>Eight steps. <em>One standard.</em></h2>
+        <p>From first call to final walk-through — so you always know what's happening, when, and why.</p>
+      </div>
+
+      <div class="process-flow reveal">
+        {steps.map((s, i) => (
+          <div class="pf-step">
+            <div class="pf-node">
+              <span class="pf-num">{s.n}</span>
+            </div>
+            <h3 set:html={s.title}></h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-item"><div class="num">24h</div><div class="lbl">Quote Turnaround</div></div>
+        <div class="stat-item"><div class="num">100%</div><div class="lbl">Transparent Pricing</div></div>
+        <div class="stat-item"><div class="num">6 mo</div><div class="lbl">Free Inspection</div></div>
+        <div class="stat-item"><div class="num">15 yr</div><div class="lbl">Of Craft Expertise</div></div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .process-section .process-flow {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .process-section .pf-step {
+      position: relative;
+      text-align: center;
+      padding: 0 0.5rem;
+    }
+    /* horizontal connector between tiles in same row */
+    .process-section .pf-step::after {
+      content: '';
+      position: absolute;
+      top: 33px;
+      left: calc(50% + 36px);
+      right: calc(-50% + 36px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(224, 170, 62, 0.55), rgba(224, 170, 62, 0.1));
+      pointer-events: none;
+    }
+    .process-section .pf-step:nth-child(4n)::after { display: none; }
+
+    .process-section .pf-node {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #F1C56F, #C8902A 75%);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1.1rem;
+      position: relative;
+      z-index: 2;
+      box-shadow:
+        0 0 0 6px rgba(224, 170, 62, 0.12),
+        0 12px 24px rgba(0, 0, 0, 0.35);
+    }
+    .process-section .pf-num {
+      font-family: var(--display, 'Fraunces', serif);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #022044;
+      letter-spacing: 0.02em;
+    }
+    .process-section .pf-step h3 {
+      font-family: var(--display, 'Fraunces', serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      margin: 0 0 0.45rem;
+      line-height: 1.2;
+    }
+    .process-section .pf-step p {
+      font-size: 0.88rem;
+      color: rgba(247, 243, 234, 0.72);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 28ch;
+      margin-inline: auto;
+    }
+
+    @media (max-width: 960px) {
+      .process-section .process-flow { grid-template-columns: repeat(2, 1fr); gap: 2.2rem 1.2rem; }
+      .process-section .pf-step:nth-child(4n)::after { display: block; }
+      .process-section .pf-step:nth-child(2n)::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .process-section .process-flow { grid-template-columns: 1fr; gap: 1.6rem; }
+      .process-section .pf-step::after { display: none !important; }
+      .process-section .pf-step { display: grid; grid-template-columns: 66px 1fr; text-align: left; gap: 1.1rem; align-items: start; }
+      .process-section .pf-node { margin: 0; }
+      .process-section .pf-step p { margin-inline: 0; max-width: none; }
+    }
+  </style>
+
+  <!-- THE NAKKASHI ASSURANCE -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">The Nakkashi Assurance</div>
+        <h2>Four pillars that define <em>every</em> Nakkashi project.</h2>
+      </div>
+
+      <div class="assure-grid">
+        {assurances.map((a, i) => (
+          <div class="assure-card reveal">
+            <div class="num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" set:html={a.icon}></svg>
+            </div>
+            <h3>{a.title}</h3>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER PRIVILEGES -->
   <section class="section bg-cream">
     <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">Who We Work With</div>
-        <h2>Designed for the spaces that <em>matter most.</em></h2>
-        <p>From private homes to flagship retail, our services adapt to your project scale, complexity, and design ambition.</p>
+      <div class="sec-head center reveal wide">
+        <div class="eyebrow">Customer Privileges</div>
+        <h2>Complimentary benefits — for every client.</h2>
       </div>
-      <div class="svc-grid">
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-          <h3>Homeowners</h3>
-          <p>Independent homes, villas, and apartments looking for premium finishes with a personal touch.</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M2 22h20"/><path d="M6 18V8l6-4 6 4v10"/><path d="M10 18v-4h4v4"/></svg></div>
-          <h3>Architects &amp; Designers</h3>
-          <p>Trusted execution partner for design firms specifying premium textures and decorative finishes.</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
-          <h3>Builders &amp; Developers</h3>
-          <p>Show-flat finishes, premium wing handovers, and luxury project executions at scale.</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <h3>Hospitality &amp; Retail</h3>
-          <p>Hotels, restaurants, boutiques, and offices needing brand-aligned, durable signature finishes.</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8 4-8-4"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
-          <h3>Institutional Spaces</h3>
-          <p>Schools, hospitals, and offices where durability, hygiene, and aesthetics need to coexist.</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/></svg></div>
-          <h3>Heritage &amp; Restoration</h3>
-          <p>Restoring historic walls and surfaces with techniques that respect the original character.</p>
-        </div>
+
+      <div class="assure-grid">
+        {privileges.map(p => (
+          <div class="assure-card reveal" style="background:linear-gradient(160deg,#fff,var(--cream))">
+            <div class="num">{p.n}</div>
+            <div class="icon-circle" style="background:linear-gradient(135deg,var(--navy-deep),var(--navy-700))">
+              <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <CTABand
     heading="Tell us about your space — get a <em>tailored</em> quotation."
-    text="Every Nakkashi project starts with understanding your vision. Send us your details and we'll respond within 24 hours with the next steps."
+    text="Every Nakkashi project starts with understanding your vision. Send us your details and we'll respond within 24 hours."
     primaryLabel="Start Your Project"
     primaryHref="/quote"
-    secondaryLabel="See Our Process"
-    secondaryHref="/process"
+    secondaryLabel="Talk to Us"
+    secondaryHref="/contact"
   />
 </Layout>

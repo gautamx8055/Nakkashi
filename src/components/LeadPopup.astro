@@ -1,0 +1,341 @@
+---
+// Home-page lead capture popup. Opens automatically once per session.
+---
+<div class="lead-popup" id="leadPopup" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="leadPopupTitle">
+  <div class="lp-backdrop" data-close></div>
+  <div class="lp-card" role="document">
+    <button class="lp-close" type="button" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="lp-side" aria-hidden="true">
+      <div class="lp-eyebrow">Limited Slots</div>
+      <div class="lp-headline">Book a <em>free</em> site visit.</div>
+      <ul class="lp-perks">
+        <li><span class="dot"></span>Complimentary site assessment</li>
+        <li><span class="dot"></span>Free designer consultation</li>
+        <li><span class="dot"></span>No-obligation quote in 24 hours</li>
+        <li><span class="dot"></span>Priority scheduling for new enquiries</li>
+      </ul>
+      <div class="lp-side-foot">
+        <div class="lp-rating">★★★★★ <span>4.9 · 1,200+ spaces transformed</span></div>
+      </div>
+    </div>
+
+    <div class="lp-form-wrap">
+      <div class="lp-tag">Get Started</div>
+      <h3 class="lp-title" id="leadPopupTitle">Tell us about your space.</h3>
+      <p class="lp-sub">Share a few details and our project team will reach out within 24 hours.</p>
+
+      <form class="lp-form" id="leadPopupForm" onsubmit="event.preventDefault(); document.getElementById('leadPopup').dispatchEvent(new CustomEvent('lp-submit'));">
+        <div class="lp-row">
+          <label>
+            <span>Name *</span>
+            <input type="text" name="name" required placeholder="Your full name" />
+          </label>
+          <label>
+            <span>Phone *</span>
+            <input type="tel" name="phone" required placeholder="+91 98765 43210" />
+          </label>
+        </div>
+        <label>
+          <span>Email *</span>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+        <label>
+          <span>Project Type</span>
+          <select name="type">
+            <option value="">Select…</option>
+            <option>Residential — Home / Villa</option>
+            <option>Residential — Apartment</option>
+            <option>Commercial / Office</option>
+            <option>Hospitality / Retail</option>
+            <option>Texture / Feature Wall</option>
+            <option>Waterproofing</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="3" placeholder="Briefly describe your space or what you have in mind."></textarea>
+        </label>
+        <button type="submit" class="lp-submit">
+          Request My Free Visit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <div class="lp-fine">By submitting, you agree to be contacted by our team. No spam, ever.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .lead-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+  }
+  .lead-popup.open { display: flex; }
+  .lp-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 12, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: lpFade 0.35s ease;
+  }
+  .lp-card {
+    position: relative;
+    width: min(880px, 100%);
+    max-height: calc(100vh - 2.4rem);
+    overflow: auto;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 30px 80px rgba(0, 12, 28, 0.45);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    animation: lpRise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .lp-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 12, 28, 0.35);
+    color: #fff;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .lp-close:hover { background: rgba(0, 12, 28, 0.55); transform: rotate(90deg); }
+
+  .lp-side {
+    position: relative;
+    background: linear-gradient(160deg, #00173C, #022044 60%, #163152);
+    color: var(--cream, #F7F3EA);
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .lp-side::before {
+    content: '';
+    position: absolute;
+    inset: -40% -40% auto auto;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(224, 170, 62, 0.35), transparent 60%);
+    pointer-events: none;
+  }
+  .lp-eyebrow {
+    position: relative;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #E0AA3E;
+    margin-bottom: 1rem;
+  }
+  .lp-headline {
+    position: relative;
+    font-family: var(--display, 'Fraunces', serif);
+    font-size: 2.1rem;
+    line-height: 1.05;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .lp-headline em { font-style: italic; color: #E0AA3E; }
+  .lp-perks { position: relative; list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
+  .lp-perks li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.95rem;
+    color: rgba(247, 243, 234, 0.9);
+  }
+  .lp-perks .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E0AA3E;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(224, 170, 62, 0.15);
+  }
+  .lp-side-foot { position: relative; margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+  .lp-rating { color: #E0AA3E; font-weight: 600; letter-spacing: 0.04em; }
+  .lp-rating span { color: rgba(247, 243, 234, 0.7); font-weight: 400; margin-left: 0.5rem; font-size: 0.88rem; }
+
+  .lp-form-wrap { padding: 2.2rem 2rem; }
+  .lp-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #B8841F;
+    background: rgba(224, 170, 62, 0.14);
+    padding: 0.3rem 0.7rem;
+    border-radius: 50px;
+    margin-bottom: 0.9rem;
+  }
+  .lp-title {
+    font-family: var(--display, 'Fraunces', serif);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--navy-deep, #022044);
+    line-height: 1.15;
+    margin: 0 0 0.4rem;
+  }
+  .lp-sub { color: var(--muted, #5C6B82); font-size: 0.95rem; margin: 0 0 1.2rem; }
+
+  .lp-form { display: grid; gap: 0.85rem; }
+  .lp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .lp-form label { display: grid; gap: 0.35rem; }
+  .lp-form span {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: var(--navy-deep, #022044);
+  }
+  .lp-form input,
+  .lp-form select,
+  .lp-form textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--line, #E4DDC9);
+    border-radius: 12px;
+    background: #FBF8F1;
+    font: inherit;
+    color: var(--navy-deep, #022044);
+    transition: border 0.15s, box-shadow 0.15s, background 0.15s;
+  }
+  .lp-form textarea { resize: vertical; min-height: 80px; }
+  .lp-form input:focus,
+  .lp-form select:focus,
+  .lp-form textarea:focus {
+    outline: none;
+    border-color: #E0AA3E;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(224, 170, 62, 0.15);
+  }
+  .lp-submit {
+    margin-top: 0.4rem;
+    background: linear-gradient(135deg, #E0AA3E, #C8902A);
+    color: #fff;
+    border: none;
+    padding: 0.95rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 8px 22px rgba(224, 170, 62, 0.35);
+  }
+  .lp-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(224, 170, 62, 0.45); }
+  .lp-fine { font-size: 0.78rem; color: var(--muted, #5C6B82); text-align: center; }
+
+  .lp-thanks {
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+  }
+  .lp-thanks .check {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E0AA3E, #C8902A);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 12px 30px rgba(224, 170, 62, 0.4);
+  }
+  .lp-thanks h4 {
+    font-family: var(--display, 'Fraunces', serif);
+    font-size: 1.5rem;
+    color: var(--navy-deep, #022044);
+    margin: 0 0 0.5rem;
+  }
+  .lp-thanks p { color: var(--muted, #5C6B82); margin: 0; }
+
+  @keyframes lpFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes lpRise {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (max-width: 780px) {
+    .lp-card { grid-template-columns: 1fr; }
+    .lp-side { padding: 1.6rem 1.5rem; }
+    .lp-headline { font-size: 1.6rem; margin-bottom: 1rem; }
+    .lp-perks li { font-size: 0.88rem; }
+    .lp-form-wrap { padding: 1.6rem 1.5rem; }
+    .lp-title { font-size: 1.35rem; }
+    .lp-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const popup = document.getElementById('leadPopup');
+    if (!popup) return;
+    const KEY = 'nakkashi-lead-popup-shown';
+
+    function open() {
+      popup.classList.add('open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstInput = popup.querySelector('input, select, textarea');
+      if (firstInput) setTimeout(() => firstInput.focus(), 200);
+    }
+    function close() {
+      popup.classList.remove('open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    popup.querySelectorAll('[data-close]').forEach(el =>
+      el.addEventListener('click', close)
+    );
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && popup.classList.contains('open')) close();
+    });
+
+    popup.addEventListener('lp-submit', () => {
+      const form = document.getElementById('leadPopupForm');
+      if (!form) return;
+      const wrap = form.parentElement;
+      wrap.innerHTML =
+        '<div class="lp-thanks">' +
+          '<div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>' +
+          '<h4>Thanks — we\'ll be in touch!</h4>' +
+          '<p>Our project team will reach out within 24 hours.</p>' +
+        '</div>';
+      setTimeout(close, 2400);
+    });
+
+    if (!sessionStorage.getItem(KEY)) {
+      setTimeout(() => {
+        open();
+        sessionStorage.setItem(KEY, '1');
+      }, 1800);
+    }
+  })();
+</script>
