@@ -1,30 +1,102 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Marquee from '../components/Marquee.astro';
+import ContractorMarquee from '../components/ContractorMarquee.astro';
 import CTABand from '../components/CTABand.astro';
 import LeadPopup from '../components/LeadPopup.astro';
+
+const services = [
+  {
+    cat: 'texture',
+    title: 'Signature Texture Collection',
+    desc: 'Artistic textures designed to bring depth, character, and sophistication to every surface.',
+    href: '/services',
+    label: 'Explore textures',
+    icon: '<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>',
+  },
+  {
+    cat: 'interior',
+    title: 'Elite Interior Finishes',
+    desc: 'Premium painting solutions crafted to deliver flawless aesthetics and enduring beauty for every room.',
+    href: '/services',
+    label: 'View interior work',
+    icon: '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>',
+  },
+  {
+    cat: 'artistry',
+    title: 'Luxury Surface Artistry',
+    desc: 'Exclusive decorative finishes inspired by contemporary architecture and high-end luxury interiors.',
+    href: '/services',
+    label: 'See finishes',
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/><path d="M3 12h18"/>',
+  },
+  {
+    cat: 'statement',
+    title: 'Statement Wall Creations',
+    desc: 'Bespoke feature walls designed to become the focal point of exceptional, memorable spaces.',
+    href: '/services',
+    label: 'View statement walls',
+    icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+  },
+  {
+    cat: 'waterproof',
+    title: 'ShieldPro Waterproofing',
+    desc: 'Advanced protection systems engineered to safeguard structures from moisture, seepage, and damage.',
+    href: '/services',
+    label: 'Learn protection',
+    icon: '<path d="M12 2s7 6 7 11a7 7 0 01-14 0c0-5 7-11 7-11z"/>',
+  },
+  {
+    cat: 'consultancy',
+    title: 'Design & Finish Consultancy',
+    desc: 'Expert guidance in selecting textures, finishes, and colour palettes that align with your vision.',
+    href: '/services',
+    label: 'Book consultation',
+    icon: '<circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="11.5" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a3 3 0 003-3c0-1.5-3-4-3-4"/>',
+  },
+];
+
+const trending = [
+  { title: 'Royale Play Stucco',    tag: 'Texture',  off: '20% OFF',  from: '₹28', desc: 'Hand-troweled stucco with subtle metallic catch.', tone: 'gold' },
+  { title: 'Italian Marmorino',     tag: 'Premium',  off: '15% OFF',  from: '₹65', desc: 'Polished lime-based finish with marble depth.',      tone: 'cream' },
+  { title: 'Metallic Gold Wash',    tag: 'Signature',off: 'NEW',      from: '₹42', desc: 'Hand-applied gold glaze for accent walls.',         tone: 'bronze' },
+  { title: 'Limewash Estate',       tag: 'Classic',  off: '10% OFF',  from: '₹22', desc: 'Breathable mineral finish with old-world charm.',   tone: 'navy' },
+];
 ---
-<Layout title="Nakkashi — Signature Painting & Decorative Finishes">
+<Layout title="Nakkashi — Premium Painting & Texture Execution Partner">
   <LeadPopup />
 
-  <!-- HERO -->
+  <!-- 1) BRAND/CONTRACTOR MARQUEE (just below header) -->
+  <ContractorMarquee />
+
+  <!-- 2) HERO -->
   <section class="hero" id="home">
     <div class="hero-grain"></div>
     <div class="hero-glow"></div>
     <div class="wrap">
       <div class="hero-inner">
         <div class="hero-copy">
+          <div class="guarantee-badge" role="note" aria-label="6-month workmanship guarantee, an India-first commitment">
+            <span class="gb-dot" aria-hidden="true"></span>
+            <svg class="gb-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M8.5 12.2l2.6 2.6L16 9.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="gb-text">
+              <strong>India-First</strong>
+              <span>6-Month Workmanship Guarantee</span>
+            </span>
+          </div>
           <div class="hero-eyebrow eyebrow">
-            <span class="bar"></span> Premium Painting &amp; Decorative Finishes
+            <span class="bar"></span> Premium Painting &amp; Texture Execution Partner
           </div>
           <h1>
-            Walls that <span class="accent">tell</span><br />
-            your space's signature story.
+            <span class="accent">Transforming</span> Walls<br />
+            Into Signature Spaces.
           </h1>
           <p class="lead">
-            From signature textures to flawless interiors and bespoke decorative
-            finishes — Nakkashi brings master craftsmanship and a signature touch
-            to every surface we transform.
+            We specialize in the execution of premium painting, textures, and
+            decorative finishes using trusted products from leading brands such
+            as Asian Paints, Berger, Dulux, Birla Opus, and Sirca.
           </p>
           <div class="hero-cta">
             <a href="/quote" class="btn btn-gold">
@@ -36,9 +108,9 @@ import LeadPopup from '../components/LeadPopup.astro';
             <a href="/services" class="btn btn-outline-gold">Explore Our Services</a>
           </div>
           <div class="hero-stats">
-            <div class="stat"><div class="num">1,200+</div><div class="lbl">Spaces Transformed</div></div>
+            <div class="stat"><div class="num">350+</div><div class="lbl">Spaces Transformed</div></div>
             <div class="stat"><div class="num">15<span style="font-size:1.3rem">yrs</span></div><div class="lbl">Of Craftsmanship</div></div>
-            <div class="stat"><div class="num">4.9★</div><div class="lbl">Average Rating</div></div>
+            <div class="stat"><div class="num">50+</div><div class="lbl">Skilled Craftsmen</div></div>
           </div>
         </div>
 
@@ -59,15 +131,15 @@ import LeadPopup from '../components/LeadPopup.astro';
           </div>
           <div class="float-badge fb-1">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E0AA3E" stroke-width="1.8">
-              <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.6h7.6z" />
+              <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            Premium Grade Materials
+            90% On-Time Site Handovers
           </div>
           <div class="float-badge fb-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="#022044" stroke-width="1.8">
               <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            6-Month Free Inspection
+            Free Interior Design Consultation
           </div>
         </div>
       </div>
@@ -76,8 +148,6 @@ import LeadPopup from '../components/LeadPopup.astro';
       <path fill="currentColor" d="M0,40 C180,80 320,10 480,38 C600,60 660,30 760,42 C740,70 745,82 770,84 C795,86 800,72 782,52 C880,44 980,72 1120,46 C1280,18 1360,66 1440,44 L1440,90 L0,90 Z"/>
     </svg>
   </section>
-
-  <Marquee />
 
   <!-- INTRO / ABOUT SNIPPET -->
   <section class="section bg-paper">
@@ -90,8 +160,8 @@ import LeadPopup from '../components/LeadPopup.astro';
           <div class="eyebrow">About Nakkashi</div>
           <h2>Walls are more than surfaces — they're the <em>identity</em> of a space.</h2>
           <p>
-            Nakkashi is a premium painting and decorative finishes brand dedicated
-            to transforming spaces through exceptional craftsmanship, innovative
+            Nakkashi is a premium end-to-end execution partner brand dedicated to
+            transforming spaces through exceptional craftsmanship, innovative
             textures, and professional execution. Every project is executed by
             skilled professionals using premium materials and industry-leading
             techniques.
@@ -112,7 +182,7 @@ import LeadPopup from '../components/LeadPopup.astro';
     </div>
   </section>
 
-  <!-- SERVICES PREVIEW -->
+  <!-- (1) OUR SIGNATURE SERVICES — TOP -->
   <section class="section bg-cream" id="services">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -126,59 +196,154 @@ import LeadPopup from '../components/LeadPopup.astro';
       </div>
 
       <div class="svc-grid">
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/></svg>
+        {services.map(s => (
+          <div class={`svc-card cat-${s.cat} reveal`}>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" set:html={s.icon}></svg>
+            </div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+            <a href={s.href} class="more">{s.label} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
-          <h3>Signature Texture Collection</h3>
-          <p>Artistic textures designed to bring depth, character, and sophistication to every surface.</p>
-          <a href="/services" class="more">Explore textures <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
-          </div>
-          <h3>Elite Interior Finishes</h3>
-          <p>Premium painting solutions crafted to deliver flawless aesthetics and enduring beauty for every room.</p>
-          <a href="/services" class="more">View interior work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/><path d="M3 12h18"/></svg>
-          </div>
-          <h3>Luxury Surface Artistry</h3>
-          <p>Exclusive decorative finishes inspired by contemporary architecture and high-end luxury interiors.</p>
-          <a href="/services" class="more">See finishes <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3>Statement Wall Creations</h3>
-          <p>Bespoke feature walls designed to become the focal point of exceptional, memorable spaces.</p>
-          <a href="/services" class="more">View statement walls <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2s7 6 7 11a7 7 0 01-14 0c0-5 7-11 7-11z"/></svg>
-          </div>
-          <h3>ShieldPro Waterproofing</h3>
-          <p>Advanced protection systems engineered to safeguard structures from moisture, seepage, and damage.</p>
-          <a href="/services" class="more">Learn protection <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc-card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="11.5" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a3 3 0 003-3c0-1.5-3-4-3-4"/></svg>
-          </div>
-          <h3>Design &amp; Finish Consultancy</h3>
-          <p>Expert guidance in selecting textures, finishes, and colour palettes that align with your vision.</p>
-          <a href="/services" class="more">Book consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- PALETTE -->
+  <!-- (2) LEAD FORM — MIDDLE OF HOMEPAGE -->
+  <section class="section lead-section" id="lead">
+    <div class="wrap">
+      <div class="lead-card reveal">
+        <div class="lead-side">
+          <div class="lead-eyebrow">Get a Free Design Consultation</div>
+          <h2>Tell us about your space — <em>we'll handle the rest.</em></h2>
+          <p>
+            Share a few details and our project team will call you within 24 hours
+            with a curated recommendation, transparent pricing, and a complimentary
+            site visit.
+          </p>
+          <ul class="lead-perks">
+            <li><span class="dot"></span>Free interior design consultation</li>
+            <li><span class="dot"></span>90% on-time site handovers</li>
+            <li><span class="dot"></span>Premium texture execution from ₹18/sq.ft.</li>
+            <li><span class="dot"></span>50+ skilled craftsmen on hand</li>
+          </ul>
+        </div>
+
+        <form class="lead-form" id="inlineLeadForm" onsubmit="event.preventDefault(); this.classList.add('done');">
+          <div class="lead-tag">Step 1 of 1 · 60-second form</div>
+          <h3>Book a Free Site Visit</h3>
+
+          <div class="lead-segment">
+            <span class="lead-label">Property Type</span>
+            <div class="chip-row">
+              <label class="chip"><input type="radio" name="ptype" value="Apartment" checked /><span>Apartment</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="Villa" /><span>Villa / Bungalow</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="Independent" /><span>Independent House</span></label>
+              <label class="chip"><input type="radio" name="ptype" value="Commercial" /><span>Commercial</span></label>
+            </div>
+          </div>
+
+          <div class="lead-segment">
+            <span class="lead-label">Size</span>
+            <div class="chip-row">
+              <label class="chip"><input type="radio" name="bhk" value="1BHK" /><span>1 BHK</span></label>
+              <label class="chip"><input type="radio" name="bhk" value="2BHK" checked /><span>2 BHK</span></label>
+              <label class="chip"><input type="radio" name="bhk" value="3BHK" /><span>3 BHK</span></label>
+              <label class="chip"><input type="radio" name="bhk" value="4BHK+" /><span>4 BHK +</span></label>
+            </div>
+          </div>
+
+          <div class="lead-fields">
+            <label>
+              <span>Full Name *</span>
+              <input type="text" name="name" required placeholder="Your full name" />
+            </label>
+            <label>
+              <span>Phone *</span>
+              <input type="tel" name="phone" required placeholder="+91 74006 40093" />
+            </label>
+            <label>
+              <span>City</span>
+              <input type="text" name="city" placeholder="e.g. New Delhi" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+          </div>
+
+          <button type="submit" class="lead-submit">
+            Book Free Consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <div class="lead-fine">By submitting, you agree to be contacted by our team. No spam, ever.</div>
+
+          <div class="lead-thanks">
+            <div class="check">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>
+            </div>
+            <h4>Thanks — we'll be in touch!</h4>
+            <p>Our project team will reach out within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- (3) HOW WE WORK -->
+  <section class="section bg-dark" id="process">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <div class="eyebrow">How We Work</div>
+        <h2>Planned with precision. <em>Executed with excellence.</em></h2>
+        <p>A transparent process from first call to final walk-through.</p>
+      </div>
+      <div class="proc-grid">
+        <div class="proc-step reveal"><div class="n">01</div><h3>Consultation</h3><p>Understanding your vision, requirements, style preferences, and project goals.</p></div>
+        <div class="proc-step reveal"><div class="n">02</div><h3>Site Assessment</h3><p>Detailed inspection and measurement to evaluate surfaces and project requirements.</p></div>
+        <div class="proc-step reveal"><div class="n">03</div><h3>Design Selection</h3><p>Curating the ideal textures, finishes, and colour palettes for your space.</p></div>
+        <div class="proc-step reveal"><div class="n">04</div><h3>Proposal &amp; Plan</h3><p>Providing a transparent quotation, project timeline, and clear execution plan.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;position:relative;z-index:2">
+        <a href="/services" class="btn btn-outline-gold">See Full 8-Step Process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- (4) TRENDING TEXTURES WITH OFFERS -->
+  <section class="section bg-paper" id="trending">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Trending This Season</div>
+        <h2>Trending textures <em>with offers.</em></h2>
+        <p>Limited-time pricing on our most-loved finishes — book before they go.</p>
+      </div>
+      <div class="trend-grid">
+        {trending.map(t => (
+          <div class={`trend-card tone-${t.tone} reveal`}>
+            <div class="trend-thumb" aria-hidden="true">
+              <span class="trend-badge">{t.off}</span>
+            </div>
+            <div class="trend-body">
+              <div class="trend-meta">
+                <span class="trend-tag">{t.tag}</span>
+                <span class="trend-from">from <strong>{t.from}</strong>/sq.ft.</span>
+              </div>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+              <a href="/quote" class="trend-cta">Book this finish <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- (5) PALETTE -->
   <section class="section bg-cream">
     <div class="wrap">
       <div class="sec-head center reveal">
@@ -199,27 +364,6 @@ import LeadPopup from '../components/LeadPopup.astro';
           <div class="nm" style="color:#022044">Warm Linen</div>
           <div class="hx" style="color:#5C6B82">#F7F3EA</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS PREVIEW -->
-  <section class="section bg-dark" id="process">
-    <div class="hero-glow"></div>
-    <div class="wrap">
-      <div class="sec-head reveal" style="margin-bottom:0">
-        <div class="eyebrow">How It Works</div>
-        <h2>Planned with precision. <em>Executed with excellence.</em></h2>
-        <p>A transparent process from first call to final walk-through.</p>
-      </div>
-      <div class="proc-grid">
-        <div class="proc-step reveal"><div class="n">01</div><h3>Consultation</h3><p>Understanding your vision, requirements, style preferences, and project goals.</p></div>
-        <div class="proc-step reveal"><div class="n">02</div><h3>Site Assessment</h3><p>Detailed inspection and measurement to evaluate surfaces and project requirements.</p></div>
-        <div class="proc-step reveal"><div class="n">03</div><h3>Design Selection</h3><p>Curating the ideal textures, finishes, and colour palettes for your space.</p></div>
-        <div class="proc-step reveal"><div class="n">04</div><h3>Proposal &amp; Plan</h3><p>Providing a transparent quotation, project timeline, and clear execution plan.</p></div>
-      </div>
-      <div style="text-align:center;margin-top:2.5rem;position:relative;z-index:2">
-        <a href="/services" class="btn btn-outline-gold">See Full 8-Step Process</a>
       </div>
     </div>
   </section>

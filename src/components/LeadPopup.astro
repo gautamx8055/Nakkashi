@@ -1,6 +1,29 @@
 ---
-// Home-page lead capture popup. Opens automatically once per session.
+// Home-page lead capture. Shows an immediate animated promo strip,
+// then opens the full lead form popup after 15 seconds.
 ---
+<!-- Immediate animated promo (top-right) -->
+<div class="promo-pop" id="promoPop" aria-hidden="true">
+  <button class="promo-close" type="button" id="promoClose" aria-label="Close promo">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+  <div class="promo-shimmer" aria-hidden="true"></div>
+  <div class="promo-tag">Limited Offer</div>
+  <div class="promo-head">
+    Premium Texture Execution<br />
+    starting from <span class="promo-rate"><span class="promo-num">₹18</span>/sq.ft.</span>
+  </div>
+  <a href="/quote" class="promo-cta">
+    Book Now
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Full lead form popup (opens after 15s) -->
 <div class="lead-popup" id="leadPopup" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="leadPopupTitle">
   <div class="lp-backdrop" data-close></div>
   <div class="lp-card" role="document">
@@ -11,15 +34,15 @@
     </button>
     <div class="lp-side" aria-hidden="true">
       <div class="lp-eyebrow">Limited Slots</div>
-      <div class="lp-headline">Book a <em>free</em> site visit.</div>
+      <div class="lp-headline">Book a <em>free</em> design consultation.</div>
       <ul class="lp-perks">
         <li><span class="dot"></span>Complimentary site assessment</li>
-        <li><span class="dot"></span>Free designer consultation</li>
+        <li><span class="dot"></span>Free interior design consultation</li>
         <li><span class="dot"></span>No-obligation quote in 24 hours</li>
         <li><span class="dot"></span>Priority scheduling for new enquiries</li>
       </ul>
       <div class="lp-side-foot">
-        <div class="lp-rating">★★★★★ <span>4.9 · 1,200+ spaces transformed</span></div>
+        <div class="lp-rating">★ <span>50+ skilled craftsmen · 350+ spaces transformed</span></div>
       </div>
     </div>
 
@@ -36,7 +59,7 @@
           </label>
           <label>
             <span>Phone *</span>
-            <input type="tel" name="phone" required placeholder="+91 98765 43210" />
+            <input type="tel" name="phone" required placeholder="+91 74006 40093" />
           </label>
         </div>
         <label>
@@ -61,7 +84,7 @@
           <textarea name="message" rows="3" placeholder="Briefly describe your space or what you have in mind."></textarea>
         </label>
         <button type="submit" class="lp-submit">
-          Request My Free Visit
+          Request My Free Consultation
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
@@ -73,6 +96,118 @@
 </div>
 
 <style>
+  /* ===== Immediate promo strip ===== */
+  .promo-pop {
+    position: fixed;
+    right: 1.2rem;
+    bottom: 1.4rem;
+    z-index: 1100;
+    background: linear-gradient(135deg, #00173C, #022044 55%, #163152);
+    color: #F7F3EA;
+    border: 1px solid rgba(224, 170, 62, 0.45);
+    border-radius: 16px;
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    width: min(320px, calc(100vw - 2rem));
+    box-shadow: 0 24px 50px rgba(0, 12, 28, 0.55), 0 0 0 1px rgba(224, 170, 62, 0.18);
+    transform: translateY(140%) scale(0.92);
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.4s ease;
+  }
+  .promo-pop.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    animation: promoPulse 2.4s ease-in-out 0.6s infinite;
+  }
+  .promo-pop.dismiss { transform: translateY(140%) scale(0.92); opacity: 0; pointer-events: none; }
+  @keyframes promoPulse {
+    0%, 100% { box-shadow: 0 24px 50px rgba(0, 12, 28, 0.55), 0 0 0 1px rgba(224, 170, 62, 0.25), 0 0 0 0 rgba(224, 170, 62, 0); }
+    50% { box-shadow: 0 24px 50px rgba(0, 12, 28, 0.55), 0 0 0 1px rgba(224, 170, 62, 0.4), 0 0 0 12px rgba(224, 170, 62, 0); }
+  }
+  .promo-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(224, 170, 62, 0.18) 45%, rgba(247, 243, 234, 0.12) 50%, rgba(224, 170, 62, 0.18) 55%, transparent 70%);
+    background-size: 200% 100%;
+    animation: promoShimmer 3.6s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes promoShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .promo-tag {
+    position: relative;
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #E0AA3E;
+    margin-bottom: 0.4rem;
+  }
+  .promo-head {
+    position: relative;
+    font-family: var(--display, 'Fraunces', serif);
+    font-size: 1.04rem;
+    line-height: 1.25;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .promo-rate { color: #fff; white-space: nowrap; }
+  .promo-num {
+    font-style: italic;
+    font-size: 1.6rem;
+    color: #E0AA3E;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-right: 0.15rem;
+    display: inline-block;
+    animation: promoBob 1.8s ease-in-out infinite;
+  }
+  @keyframes promoBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  .promo-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #E0AA3E, #C8902A);
+    color: #022044;
+    padding: 0.55rem 1rem;
+    border-radius: 50px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .promo-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(224, 170, 62, 0.4); }
+  .promo-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(247, 243, 234, 0.15);
+    color: #F7F3EA;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .promo-close:hover { background: rgba(247, 243, 234, 0.28); transform: rotate(90deg); }
+  @media (max-width: 520px) {
+    .promo-pop { right: 0.6rem; left: 0.6rem; bottom: 0.7rem; width: auto; }
+  }
+
+  /* ===== Full lead form popup ===== */
   .lead-popup {
     position: fixed;
     inset: 0;
@@ -294,6 +429,26 @@
 
 <script is:inline>
   (function () {
+    /* === Immediate promo === */
+    const promo = document.getElementById('promoPop');
+    const promoClose = document.getElementById('promoClose');
+    const PROMO_KEY = 'nakkashi-promo-dismissed';
+    if (promo && !sessionStorage.getItem(PROMO_KEY)) {
+      setTimeout(() => {
+        promo.classList.add('show');
+        promo.setAttribute('aria-hidden', 'false');
+      }, 600);
+    }
+    if (promoClose && promo) {
+      promoClose.addEventListener('click', () => {
+        promo.classList.remove('show');
+        promo.classList.add('dismiss');
+        promo.setAttribute('aria-hidden', 'true');
+        sessionStorage.setItem(PROMO_KEY, '1');
+      });
+    }
+
+    /* === Full lead form popup (delay 15s) === */
     const popup = document.getElementById('leadPopup');
     if (!popup) return;
     const KEY = 'nakkashi-lead-popup-shown';
@@ -335,7 +490,7 @@
       setTimeout(() => {
         open();
         sessionStorage.setItem(KEY, '1');
-      }, 1800);
+      }, 15000);
     }
   })();
 </script>

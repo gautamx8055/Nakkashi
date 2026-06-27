@@ -1,10 +1,12 @@
 ---
+const base = import.meta.env.BASE_URL;
 const { pathname } = Astro.url;
 const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href));
 
 const links = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/#partners', label: 'Execution Partners' },
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
@@ -14,12 +16,16 @@ const links = [
   <div class="wrap">
     <nav class="primary">
       <a href="/" class="brand">
-        <img src="/Nakashi-logo-final-Transparent.png" alt="Nakkashi Signature Painting" />
-        <div class="brand-text">
-          <span class="name">Nakkashi</span>
-          <span class="tag">Signature Painting</span>
-        </div>
+        <img src={`${base}Nakashi-logo-final-Transparent.png`} alt="Nakkashi Signature Painting" />
       </a>
+
+      <form class="nav-search" role="search" id="navSearch" autocomplete="off">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-3.5-3.5"/>
+        </svg>
+        <input type="search" name="q" placeholder='Find what you are looking for ?' aria-label="Search" />
+      </form>
 
       <ul class="navlinks" id="navlinks">
         {links.map(l => (
@@ -28,7 +34,6 @@ const links = [
       </ul>
 
       <div class="nav-cta">
-        <a href="/contact" class="btn btn-ghost">Book a Visit</a>
         <a href="/quote" class="btn btn-gold">
           Get a Quote
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -58,6 +63,29 @@ const links = [
       const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 20);
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+    }
+    const sf = document.getElementById('navSearch');
+    if (sf) {
+      sf.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v = sf.querySelector('input').value.trim().toLowerCase();
+        if (!v) return;
+        const map = [
+          { kw: ['texture','royale','stucco','art'], to: '/services#texture' },
+          { kw: ['interior','emulsion','paint'], to: '/services#interior' },
+          { kw: ['waterproof','seepage','leak'], to: '/services#waterproof' },
+          { kw: ['statement','feature','mural','accent'], to: '/services#statement' },
+          { kw: ['design','consult','consultation','consultancy'], to: '/services#consultancy' },
+          { kw: ['surface','luxury','venetian','marble'], to: '/services#artistry' },
+          { kw: ['partner','contractor','asian','berger','dulux','birla','sirca'], to: '/partners' },
+          { kw: ['gallery','project','work'], to: '/gallery' },
+          { kw: ['about','story','founder'], to: '/about' },
+          { kw: ['quote','price','cost','estimate'], to: '/quote' },
+          { kw: ['contact','call','reach'], to: '/contact' },
+        ];
+        const hit = map.find(m => m.kw.some(k => v.includes(k)));
+        window.location.href = hit ? hit.to : '/services';
+      });
     }
   })();
 </script>

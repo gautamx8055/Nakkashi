@@ -1,0 +1,138 @@
+---
+// Execution-partner / trusted-brand marquee.
+// Minimalist nameplate strip — refined typography, no fake letter avatars.
+const partners = [
+  { name: 'Asian Paints',  hue: '#C8302D' },
+  { name: 'Berger',        hue: '#0061A8' },
+  { name: 'Dulux',         hue: '#F26100' },
+  { name: 'Birla Opus',    hue: '#7A3FB1' },
+  { name: 'Sirca',         hue: '#0E7A55' },
+  { name: 'Nippon Paint',  hue: '#D60019' },
+  { name: 'Indigo',        hue: '#1E2A78' },
+  { name: 'Jotun',         hue: '#1B3D6E' },
+];
+const all = [...partners, ...partners];
+---
+<section class="brand-marquee" id="partners" aria-label="Our execution partners">
+  <div class="bm-head">
+    <span class="bm-eyebrow"><span class="bm-bar"></span>Our Execution Partners</span>
+    <span class="bm-aid"><strong>30+</strong> Architects &amp; Interior Designers trust us</span>
+  </div>
+  <div class="bm-track-wrap">
+    <div class="bm-track">
+      {all.map((p, i) => (
+        <>
+          <span class="bm-item" style={`--brand:${p.hue}`}>
+            <span class="bm-dot" aria-hidden="true"></span>
+            <span class="bm-name">{p.name}</span>
+          </span>
+          {i < all.length - 1 && <span class="bm-sep" aria-hidden="true">✦</span>}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .brand-marquee {
+    background: linear-gradient(180deg, #00173C, #022044);
+    color: var(--cream, #F7F3EA);
+    border-top: 1px solid rgba(224, 170, 62, 0.18);
+    border-bottom: 1px solid rgba(224, 170, 62, 0.18);
+    padding: 0.35rem 0 0.4rem;
+    overflow: hidden;
+  }
+  .bm-head {
+    width: min(1280px, 92%);
+    margin: 0 auto 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .bm-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #E0AA3E;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .bm-bar { width: 26px; height: 1px; background: #E0AA3E; opacity: 0.7; }
+  .bm-aid {
+    font-size: 0.78rem;
+    color: rgba(247, 243, 234, 0.7);
+    letter-spacing: 0.04em;
+  }
+  .bm-aid strong { color: #E0AA3E; font-weight: 700; }
+  .bm-track-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  .bm-track-wrap::before,
+  .bm-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 110px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .bm-track-wrap::before { left: 0;  background: linear-gradient(90deg, #022044, transparent); }
+  .bm-track-wrap::after  { right: 0; background: linear-gradient(-90deg, #022044, transparent); }
+  .bm-track {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    width: max-content;
+    animation: bmScroll 42s linear infinite;
+    padding: 0.15rem 1rem;
+  }
+  .bm-track:hover { animation-play-state: paused; }
+  .bm-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+  }
+  .bm-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--brand, #E0AA3E);
+    box-shadow: 0 0 0 2px rgba(247, 243, 234, 0.05), 0 0 10px var(--brand, #E0AA3E);
+    flex-shrink: 0;
+  }
+  .bm-name {
+    font-family: var(--display, 'Fraunces', serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--cream, #F7F3EA);
+    letter-spacing: 0.015em;
+    transition: color 0.25s;
+  }
+  .bm-item:hover .bm-name { color: #E0AA3E; }
+  .bm-sep {
+    color: rgba(224, 170, 62, 0.35);
+    font-size: 0.65rem;
+    line-height: 1;
+  }
+  @keyframes bmScroll {
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bm-track { animation: none; }
+  }
+  @media (max-width: 600px) {
+    .brand-marquee { padding: 0.3rem 0 0.35rem; }
+    .bm-head { margin-bottom: 0.25rem; gap: 0.5rem; }
+    .bm-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; }
+    .bm-bar { width: 18px; }
+    .bm-aid { font-size: 0.7rem; }
+    .bm-name { font-size: 0.98rem; }
+    .bm-track { gap: 1rem; }
+  }
+</style>
