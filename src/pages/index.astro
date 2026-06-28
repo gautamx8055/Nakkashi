@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ContractorMarquee from '../components/ContractorMarquee.astro';
 import CTABand from '../components/CTABand.astro';
 import LeadPopup from '../components/LeadPopup.astro';
+import { withBase } from '../lib/url';
 
 const services = [
   {
@@ -65,8 +66,8 @@ const trending = [
 <Layout title="Nakkashi — Premium Painting & Texture Execution Partner">
   <LeadPopup />
 
-  <!-- 1) BRAND/CONTRACTOR MARQUEE (just below header) -->
-  <ContractorMarquee />
+  {/* 1) BRAND/CONTRACTOR MARQUEE — hidden for now, re-enable by uncommenting */}
+  {/* <ContractorMarquee /> */}
 
   <!-- 2) HERO -->
   <section class="hero" id="home">
@@ -99,13 +100,13 @@ const trending = [
             as Asian Paints, Berger, Dulux, Birla Opus, and Sirca.
           </p>
           <div class="hero-cta">
-            <a href="/quote" class="btn btn-gold">
+            <a href={withBase('/quote')} class="btn btn-gold">
               Get a Free Quote
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="/services" class="btn btn-outline-gold">Explore Our Services</a>
+            <a href={withBase('/services')} class="btn btn-outline-gold">Explore Our Services</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><div class="num">350+</div><div class="lbl">Spaces Transformed</div></div>
@@ -171,7 +172,7 @@ const trending = [
             builders, and businesses to create spaces that leave a lasting
             impression — from contemporary textures to timeless finishes.
           </p>
-          <a href="/about" class="btn btn-ghost" style="margin-top:.8rem">
+          <a href={withBase('/about')} class="btn btn-ghost" style="margin-top:.8rem">
             Discover Our Story
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -203,7 +204,7 @@ const trending = [
             </div>
             <h3>{s.title}</h3>
             <p>{s.desc}</p>
-            <a href={s.href} class="more">{s.label} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href={withBase(s.href)} class="more">{s.label} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         ))}
       </div>
@@ -309,7 +310,7 @@ const trending = [
         <div class="proc-step reveal"><div class="n">04</div><h3>Proposal &amp; Plan</h3><p>Providing a transparent quotation, project timeline, and clear execution plan.</p></div>
       </div>
       <div style="text-align:center;margin-top:2.5rem;position:relative;z-index:2">
-        <a href="/services" class="btn btn-outline-gold">See Full 8-Step Process</a>
+        <a href={withBase('/services')} class="btn btn-outline-gold">See Full 8-Step Process</a>
       </div>
     </div>
   </section>
@@ -335,7 +336,7 @@ const trending = [
               </div>
               <h3>{t.title}</h3>
               <p>{t.desc}</p>
-              <a href="/quote" class="trend-cta">Book this finish <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href={withBase('/quote')} class="trend-cta">Book this finish <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
           </div>
         ))}
@@ -384,7 +385,7 @@ const trending = [
         <div class="gtile g5"><div class="gmeta"><div class="t">Boutique Café Fit-out</div><div class="s">Commercial · Full Repaint</div></div></div>
       </div>
       <div style="text-align:center;margin-top:2rem">
-        <a href="/gallery" class="btn btn-ghost">View Full Gallery</a>
+        <a href={withBase('/gallery')} class="btn btn-ghost">View Full Gallery</a>
       </div>
     </div>
   </section>

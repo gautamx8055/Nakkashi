@@ -13,13 +13,13 @@ const {
   title,
   description = 'Nakkashi — Premium painting and decorative finishes. Signature textures, master craftsmanship, and professional execution for residential, commercial, and hospitality spaces.',
 } = Astro.props;
-const base = import.meta.env.BASE_URL;
+import { withBase } from '../lib/url';
 ---
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={`${base}Nakashi-logo-final-Transparent.png`} />
+    <link rel="icon" type="image/png" href={withBase('/Nakashi-logo-final-Transparent.png')} />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

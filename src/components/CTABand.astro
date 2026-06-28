@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/url';
 interface Props {
   heading?: string;
   text?: string;
@@ -23,13 +24,13 @@ const {
       <h2 set:html={heading}></h2>
       <p>{text}</p>
       <div class="hero-cta">
-        <a href={primaryHref} class="btn btn-gold">
+        <a href={withBase(primaryHref)} class="btn btn-gold">
           {primaryLabel}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
-        <a href={secondaryHref} class="btn btn-light">{secondaryLabel}</a>
+        <a href={withBase(secondaryHref)} class="btn btn-light">{secondaryLabel}</a>
       </div>
     </div>
   </div>

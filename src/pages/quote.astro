@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/url';
 ---
 <Layout title="Get a Free Quote — Nakkashi Signature Painting">
   <PageHero
@@ -164,7 +165,7 @@ import PageHero from '../components/PageHero.astro';
           <div class="aside-card reveal">
             <h4>Designer or Architect?</h4>
             <p>We work closely with design professionals on premium specifications. Let's discuss your client's project together.</p>
-            <a href="/contact" style="color:var(--gold-deep);font-weight:600;font-size:.95rem;margin-top:.6rem;display:inline-block">Set up a partner call →</a>
+            <a href={withBase('/contact')} style="color:var(--gold-deep);font-weight:600;font-size:.95rem;margin-top:.6rem;display:inline-block">Set up a partner call →</a>
           </div>
         </aside>
       </div>

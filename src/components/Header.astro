@@ -1,12 +1,12 @@
 ---
+import { withBase, stripBase } from '../lib/url';
 const base = import.meta.env.BASE_URL;
-const { pathname } = Astro.url;
-const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href));
+const path = stripBase(Astro.url.pathname) || '/';
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 
 const links = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
-  { href: '/#partners', label: 'Execution Partners' },
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
@@ -15,8 +15,8 @@ const links = [
 <header class="site-header" id="header">
   <div class="wrap">
     <nav class="primary">
-      <a href="/" class="brand">
-        <img src={`${base}Nakashi-logo-final-Transparent.png`} alt="Nakkashi Signature Painting" />
+      <a href={withBase('/')} class="brand">
+        <img src={withBase('/Nakashi-logo-final-Transparent.png')} alt="Nakkashi Signature Painting" />
       </a>
 
       <form class="nav-search" role="search" id="navSearch" autocomplete="off">
@@ -29,12 +29,12 @@ const links = [
 
       <ul class="navlinks" id="navlinks">
         {links.map(l => (
-          <li><a href={l.href} class:list={{ active: isActive(l.href) }}>{l.label}</a></li>
+          <li><a href={withBase(l.href)} class:list={{ active: isActive(l.href) }}>{l.label}</a></li>
         ))}
       </ul>
 
       <div class="nav-cta">
-        <a href="/quote" class="btn btn-gold">
+        <a href={withBase('/quote')} class="btn btn-gold">
           Get a Quote
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -48,8 +48,15 @@ const links = [
   </div>
 </header>
 
-<script is:inline>
+<script is:inline define:vars={{ base }}>
   (function () {
+    const b = base.endsWith('/') ? base : base + '/';
+    const withBase = (p) => {
+      if (!p) return b;
+      if (p === '/') return b;
+      if (p.startsWith('#')) return p;
+      return b + p.replace(/^\//, '');
+    };
     const ham = document.getElementById('hamburger');
     const nl = document.getElementById('navlinks');
     if (ham && nl) {
@@ -84,7 +91,7 @@ const links = [
           { kw: ['contact','call','reach'], to: '/contact' },
         ];
         const hit = map.find(m => m.kw.some(k => v.includes(k)));
-        window.location.href = hit ? hit.to : '/services';
+        window.location.href = withBase(hit ? hit.to : '/services');
       });
     }
   })();

@@ -1,5 +1,6 @@
 ---
 // Top contact bar
+import { withBase } from '../lib/url';
 ---
 <div class="topbar">
   <div class="wrap">
@@ -18,8 +19,8 @@
       </span>
     </div>
     <div class="right">
-      <a href="/gallery">Recent Projects</a>
-      <a href="/quote">Get a Free Quote</a>
+      <a href={withBase('/gallery')}>Recent Projects</a>
+      <a href={withBase('/quote')}>Get a Free Quote</a>
     </div>
   </div>
 </div>

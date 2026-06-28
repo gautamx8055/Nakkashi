@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTABand from '../components/CTABand.astro';
+import { withBase } from '../lib/url';
 
 const services = [
   {
@@ -169,8 +170,8 @@ const privileges = [
               </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-end">
-              <a href="/quote" class="btn btn-gold" style="font-size:.88rem;padding:.7rem 1.3rem">Request Quote</a>
-              <a href="/contact" style="font-size:.85rem;color:var(--gold-deep);font-weight:600;text-decoration:none">Talk to an Expert →</a>
+              <a href={withBase('/quote')} class="btn btn-gold" style="font-size:.88rem;padding:.7rem 1.3rem">Request Quote</a>
+              <a href={withBase('/contact')} style="font-size:.85rem;color:var(--gold-deep);font-weight:600;text-decoration:none">Talk to an Expert →</a>
             </div>
           </div>
         ))}
