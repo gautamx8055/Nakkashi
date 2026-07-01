@@ -52,7 +52,8 @@ import { withBase } from '../lib/url';
       <h3 class="lp-title" id="leadPopupTitle">Tell us about your space.</h3>
       <p class="lp-sub">Share a few details and our project team will reach out within 24 hours.</p>
 
-      <form class="lp-form" id="leadPopupForm" onsubmit="event.preventDefault(); document.getElementById('leadPopup').dispatchEvent(new CustomEvent('lp-submit'));">
+      <form class="lp-form" id="leadPopupForm" method="POST" action="https://formspree.io/f/xlgypabo">
+        <input type="hidden" name="_subject" value="New Lead Popup Enquiry — Nakkashi" />
         <div class="lp-row">
           <label>
             <span>Name *</span>
@@ -474,7 +475,7 @@ import { withBase } from '../lib/url';
       if (e.key === 'Escape' && popup.classList.contains('open')) close();
     });
 
-    popup.addEventListener('lp-submit', () => {
+    function showLpThanks() {
       const form = document.getElementById('leadPopupForm');
       if (!form) return;
       const wrap = form.parentElement;
@@ -485,7 +486,28 @@ import { withBase } from '../lib/url';
           '<p>Our project team will reach out within 24 hours.</p>' +
         '</div>';
       setTimeout(close, 2400);
-    });
+    }
+    popup.addEventListener('lp-submit', showLpThanks);
+
+    const lpForm = document.getElementById('leadPopupForm');
+    if (lpForm) {
+      lpForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.lp-submit');
+        if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+        try {
+          const res = await fetch(this.action, {
+            method: 'POST', body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) { showLpThanks(); }
+          else { throw new Error(); }
+        } catch {
+          if (btn) { btn.textContent = 'Request My Free Consultation'; btn.disabled = false; }
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    }
 
     if (!sessionStorage.getItem(KEY)) {
       setTimeout(() => {

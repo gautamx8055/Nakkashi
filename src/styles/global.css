@@ -38,10 +38,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .wrap { width: min(1280px, 92%); margin-inline: auto; }
 .eyebrow {
-  font-size: .74rem;
+  font-size: .875rem;
   letter-spacing: .32em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 section { position: relative; }
 
@@ -413,7 +413,7 @@ nav.primary {
   50% { transform: translateY(-12px); }
 }
 .hero-drip {
-  display: block; width: 100%; color: var(--paper);
+  display: block; width: 100%; color: #E8E2D5;
   position: relative; z-index: 3; margin-top: -1px;
 }
 @media (max-width: 1024px) {
@@ -486,7 +486,11 @@ nav.primary {
 /* ============ SECTIONS ============ */
 .section { padding: clamp(2.5rem, 6.25vw, 5rem) 0; }
 .section.bg-cream { background: linear-gradient(180deg, var(--cream), var(--paper)); }
-.section.bg-paper { background: var(--paper); }
+.section.bg-paper {
+  background:
+    linear-gradient(rgba(251, 249, 244, .91), rgba(251, 249, 244, .91)),
+    url('/Paint%203.png') center / cover;
+}
 .section.bg-white { background: #fff; }
 .section.bg-dark {
   background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
@@ -642,6 +646,12 @@ nav.primary {
 @media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
 
 /* ============ COLOURS PALETTE ============ */
+.palette-img {
+  border-radius: 22px; overflow: hidden;
+  box-shadow: var(--shadow); margin-top: 1rem;
+}
+.palette-img img { width: 100%; height: auto; display: block; }
+
 .colour-band {
   display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
   border-radius: 22px; overflow: hidden;
@@ -840,7 +850,12 @@ nav.primary {
 @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
 
 /* ============ CTA BAND ============ */
-.cta-band { padding: clamp(3.5rem, 7vw, 5.5rem) 0; background: var(--paper); }
+.cta-band {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+  background:
+    linear-gradient(rgba(251, 249, 244, .91), rgba(251, 249, 244, .91)),
+    url('/Paint%203.png') center / cover;
+}
 .cta-inner {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 70%);
   border-radius: 28px; padding: clamp(2.5rem, 5vw, 4rem);

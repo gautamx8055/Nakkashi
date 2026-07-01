@@ -49,7 +49,8 @@ import { withBase } from '../lib/url';
       <div class="form-wrap">
         <div class="form-card reveal">
           <h3>Project Details</h3>
-          <form name="quote" method="POST" onsubmit="event.preventDefault(); alert('Thanks! We will respond within 24 hours.'); this.reset();">
+          <form id="quoteForm" name="quote" method="POST" action="https://formspree.io/f/maqgpaod">
+            <input type="hidden" name="_subject" value="New Quote Request — Nakkashi" />
             <div class="form-grid">
               <div class="field">
                 <label for="name">Full Name *</label>
@@ -112,7 +113,7 @@ import { withBase } from '../lib/url';
                 <textarea id="message" name="message" placeholder="Style preferences, surfaces involved, designer involvement, or anything else you'd like us to know."></textarea>
               </div>
               <div class="field full">
-                <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:1rem">
+                <button type="submit" id="quoteBtn" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:1rem">
                   Request My Quote
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -123,7 +124,36 @@ import { withBase } from '../lib/url';
                 </p>
               </div>
             </div>
+            <div id="quoteSuccess" style="display:none;text-align:center;padding:2rem 1rem">
+              <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;display:grid;place-items:center;margin:0 auto 1rem;box-shadow:0 12px 30px rgba(224,170,62,.4)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>
+              </div>
+              <h4 style="font-family:var(--display);font-size:1.5rem;color:var(--navy-deep);margin:0 0 .5rem">Quote request received!</h4>
+              <p style="color:var(--muted)">Our project team will respond within 24 hours.</p>
+            </div>
           </form>
+          <script is:inline>
+            document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('quoteBtn');
+              btn.textContent = 'Sending…';
+              btn.disabled = true;
+              try {
+                const res = await fetch(this.action, {
+                  method: 'POST', body: new FormData(this),
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  this.querySelector('.form-grid').style.display = 'none';
+                  document.getElementById('quoteSuccess').style.display = 'block';
+                } else { throw new Error(); }
+              } catch {
+                btn.textContent = 'Request My Quote';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again or call us directly.');
+              }
+            });
+          </script>
         </div>
 
         <aside class="form-aside">
