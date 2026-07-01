@@ -2,16 +2,25 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTABand from '../components/CTABand.astro';
+import { withBase } from '../lib/url';
 
 const projects = [
-  { t: 'Hillside Villa Exterior', s: 'Exterior · Weather-shield', cls: 'g1', cat: 'exterior' },
-  { t: 'Gilded Living Room', s: 'Interior · Metallic Accent', cls: 'g2', cat: 'interior' },
-  { t: 'Master Suite Refresh', s: 'Interior · Royale Texture', cls: 'g3', cat: 'interior' },
-  { t: 'Feature Wall Detail', s: 'Texture · Stucco', cls: 'g4', cat: 'texture' },
-  { t: 'Boutique Café Fit-out', s: 'Commercial · Full Repaint', cls: 'g5', cat: 'commercial' },
-  { t: 'Penthouse Foyer', s: 'Interior · Venetian Plaster', cls: 'g6', cat: 'texture' },
-  { t: 'Studio Apartment', s: 'Interior · Limewash', cls: 'g7', cat: 'interior' },
-  { t: 'Office Lobby', s: 'Commercial · Statement Wall', cls: 'g8', cat: 'commercial' },
+  { t: 'Marble Haven Villa',      s: 'Exterior · Venetian Plaster',   cls: 'g1', cat: 'exterior',   img: '/Texture 13.png' },
+  { t: 'Gilded Drawing Room',     s: 'Interior · Metallic Accent',     cls: 'g2', cat: 'interior',   img: '/Texture 14.png' },
+  { t: 'Royal Master Suite',      s: 'Interior · Royale Stucco',       cls: 'g3', cat: 'interior',   img: '/Texture 15.png' },
+  { t: 'Mandakini Feature Wall',  s: 'Texture · Signature Finish',     cls: 'g4', cat: 'texture',    img: '/Texture 16.png' },
+  { t: 'Heritage Café Fit-out',   s: 'Commercial · Full Repaint',      cls: 'g5', cat: 'commercial', img: '/Texture 17.png' },
+  { t: 'Penthouse Foyer',         s: 'Interior · Raj Hans',            cls: 'g6', cat: 'texture',    img: '/Texture 8.png'  },
+  { t: 'Studio Limewash',         s: 'Interior · Azure Limewash',      cls: 'g7', cat: 'interior',   img: '/Texture 9.png'  },
+  { t: 'Corporate Lobby',         s: 'Commercial · Statement Wall',    cls: 'g8', cat: 'commercial', img: '/Texture 10.png' },
+  { t: 'Ivory Marmorino',         s: 'Exclusive · Signature Finish',   cls: 'ge1', cat: 'exclusive', img: '/Texture 1 EXCL.png'  },
+  { t: 'Champagne Royale',        s: 'Exclusive · Premium Interior',   cls: 'ge2', cat: 'exclusive', img: '/Texture 2 EXCl.png'  },
+  { t: 'Midnight Plaster',        s: 'Exclusive · Decorative Finish',  cls: 'ge3', cat: 'exclusive', img: '/Texture 3 EXCL.png'  },
+  { t: 'Venetian Bronze',         s: 'Exclusive · Luxury Texture',     cls: 'ge4', cat: 'exclusive', img: '/Texture 4 EXCL.png'  },
+  { t: 'Pearl Stucco',            s: 'Exclusive · Artisan Craft',      cls: 'ge5', cat: 'exclusive', img: '/Texture 5 EXCL.png'  },
+  { t: 'Gilded Damask',           s: 'Exclusive · Statement Wall',     cls: 'ge6', cat: 'exclusive', img: '/Texture 6 EXCL.png'  },
+  { t: 'Silver Shimmer',          s: 'Exclusive · Metallic Accent',    cls: 'ge7', cat: 'exclusive', img: '/Texture 7 EXCL.png'  },
+  { t: 'Onyx Estate',             s: 'Exclusive · Elite Finish',       cls: 'ge8', cat: 'exclusive', img: '/Texture 8 EXCL.png'  },
 ];
 ---
 <Layout title="Project Gallery — Nakkashi Signature Painting">
@@ -36,11 +45,13 @@ const projects = [
         <button data-filter="exterior">Exterior</button>
         <button data-filter="texture">Texture</button>
         <button data-filter="commercial">Commercial</button>
+        <button data-filter="exclusive" class="filter-excl">✦ Exclusive</button>
       </div>
 
       <div class="gallery reveal" id="gallery">
         {projects.map(p => (
           <div class={`gtile ${p.cls}`} data-cat={p.cat}>
+            <img src={withBase(p.img)} alt={p.t} />
             <div class="gmeta">
               <div class="t">{p.t}</div>
               <div class="s">{p.s}</div>
@@ -74,7 +85,7 @@ const projects = [
           <div class="lbl">Designer Partners</div>
         </div>
         <div class="stat-item">
-          <div class="num">4.9★</div>
+          <div class="num">5★</div>
           <div class="lbl">Average Rating</div>
         </div>
       </div>

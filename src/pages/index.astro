@@ -57,10 +57,10 @@ const services = [
 ];
 
 const trending = [
-  { title: 'Royale Play Stucco',    tag: 'Texture',  off: '20% OFF',  from: '₹28', desc: 'Hand-troweled stucco with subtle metallic catch.', tone: 'gold' },
-  { title: 'Italian Marmorino',     tag: 'Premium',  off: '15% OFF',  from: '₹65', desc: 'Polished lime-based finish with marble depth.',      tone: 'cream' },
-  { title: 'Metallic Gold Wash',    tag: 'Signature',off: 'NEW',      from: '₹42', desc: 'Hand-applied gold glaze for accent walls.',         tone: 'bronze' },
-  { title: 'Limewash Estate',       tag: 'Classic',  off: '10% OFF',  from: '₹22', desc: 'Breathable mineral finish with old-world charm.',   tone: 'navy' },
+  { title: 'Venetian Gold',    tag: 'Signature', off: '25% OFF', img: '/Texture 1 EXCL.png',  desc: 'Richly textured gold-toned finish with timeless Italian character.', tone: 'gold' },
+  { title: 'Pearl Essence',    tag: 'Premium',   off: '25% OFF', img: '/Texture 2 EXCl.png',  desc: 'Soft pearlescent finish that catches light with subtle elegance.', tone: 'cream' },
+  { title: 'Royal Damask',     tag: 'Texture',   off: '25% OFF', img: '/Texture 3 EXCL.png',  desc: 'Intricate raised pattern that adds depth and grandeur to any wall.', tone: 'bronze' },
+  { title: 'Azure Limewash',   tag: 'Classic',   off: '25% OFF', img: '/Texture 4 EXCL.png',  desc: 'Breathable mineral wash in deep navy with old-world character.', tone: 'navy' },
 ];
 ---
 <Layout title="Nakkashi — Premium Painting & Texture Execution Partner">
@@ -71,6 +71,9 @@ const trending = [
 
   <!-- 2) HERO -->
   <section class="hero" id="home">
+    <div class="hero-img-overlay">
+      <img src={withBase('/hero section.png')} alt="" />
+    </div>
     <div class="hero-grain"></div>
     <div class="hero-glow"></div>
     <div class="wrap">
@@ -118,29 +121,29 @@ const trending = [
         <div class="hero-visual">
           <div class="swatch-stack">
             <div class="swatch s1">
-              <div class="chip"></div>
-              <div class="meta"><div class="h">Midnight Estate</div><div class="c">#022044</div></div>
+              <div class="chip"><img src={withBase('/Texture 3.png')} alt="Aura Finish texture" /></div>
+              <div class="meta"><div class="h">Aura Finish</div><div class="c">Premium Finish</div></div>
             </div>
             <div class="swatch s3">
-              <div class="chip"></div>
-              <div class="meta"><div class="h">Warm Linen</div><div class="c">#F7F3EA</div></div>
+              <div class="chip"><img src={withBase('/Texture 2.png')} alt="Raj Hans texture" /></div>
+              <div class="meta"><div class="h">Raj Hans</div><div class="c">Luxury Finish</div></div>
             </div>
             <div class="swatch s2">
-              <div class="chip"></div>
-              <div class="meta"><div class="h">Signature Gold</div><div class="c">#E0AA3E</div></div>
+              <div class="chip"><img src={withBase('/Texture 1.png')} alt="Mandakini Finish texture" /></div>
+              <div class="meta"><div class="h">Mandakini Finish</div><div class="c">Signature Texture</div></div>
             </div>
           </div>
           <div class="float-badge fb-1">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E0AA3E" stroke-width="1.8">
               <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            90% On-Time Site Handovers
+            100% On-Time Site Handovers
           </div>
           <div class="float-badge fb-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="#022044" stroke-width="1.8">
               <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            Free Interior Design Consultation
+            Free Interior Designer Consultation
           </div>
         </div>
       </div>
@@ -155,6 +158,7 @@ const trending = [
     <div class="wrap">
       <div class="content-grid">
         <div class="image-card reveal">
+          <img src={withBase('/About us page.png')} alt="Nakkashi craftsmanship" />
           <span class="overlay-tag">Where creativity meets craftsmanship.</span>
         </div>
         <div class="reveal">
@@ -326,13 +330,13 @@ const trending = [
       <div class="trend-grid">
         {trending.map(t => (
           <div class={`trend-card tone-${t.tone} reveal`}>
-            <div class="trend-thumb" aria-hidden="true">
+            <div class="trend-thumb">
+              <img src={withBase(t.img)} alt={t.title} />
               <span class="trend-badge">{t.off}</span>
             </div>
             <div class="trend-body">
               <div class="trend-meta">
                 <span class="trend-tag">{t.tag}</span>
-                <span class="trend-from">from <strong>{t.from}</strong>/sq.ft.</span>
               </div>
               <h3>{t.title}</h3>
               <p>{t.desc}</p>
@@ -378,11 +382,11 @@ const trending = [
         <p>A glimpse of homes, offices, and hospitality spaces where colour, craft and care came together.</p>
       </div>
       <div class="gallery reveal">
-        <div class="gtile g1"><div class="gmeta"><div class="t">Hillside Villa Exterior</div><div class="s">Exterior · Weather-shield</div></div></div>
-        <div class="gtile g2"><div class="gmeta"><div class="t">Gilded Living Room</div><div class="s">Interior · Metallic Accent</div></div></div>
-        <div class="gtile g3"><div class="gmeta"><div class="t">Master Suite</div><div class="s">Interior · Royale</div></div></div>
-        <div class="gtile g4"><div class="gmeta" style="color:#022044"><div class="t">Feature Wall</div><div class="s">Texture</div></div></div>
-        <div class="gtile g5"><div class="gmeta"><div class="t">Boutique Café Fit-out</div><div class="s">Commercial · Full Repaint</div></div></div>
+        <div class="gtile g1"><img src={withBase('/Texture 8.png')} alt="Hillside Villa Exterior" /><div class="gmeta"><div class="t">Hillside Villa Exterior</div><div class="s">Exterior · Weather-shield</div></div></div>
+        <div class="gtile g2"><img src={withBase('/Texture 9.png')} alt="Gilded Living Room" /><div class="gmeta"><div class="t">Gilded Living Room</div><div class="s">Interior · Metallic Accent</div></div></div>
+        <div class="gtile g3"><img src={withBase('/Texture 10.png')} alt="Master Suite" /><div class="gmeta"><div class="t">Master Suite</div><div class="s">Interior · Royale</div></div></div>
+        <div class="gtile g4"><img src={withBase('/Texture 11.png')} alt="Feature Wall" /><div class="gmeta"><div class="t">Feature Wall</div><div class="s">Texture</div></div></div>
+        <div class="gtile g5"><img src={withBase('/Texture 12.png')} alt="Boutique Café Fit-out" /><div class="gmeta"><div class="t">Boutique Café Fit-out</div><div class="s">Commercial · Full Repaint</div></div></div>
       </div>
       <div style="text-align:center;margin-top:2rem">
         <a href={withBase('/gallery')} class="btn btn-ghost">View Full Gallery</a>

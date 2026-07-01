@@ -32,6 +32,10 @@ import { withBase } from '../lib/url';
   </head>
   <body>
     <TopBar />
+    <div class="offer-strip" role="banner">
+      <span class="offer-text">Get <strong>25% OFF</strong> on your Signature Wall — Exclusive Nakkashi offer</span>
+      <a href={withBase('/quote')} class="offer-cta">Book Now →</a>
+    </div>
     <Header />
     <main>
       <slot />
