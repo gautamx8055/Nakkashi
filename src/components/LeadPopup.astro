@@ -11,13 +11,14 @@ import { withBase } from '../lib/url';
     </svg>
   </button>
   <div class="promo-shimmer" aria-hidden="true"></div>
-  <div class="promo-tag">Limited Offer</div>
+  <div class="promo-tag">Exclusive Deal — Only For You</div>
   <div class="promo-head">
-    Premium Texture Execution<br />
-    starting from <span class="promo-rate"><span class="promo-num">₹18</span>/sq.ft.</span>
+    Give us your paint work.<br />
+    <span class="promo-rate">We'll do your <span class="promo-num">Feature Wall</span> — complimentary.</span>
   </div>
+  <div class="promo-sub">No catch. Book the painting, get a stunning signature wall on us.</div>
   <a href={withBase('/quote')} class="promo-cta">
-    Book Now
+    Yes, I Want This!
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
       <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
@@ -157,16 +158,24 @@ import { withBase } from '../lib/url';
     font-weight: 500;
     margin-bottom: 0.8rem;
   }
-  .promo-rate { color: #fff; white-space: nowrap; }
+  .promo-rate { color: #fff; }
+  .promo-sub {
+    position: relative;
+    font-size: 0.82rem;
+    color: rgba(247, 243, 234, 0.72);
+    margin-bottom: 0.85rem;
+    line-height: 1.4;
+  }
   .promo-num {
     font-style: italic;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: #E0AA3E;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.01em;
-    margin-right: 0.15rem;
-    display: inline-block;
-    animation: promoBob 1.8s ease-in-out infinite;
+    display: inline;
+    text-decoration: underline;
+    text-decoration-color: rgba(224, 170, 62, 0.4);
+    text-underline-offset: 3px;
   }
   @keyframes promoBob {
     0%, 100% { transform: translateY(0); }

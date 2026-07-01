@@ -244,6 +244,7 @@ nav.primary {
   }
   .navlinks.open { transform: translateY(0); }
   .hamburger { display: flex; }
+  .nav-cta .btn { display: none; }
 }
 
 /* ============ HERO (HOME) ============ */
@@ -992,9 +993,14 @@ nav.primary {
 .content-grid p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.02rem; }
 .content-grid .eyebrow { color: var(--gold-deep); }
 @media (max-width: 900px) {
-  .content-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .content-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .content-grid.reverse { direction: ltr; }
-  .content-grid .image-card { aspect-ratio: 3/2; }
+  .content-grid .image-card { aspect-ratio: 16/9; }
+  .content-grid .image-card .overlay-tag { font-size: 1.1rem; }
+}
+@media (max-width: 520px) {
+  .content-grid .image-card { aspect-ratio: 4/3; border-radius: 16px; }
+  .content-grid .image-card .overlay-tag { display: none; }
 }
 
 /* feature list (values, why us, promises) */
