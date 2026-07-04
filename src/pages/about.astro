@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTABand from '../components/CTABand.astro';
+import { withBase } from '../lib/url';
 
 const principles = [
   { letter: 'N', name: 'Novel Thinking', desc: 'Fresh ideas and creative solutions to transform every space.' },
@@ -37,6 +38,7 @@ const principles = [
           </p>
         </div>
         <div class="image-card reveal">
+          <img src={withBase('/About-Nakkashi.png')} alt="Nakkashi craftsmanship at work" style="object-position: right top;" />
           <span class="overlay-tag">Turning ordinary walls into extraordinary experiences.</span>
         </div>
       </div>

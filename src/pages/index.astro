@@ -430,4 +430,17 @@ const trending = [
   </section>
 
   <CTABand />
+
+  <script is:inline>
+    (function () {
+      const swatches = document.querySelectorAll('.swatch');
+      swatches.forEach(function (card) {
+        card.addEventListener('click', function () {
+          var isActive = card.classList.contains('active');
+          swatches.forEach(function (c) { c.classList.remove('active'); });
+          if (!isActive) card.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </Layout>
