@@ -66,28 +66,16 @@ const services = [
     icon: `<path d="M12 2s7 6 7 11a7 7 0 01-14 0c0-5 7-11 7-11z"/>`,
   },
   {
-    title: 'Design & Finish Consultancy',
-    tag: 'Consultancy',
-    desc: 'Free on-site visits and digital previews so you can see your palette on your walls before a single brush is lifted.',
+    title: 'Bespoke Design & Consultancy',
+    tag: 'Bespoke',
+    desc: 'From free on-site colour consultation to architect-led R&D — we collaborate on your vision and engineer the finish that brings it to life.',
     bullets: [
       'Free on-site colour consultation',
-      'Digital palette previews',
-      'Designer collaboration',
-      'Material recommendations',
+      'Digital palette & mock-up previews',
+      'Architect-led collaborations',
+      'Bespoke colour & texture formulations',
     ],
     icon: `<circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="11.5" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a3 3 0 003-3c0-1.5-3-4-3-4"/>`,
-  },
-  {
-    title: 'Bespoke Surface Innovations',
-    tag: 'Custom',
-    desc: "When the standard collection doesn't fit your vision, we engineer something new — R&D textures and bespoke formulations.",
-    bullets: [
-      'R&D for custom textures',
-      'Architect-led collaborations',
-      'Mock-up panel development',
-      'Bespoke colour formulations',
-    ],
-    icon: `<path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/>`,
   },
 ];
 
@@ -147,37 +135,201 @@ const privileges = [
         <h2>Crafted for every space — <em>residential, commercial, hospitality.</em></h2>
       </div>
 
-      <div style="display:grid;gap:1.5rem;grid-template-columns:1fr">
+      <div class="sig-svc-grid">
         {services.map((s, i) => (
-          <div class="reveal" style={`background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(2rem,3.5vw,3rem);display:grid;grid-template-columns:90px 1fr auto;gap:2rem;align-items:start;box-shadow:var(--shadow-sm)`}>
-            <div class="icon" style="width:80px;height:80px;border-radius:18px;background:linear-gradient(135deg,var(--cream),#fff);border:1px solid var(--line)">
-              <svg viewBox="0 0 24 24" set:html={s.icon} style="width:36px;height:36px;stroke:var(--navy-deep);fill:none;stroke-width:1.6"></svg>
-            </div>
-            <div>
-              <div style="display:flex;gap:.8rem;align-items:center;margin-bottom:.5rem">
-                <span style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);background:rgba(224,170,62,.12);padding:.3rem .7rem;border-radius:50px">{s.tag}</span>
-                <span style="font-family:var(--display);font-style:italic;color:var(--muted);font-size:.95rem">— 0{i + 1}</span>
+          <div class="sig-svc-card reveal">
+            <div class="ssc-head">
+              <div class="ssc-icon-wrap">
+                <svg viewBox="0 0 24 24" set:html={s.icon} width="26" height="26" style="display:block;fill:none;stroke:var(--gold-soft);stroke-width:1.6;flex-shrink:0"></svg>
               </div>
-              <h3 style="font-family:var(--display);font-size:1.65rem;font-weight:500;color:var(--navy-deep);margin-bottom:.8rem">{s.title}</h3>
-              <p style="color:var(--muted);font-size:1.02rem;margin-bottom:1.2rem">{s.desc}</p>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+              <div class="ssc-meta">
+                <span class="ssc-tag">{s.tag}</span>
+                <span class="ssc-num">0{i + 1}</span>
+              </div>
+            </div>
+            <div class="ssc-body">
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <ul class="ssc-bullets">
                 {s.bullets.map(b => (
-                  <div style="display:flex;gap:.5rem;align-items:center;font-size:.92rem;color:var(--navy-deep)">
-                    <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>
+                  <li>
+                    <span class="ssc-dot"></span>
                     <span>{b}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-            <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-end">
-              <a href={withBase('/quote')} class="btn btn-gold" style="font-size:.88rem;padding:.7rem 1.3rem">Request Quote</a>
-              <a href={withBase('/contact')} style="font-size:.85rem;color:var(--gold-deep);font-weight:600;text-decoration:none">Talk to an Expert →</a>
+            <div class="ssc-foot">
+              <a href={withBase('/quote')} class="btn btn-gold ssc-btn">Request Quote</a>
+              <a href={withBase('/contact')} class="ssc-link">Talk to an Expert →</a>
             </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <style>
+    .sig-svc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+
+    .sig-svc-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform .35s, box-shadow .35s, border-color .35s;
+    }
+
+    .sig-svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(224, 170, 62, .35);
+    }
+
+    .ssc-head {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-700) 100%);
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ssc-head::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(224, 170, 62, .2), transparent 70%);
+      top: -80px; right: -50px;
+      pointer-events: none;
+    }
+
+    .ssc-icon-wrap {
+      width: 58px; height: 58px;
+      border-radius: 16px;
+      background: rgba(224, 170, 62, .14);
+      border: 1px solid rgba(224, 170, 62, .3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .ssc-icon-wrap svg {
+      width: 26px; height: 26px;
+      stroke: var(--gold-soft);
+      fill: none; stroke-width: 1.6;
+    }
+
+    .ssc-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: .5rem;
+      position: relative; z-index: 1;
+    }
+
+    .ssc-tag {
+      font-size: .66rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(224, 170, 62, .14);
+      border: 1px solid rgba(224, 170, 62, .3);
+      padding: .28rem .7rem;
+      border-radius: 50px;
+    }
+
+    .ssc-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 2.4rem;
+      color: rgba(247, 243, 234, .18);
+      line-height: 1;
+    }
+
+    .ssc-body {
+      padding: 1.8rem 2rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ssc-body h3 {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin-bottom: .65rem;
+      line-height: 1.15;
+    }
+
+    .ssc-body p {
+      color: var(--muted);
+      font-size: .97rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .ssc-bullets {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem .8rem;
+      margin-top: auto;
+    }
+
+    .ssc-bullets li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      color: var(--navy-deep);
+    }
+
+    .ssc-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .ssc-foot {
+      padding: 1.2rem 2rem 1.6rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .ssc-btn {
+      font-size: .86rem;
+      padding: .65rem 1.3rem;
+    }
+
+    .ssc-link {
+      font-size: .86rem;
+      color: var(--gold-deep);
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .ssc-link:hover { color: var(--navy-deep); }
+
+    @media (max-width: 900px) {
+      .sig-svc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 
   <!-- 8-STEP PROCESS -->
   <section class="section bg-dark process-section">
@@ -284,9 +436,11 @@ const privileges = [
     @media (max-width: 560px) {
       .process-section .process-flow { grid-template-columns: 1fr; gap: 1.6rem; }
       .process-section .pf-step::after { display: none !important; }
-      .process-section .pf-step { display: grid; grid-template-columns: 66px 1fr; text-align: left; gap: 1.1rem; align-items: start; }
-      .process-section .pf-node { margin: 0; }
-      .process-section .pf-step p { margin-inline: 0; max-width: none; }
+      .process-section .pf-step { display: grid; grid-template-columns: 48px 1fr; text-align: left; gap: 1rem; align-items: start; }
+      .process-section .pf-node { margin: 0; width: 48px; height: 48px; box-shadow: 0 0 0 4px rgba(224,170,62,.12), 0 8px 16px rgba(0,0,0,.3); }
+      .process-section .pf-num { font-size: 1.1rem; }
+      .process-section .pf-step h3 { align-self: center; }
+      .process-section .pf-step p { margin-inline: 0; max-width: none; grid-column: 2; }
     }
   </style>
 
