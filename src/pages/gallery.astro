@@ -4,23 +4,26 @@ import PageHero from '../components/PageHero.astro';
 import CTABand from '../components/CTABand.astro';
 import { withBase } from '../lib/url';
 
+// NOTE: These are texture / finish samples from the Nakkashi collection.
+// Real project photography is in production. Once photos arrive, drop them at
+// /public/projects/<slug>.jpg and update the `img` and `t`/`s` fields below.
 const projects = [
-  { t: 'Marble Haven Villa',      s: 'Exterior · Venetian Plaster',   cls: 'g1', cat: 'exterior',   img: '/Texture 13.png' },
-  { t: 'Gilded Drawing Room',     s: 'Interior · Metallic Accent',     cls: 'g2', cat: 'interior',   img: '/Texture 14.png' },
-  { t: 'Royal Master Suite',      s: 'Interior · Royale Stucco',       cls: 'g3', cat: 'interior',   img: '/Texture 15.png' },
-  { t: 'Mandakini Feature Wall',  s: 'Texture · Signature Finish',     cls: 'g4', cat: 'texture',    img: '/Texture 16.png' },
-  { t: 'Heritage Café Fit-out',   s: 'Commercial · Full Repaint',      cls: 'g5', cat: 'commercial', img: '/Texture 17.png' },
-  { t: 'Penthouse Foyer',         s: 'Interior · Raj Hans',            cls: 'g6', cat: 'texture',    img: '/Texture 8.png'  },
-  { t: 'Studio Limewash',         s: 'Interior · Azure Limewash',      cls: 'g7', cat: 'interior',   img: '/Texture 9.png'  },
-  { t: 'Corporate Lobby',         s: 'Commercial · Statement Wall',    cls: 'g8', cat: 'commercial', img: '/Texture 10.png' },
-  { t: 'Ivory Marmorino',         s: 'Exclusive · Signature Finish',   cls: 'ge1', cat: 'exclusive', img: '/Texture 1 EXCL.png'  },
-  { t: 'Champagne Royale',        s: 'Exclusive · Premium Interior',   cls: 'ge2', cat: 'exclusive', img: '/Texture 2 EXCl.png'  },
-  { t: 'Midnight Plaster',        s: 'Exclusive · Decorative Finish',  cls: 'ge3', cat: 'exclusive', img: '/Texture 3 EXCL.png'  },
-  { t: 'Venetian Bronze',         s: 'Exclusive · Luxury Texture',     cls: 'ge4', cat: 'exclusive', img: '/Texture 4 EXCL.png'  },
-  { t: 'Pearl Stucco',            s: 'Exclusive · Artisan Craft',      cls: 'ge5', cat: 'exclusive', img: '/Texture 5 EXCL.png'  },
-  { t: 'Gilded Damask',           s: 'Exclusive · Statement Wall',     cls: 'ge6', cat: 'exclusive', img: '/Texture 6 EXCL.png'  },
-  { t: 'Silver Shimmer',          s: 'Exclusive · Metallic Accent',    cls: 'ge7', cat: 'exclusive', img: '/Texture 7 EXCL.png'  },
-  { t: 'Onyx Estate',             s: 'Exclusive · Elite Finish',       cls: 'ge8', cat: 'exclusive', img: '/Texture 8 EXCL.png'  },
+  { t: 'Venetian Plaster',       s: 'Texture · Exterior',              cls: 'g1', cat: 'exterior',   img: '/Texture 13.webp' },
+  { t: 'Metallic Accent',        s: 'Texture · Interior',              cls: 'g2', cat: 'interior',   img: '/Texture 14.webp' },
+  { t: 'Royale Stucco',          s: 'Texture · Interior',              cls: 'g3', cat: 'interior',   img: '/Texture 15.webp' },
+  { t: 'Mandakini Feature Wall', s: 'Texture · Signature Finish',      cls: 'g4', cat: 'texture',    img: '/Texture 16.webp' },
+  { t: 'Commercial Repaint',     s: 'Texture · Commercial',            cls: 'g5', cat: 'commercial', img: '/Texture 17.webp' },
+  { t: 'Raj Hans',               s: 'Texture · Luxury',                cls: 'g6', cat: 'texture',    img: '/Texture 8.webp'  },
+  { t: 'Azure Limewash',         s: 'Texture · Interior',              cls: 'g7', cat: 'interior',   img: '/Texture 9.webp'  },
+  { t: 'Statement Wall',         s: 'Texture · Commercial',            cls: 'g8', cat: 'commercial', img: '/Texture 10.webp' },
+  { t: 'Ivory Marmorino',        s: 'Exclusive · Signature Finish',    cls: 'ge1', cat: 'exclusive', img: '/Texture 1 EXCL.webp'  },
+  { t: 'Champagne Royale',       s: 'Exclusive · Premium Interior',    cls: 'ge2', cat: 'exclusive', img: '/Texture 2 EXCl.webp'  },
+  { t: 'Midnight Plaster',       s: 'Exclusive · Decorative Finish',   cls: 'ge3', cat: 'exclusive', img: '/Texture 3 EXCL.webp'  },
+  { t: 'Venetian Bronze',        s: 'Exclusive · Luxury Texture',      cls: 'ge4', cat: 'exclusive', img: '/Texture 4 EXCL.webp'  },
+  { t: 'Pearl Stucco',           s: 'Exclusive · Artisan Craft',       cls: 'ge5', cat: 'exclusive', img: '/Texture 5 EXCL.webp'  },
+  { t: 'Gilded Damask',          s: 'Exclusive · Statement Wall',      cls: 'ge6', cat: 'exclusive', img: '/Texture 6 EXCL.webp'  },
+  { t: 'Silver Shimmer',         s: 'Exclusive · Metallic Accent',     cls: 'ge7', cat: 'exclusive', img: '/Texture 7 EXCL.webp'  },
+  { t: 'Onyx Estate',            s: 'Exclusive · Elite Finish',        cls: 'ge8', cat: 'exclusive', img: '/Texture 8 EXCL.webp'  },
 ];
 ---
 <Layout title="Project Gallery — Nakkashi Signature Painting">
@@ -34,9 +37,9 @@ const projects = [
   <section class="section bg-paper">
     <div class="wrap">
       <div class="sec-head center reveal">
-        <div class="eyebrow">Selected Projects</div>
-        <h2>A glimpse of <em>recent</em> transformations.</h2>
-        <p>From villa exteriors to boutique fit-outs — every project is approached with the same standard of craftsmanship.</p>
+        <div class="eyebrow">Signature Collection</div>
+        <h2>Textures &amp; finishes from <em>our catalogue.</em></h2>
+        <p>The surface treatments our craftsmen apply on every project. Live project photography is currently in production — new work will appear here through the season.</p>
       </div>
 
       <div class="gallery-filters reveal">
@@ -51,7 +54,7 @@ const projects = [
       <div class="gallery reveal" id="gallery">
         {projects.map(p => (
           <div class={`gtile ${p.cls}`} data-cat={p.cat}>
-            <img src={withBase(p.img)} alt={p.t} />
+            <img src={withBase(p.img)} alt={p.t}  loading="lazy" decoding="async" />
             <div class="gmeta">
               <div class="t">{p.t}</div>
               <div class="s">{p.s}</div>
@@ -68,17 +71,17 @@ const projects = [
     <div class="wrap" style="position:relative;z-index:2">
       <div class="sec-head center reveal">
         <div class="eyebrow">By the Numbers</div>
-        <h2>Fifteen years. Twelve hundred <em>spaces.</em></h2>
+        <h2>Fifteen years. Three-hundred and fifty <em>spaces.</em></h2>
         <p>A track record built one wall at a time.</p>
       </div>
       <div class="stat-strip">
         <div class="stat-item">
-          <div class="num">1,200+</div>
-          <div class="lbl">Projects Delivered</div>
+          <div class="num">350+</div>
+          <div class="lbl">Spaces Transformed</div>
         </div>
         <div class="stat-item">
           <div class="num">50+</div>
-          <div class="lbl">Master Craftsmen</div>
+          <div class="lbl">Skilled Craftsmen</div>
         </div>
         <div class="stat-item">
           <div class="num">120+</div>

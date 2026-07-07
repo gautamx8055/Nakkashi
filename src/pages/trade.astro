@@ -1,0 +1,415 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABand from '../components/CTABand.astro';
+import { withBase } from '../lib/url';
+import { services } from '../data/services';
+
+const tradeServices = services.filter(s => s.tiers.includes('trade'));
+
+const benefits = [
+  {
+    title: 'Studio Wall — On Us',
+    desc: 'Every new trade partner gets one complimentary feature wall in their own studio or showroom, executed to Nakkashi standards. See our work in your own space before you spec it for a client.',
+    icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+  },
+  {
+    title: 'Trade Pricing & Terms',
+    desc: 'Preferred rates on all texture and finish services, with structured credit terms for approved partners. Detailed rate card shared on partner onboarding.',
+    icon: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/>',
+  },
+  {
+    title: 'Priority Scheduling',
+    desc: 'Trade projects get first pick of our master crews and are locked into a firm schedule at proposal stage — so your handover dates don\'t slip because ours did.',
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  },
+  {
+    title: 'Dedicated Project Manager',
+    desc: 'One named point of contact for every trade project — coordinating with your site team, sharing daily updates, and handling QA sign-off before you visit.',
+    icon: '<circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0116 0"/>',
+  },
+  {
+    title: 'On-Spec Material Handling',
+    desc: 'Bring your own supplied materials or use ours — either way, we document every batch, track application, and hand over the material log with the project.',
+    icon: '<path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/>',
+  },
+  {
+    title: 'Sample Panels On Request',
+    desc: 'Physical texture panels prepared to your spec and delivered to your studio within a week — for client presentations, mood boards, or spec review meetings.',
+    icon: '<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>',
+  },
+];
+
+const process = [
+  { n: '01', t: 'Introductory Call', d: 'A short call to understand your practice, project pipeline, and typical specifications.' },
+  { n: '02', t: 'Studio Wall Visit', d: 'We visit your studio, propose a signature wall, and execute it complimentary within two weeks.' },
+  { n: '03', t: 'Partner Onboarding', d: 'Trade rate card, credit terms, sample panels library, and dedicated project manager assigned.' },
+  { n: '04', t: 'First Project', d: 'Kick off your first client project with priority scheduling and a written on-time delivery guarantee.' },
+];
+---
+<Layout title="For Architects & Interior Designers — Nakkashi Trade Program">
+  <PageHero
+    eyebrow="For Designers &amp; Architects"
+    title="A trade partner your specifications can trust."
+    lead="Nakkashi runs a dedicated program for architects and interior designers — trade terms, priority scheduling, a complimentary Studio Wall, and one project manager per project."
+  />
+
+  <!-- INTRO -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">The Trade Program</div>
+        <h2>Built for how <em>you</em> actually work.</h2>
+        <p>Most painting contractors treat trade clients like retail clients. Nakkashi doesn't. Everything below is standard for our design and architecture partners.</p>
+      </div>
+
+      <div class="trade-grid">
+        {benefits.map(b => (
+          <div class="trade-card reveal">
+            <div class="trade-icon">
+              <svg viewBox="0 0 24 24" set:html={b.icon}></svg>
+            </div>
+            <h3>{b.title}</h3>
+            <p>{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO WALL FEATURE -->
+  <section class="section bg-dark studio-wall">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <div class="content-grid reveal">
+        <div>
+          <div class="eyebrow" style="color:var(--gold)">The Studio Wall Offer</div>
+          <h2 style="color:#fff">See the finish <em>in your own studio.</em></h2>
+          <p style="color:rgba(247,243,234,.85)">
+            Sample cards only tell part of the story. That's why we do a Studio Wall — a complimentary
+            feature wall in your studio, showroom, or office, executed to the same standard we'd apply
+            on a client project.
+          </p>
+          <p style="color:rgba(247,243,234,.85)">
+            You pick the texture. We supply, execute, and clean up. It becomes a live sample for your
+            client meetings — and it lets us prove our work before you spec it.
+          </p>
+          <ul class="sw-list">
+            <li><span class="dot"></span>One texture of your choice, from any collection</li>
+            <li><span class="dot"></span>Executed by our master crew, on our clock</li>
+            <li><span class="dot"></span>Sample panels and material info handed over</li>
+            <li><span class="dot"></span>Zero cost, zero obligation on future work</li>
+          </ul>
+          <a href="#trade-form" class="btn btn-gold" style="margin-top:1.4rem">Claim Your Studio Wall</a>
+        </div>
+        <div class="image-card">
+          <img src={withBase('/Texture 1.webp')} alt="Studio Wall example texture" style="min-height:340px;object-fit:cover"  loading="lazy" decoding="async" />
+          <span class="overlay-tag">Signature Textures · Studio Wall Program</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES FOR TRADE -->
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Trade-Available Services</div>
+        <h2>The services we deliver <em>most</em> for trade partners.</h2>
+        <p>Every service in our catalogue is available on trade terms — these are the specifications architects and designers request most.</p>
+      </div>
+      <div class="trade-svc-grid">
+        {tradeServices.map(s => (
+          <div class="trade-svc-card reveal">
+            <div class="ts-icon">
+              <svg viewBox="0 0 24 24" set:html={s.icon}></svg>
+            </div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:2.4rem">
+        <a href={withBase('/services')} class="btn btn-outline-gold">See All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Onboarding</div>
+        <h2>How to join the <em>Trade Program</em>.</h2>
+      </div>
+      <div class="trade-proc">
+        {process.map(p => (
+          <div class="tp-step reveal">
+            <div class="tp-n">{p.n}</div>
+            <h4>{p.t}</h4>
+            <p>{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE LEAD FORM -->
+  <section class="section bg-paper" id="trade-form">
+    <div class="wrap">
+      <div class="form-wrap">
+        <div class="form-card reveal">
+          <h3>Join the Trade Program</h3>
+          <p style="color:var(--muted);margin-bottom:1.4rem">
+            Share a few details and our partnership lead will reach out within 24 hours to schedule the introductory call and your complimentary Studio Wall.
+          </p>
+          <form id="tradeForm" name="trade" method="POST" action="https://formspree.io/f/xlgypabo">
+            <input type="hidden" name="_subject" value="New Trade Partner Enquiry — Nakkashi" />
+            <input type="hidden" name="lead_type" value="Trade / A&ID" />
+            <div class="form-grid">
+              <div class="field">
+                <label for="tname">Your Name *</label>
+                <input id="tname" name="name" type="text" required placeholder="Your full name" />
+              </div>
+              <div class="field">
+                <label for="tphone">Phone *</label>
+                <input id="tphone" name="phone" type="tel" required placeholder="+91 74006 40093" />
+              </div>
+              <div class="field">
+                <label for="temail">Email *</label>
+                <input id="temail" name="email" type="email" required placeholder="you@studio.com" />
+              </div>
+              <div class="field">
+                <label for="firm">Firm / Studio *</label>
+                <input id="firm" name="firm" type="text" required placeholder="Your firm or studio name" />
+              </div>
+              <div class="field">
+                <label for="role">Your Role</label>
+                <select id="role" name="role">
+                  <option value="">Select…</option>
+                  <option>Principal Architect</option>
+                  <option>Interior Designer</option>
+                  <option>Studio Owner</option>
+                  <option>Project Manager</option>
+                  <option>Procurement / Specifier</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="e.g. New Delhi" />
+              </div>
+              <div class="field full">
+                <label for="tmessage">Tell us about your practice</label>
+                <textarea id="tmessage" name="message" placeholder="What kind of projects do you typically work on? Any upcoming projects where we should be introduced?"></textarea>
+              </div>
+              <div class="field full">
+                <button type="submit" id="tradeBtn" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:1rem">
+                  Request Trade Onboarding
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <p style="font-size:.82rem;color:var(--muted);text-align:center;margin-top:.8rem">
+                  Or WhatsApp us directly at <a href="https://wa.me/917400640093" target="_blank" rel="noopener" style="color:var(--gold-deep);font-weight:600">+91 74006 40093</a>.
+                </p>
+              </div>
+            </div>
+            <div id="tradeSuccess" style="display:none;text-align:center;padding:2rem 1rem">
+              <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;display:grid;place-items:center;margin:0 auto 1rem;box-shadow:0 12px 30px rgba(224,170,62,.4)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>
+              </div>
+              <h4 style="font-family:var(--display);font-size:1.5rem;color:var(--navy-deep);margin:0 0 .5rem">Enquiry received!</h4>
+              <p style="color:var(--muted)">Our partnership lead will reach out within 24 hours.</p>
+            </div>
+          </form>
+          <script is:inline>
+            document.getElementById('tradeForm').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('tradeBtn');
+              btn.textContent = 'Sending…';
+              btn.disabled = true;
+              try {
+                const res = await fetch(this.action, {
+                  method: 'POST', body: new FormData(this),
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  this.querySelector('.form-grid').style.display = 'none';
+                  document.getElementById('tradeSuccess').style.display = 'block';
+                } else { throw new Error(); }
+              } catch {
+                btn.textContent = 'Request Trade Onboarding';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again or WhatsApp us.');
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Prefer a call before you fill out a form?"
+    text="Reach the partnership team directly. We're happy to talk projects, textures, or terms."
+    primaryLabel="WhatsApp Us"
+    primaryHref="/quote"
+    secondaryLabel="Back to Services"
+    secondaryHref="/services"
+  />
+
+  <style>
+    .trade-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 2.5rem;
+    }
+    .trade-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .trade-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(224, 170, 62, .35);
+    }
+    .trade-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(224, 170, 62, .18), rgba(224, 170, 62, .06));
+      border: 1px solid rgba(224, 170, 62, .3);
+      display: grid; place-items: center;
+      margin-bottom: 1rem;
+    }
+    .trade-icon svg {
+      width: 22px; height: 22px;
+      fill: none; stroke: var(--gold-deep); stroke-width: 1.7;
+    }
+    .trade-card h3 {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin-bottom: .6rem;
+    }
+    .trade-card p {
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .studio-wall .content-grid {
+      align-items: center;
+      gap: 3rem;
+    }
+    .sw-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      display: grid;
+      gap: .6rem;
+    }
+    .sw-list li {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: rgba(247, 243, 234, .9);
+      font-size: .95rem;
+    }
+    .sw-list .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(224, 170, 62, .18);
+    }
+
+    .trade-svc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.5rem;
+    }
+    .trade-svc-card {
+      background: linear-gradient(160deg, #fff, var(--cream));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem 1.6rem;
+      display: flex;
+      gap: 1.1rem;
+    }
+    .ts-icon {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(2, 32, 68, .08);
+      display: grid; place-items: center;
+    }
+    .ts-icon svg {
+      width: 20px; height: 20px;
+      fill: none; stroke: var(--navy-deep); stroke-width: 1.7;
+    }
+    .trade-svc-card h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin: 0 0 .35rem;
+    }
+    .trade-svc-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .trade-proc {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.5rem;
+    }
+    .tp-step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      text-align: center;
+    }
+    .tp-n {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold-deep);
+      margin-bottom: .6rem;
+    }
+    .tp-step h4 {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      color: var(--navy-deep);
+      margin: 0 0 .5rem;
+    }
+    .tp-step p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    @media (max-width: 960px) {
+      .trade-grid { grid-template-columns: repeat(2, 1fr); }
+      .trade-proc { grid-template-columns: repeat(2, 1fr); }
+      .trade-svc-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .trade-grid { grid-template-columns: 1fr; }
+      .trade-proc { grid-template-columns: 1fr; }
+    }
+  </style>
+</Layout>

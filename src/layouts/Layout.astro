@@ -7,11 +7,13 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  preloadHero?: boolean;
 }
 
 const {
   title,
   description = 'Nakkashi — Premium painting and decorative finishes. Signature textures, master craftsmanship, and professional execution for residential, commercial, and hospitality spaces.',
+  preloadHero = false,
 } = Astro.props;
 import { withBase } from '../lib/url';
 ---
@@ -19,10 +21,12 @@ import { withBase } from '../lib/url';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={withBase('/Nakashi-logo-final-Transparent.png')} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="alternate icon" href={withBase('/favicon.ico')} />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#022044" />
     <link rel="canonical" href={`https://nakkashipainting.com${Astro.url.pathname}`} />
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -31,25 +35,91 @@ import { withBase } from '../lib/url';
     <meta property="og:url" content={`https://nakkashipainting.com${Astro.url.pathname}`} />
     <meta property="og:site_name" content="Nakkashi Signature Painting" />
     <title>{title}</title>
+    <!-- Preload hero image on the homepage for LCP -->
+    {preloadHero && (
+      <link
+        rel="preload"
+        as="image"
+        href={withBase('/hero section.webp')}
+        fetchpriority="high"
+        type="image/webp"
+      />
+    )}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking Google Fonts (swap uses fallback fonts until Google's are loaded) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Outfit:wght@400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body>
     <TopBar />
     <div class="offer-strip" role="banner">
-      <marquee class="offer-marquee" behavior="scroll" direction="left" scrollamount="4">Get <strong>25% OFF</strong> on your Signature Wall — Exclusive Nakkashi offer &nbsp;&nbsp;&nbsp; Get <strong>25% OFF</strong> on your Signature Wall — Exclusive Nakkashi offer</marquee>
-      <span class="offer-text">Get <strong>25% OFF</strong> on your Signature Wall — Exclusive Nakkashi offer</span>
-      <a href={withBase('/quote')} class="offer-cta">Book Now →</a>
+      <span class="offer-text"><strong>Late? It's Free.</strong> — India-first written on-time delivery guarantee</span>
+      <span class="offer-text-mobile"><strong>Late? It's Free.</strong> — On-time or your next room is free</span>
+      <a href={withBase('/quote')} class="offer-cta">Book a Site Visit →</a>
     </div>
     <Header />
     <main>
       <slot />
     </main>
+
+    <!-- Floating WhatsApp button -->
+    <a
+      href="https://wa.me/917400640093?text=Hi%20Nakkashi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+      class="wa-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat with Nakkashi on WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path fill="currentColor" d="M20.5 3.5A11 11 0 003.6 17.3L2 22l4.8-1.6A11 11 0 1020.5 3.5zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.9 1 1-2.8-.2-.3A8 8 0 1120 12a8 8 0 01-8 8zm4.6-6c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/>
+      </svg>
+    </a>
+
     <Footer />
+
+    <style>
+      .wa-float {
+        position: fixed;
+        left: 1.2rem;
+        bottom: 1.4rem;
+        z-index: 1050;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: #25D366;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .18);
+        text-decoration: none;
+        transition: transform .2s, box-shadow .2s;
+        animation: waFloatPulse 2.6s ease-in-out infinite;
+      }
+      .wa-float:hover {
+        transform: translateY(-3px) scale(1.06);
+        box-shadow: 0 16px 34px rgba(37, 211, 102, .55), 0 0 0 8px rgba(37, 211, 102, .22);
+      }
+      .wa-float svg { display: block; }
+      @keyframes waFloatPulse {
+        0%, 100% { box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .18), 0 0 0 0 rgba(37, 211, 102, 0); }
+        50%      { box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .28), 0 0 0 14px rgba(37, 211, 102, 0); }
+      }
+      @media (max-width: 520px) {
+        .wa-float { left: .8rem; bottom: .9rem; width: 52px; height: 52px; }
+        .wa-float svg { width: 24px; height: 24px; }
+      }
+    </style>
 
     <script is:inline>
       (function () {
