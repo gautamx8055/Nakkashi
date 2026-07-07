@@ -34,7 +34,7 @@ Ordered HIGH → MEDIUM → LOW, matching expected impact vs. effort.
 **What to change:**
 - `src/components/LeadPopup.astro:14–19` — Replace the promo strip copy:
   - Current: *"Exclusive Deal — Only For You / Give us your paint work. We'll do your Feature Wall — complimentary."*
-  - New: *"India-First Commitment / Late? It's Free. — We guarantee on-time handover or your next room is on us."*
+  - New: *"India-First Commitment / Late? — We guarantee on-time handover or your next room is on us."*
 - `src/pages/index.astro:59–64` — Remove `off: '25% OFF'` from the `trending` array; replace badge text with something brand-positive (e.g. "Most Loved", "Editor's Pick", "Bestseller")
 - `src/pages/index.astro:348–350` — The `<span class="trend-badge">` currently renders `{t.off}`; update the badge to show the new label
 - `src/pages/index.astro:136–147` — The hero's float-badge already says *"100% On-Time Site Handovers"* — tie this more explicitly to the "Late? It's Free" guarantee copy
