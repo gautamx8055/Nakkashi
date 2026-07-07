@@ -4,66 +4,16 @@ import ContractorMarquee from '../components/ContractorMarquee.astro';
 import CTABand from '../components/CTABand.astro';
 import LeadPopup from '../components/LeadPopup.astro';
 import { withBase } from '../lib/url';
-
-const services = [
-  {
-    cat: 'texture',
-    title: 'Signature Texture Collection',
-    desc: 'Artistic textures designed to bring depth, character, and sophistication to every surface.',
-    href: '/services',
-    label: 'Explore textures',
-    icon: '<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>',
-  },
-  {
-    cat: 'interior',
-    title: 'Elite Interior Finishes',
-    desc: 'Premium painting crafted to deliver flawless aesthetics and enduring beauty for every room.',
-    href: '/services',
-    label: 'View interior work',
-    icon: '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>',
-  },
-  {
-    cat: 'artistry',
-    title: 'Luxury Surface Artistry',
-    desc: 'Exclusive  finishes inspired by contemporary architecture and high-end luxury interiors.',
-    href: '/services',
-    label: 'See finishes',
-    icon: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/><path d="M3 12h18"/>',
-  },
-  {
-    cat: 'statement',
-    title: 'Statement Wall Creations',
-    desc: 'Bespoke feature walls designed to become the focal point of exceptional, memorable spaces.',
-    href: '/services',
-    label: 'View statement walls',
-    icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
-  },
-  {
-    cat: 'waterproof',
-    title: 'ShieldPro Waterproofing',
-    desc: 'Advanced protection systems engineered to safeguard structures from moisture, seepage, etc..',
-    href: '/services',
-    label: 'Learn protection',
-    icon: '<path d="M12 2s7 6 7 11a7 7 0 01-14 0c0-5 7-11 7-11z"/>',
-  },
-  {
-    cat: 'consultancy',
-    title: 'Design & Finish Consultancy',
-    desc: 'Expert guidance in selecting textures, finishes, and colour palettes that align with your vision.',
-    href: '/services',
-    label: 'Book consultation',
-    icon: '<circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="11.5" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a3 3 0 003-3c0-1.5-3-4-3-4"/>',
-  },
-];
+import { services, tiers } from '../data/services';
 
 const trending = [
-  { title: 'Venetian Gold',    tag: 'Signature', off: '25% OFF', img: '/Texture 1 EXCL.png',  desc: 'Richly textured gold-toned finish with timeless Italian character.', tone: 'gold' },
-  { title: 'Pearl Essence',    tag: 'Premium',   off: '25% OFF', img: '/Texture 2 EXCl.png',  desc: 'Soft pearlescent finish that catches light with subtle elegance.', tone: 'cream' },
-  { title: 'Royal Damask',     tag: 'Texture',   off: '25% OFF', img: '/Texture 3 EXCL.png',  desc: 'Intricate raised pattern that adds depth and grandeur to any wall.', tone: 'bronze' },
-  { title: 'Azure Limewash',   tag: 'Classic',   off: '25% OFF', img: '/Texture 4 EXCL.png',  desc: 'Breathable mineral wash in deep navy with old-world character.', tone: 'navy' },
+  { title: 'Venetian Gold',    tag: 'Signature', badge: 'Editor’s Pick', img: '/Texture 1 EXCL.webp',  desc: 'Richly textured gold-toned finish with timeless Italian character.', tone: 'gold' },
+  { title: 'Pearl Essence',    tag: 'Premium',   badge: 'Most Loved',        img: '/Texture 2 EXCl.webp',  desc: 'Soft pearlescent finish that catches light with subtle elegance.', tone: 'cream' },
+  { title: 'Royal Damask',     tag: 'Texture',   badge: 'Signature',         img: '/Texture 3 EXCL.webp',  desc: 'Intricate raised pattern that adds depth and grandeur to any wall.', tone: 'bronze' },
+  { title: 'Azure Limewash',   tag: 'Classic',   badge: 'New This Season',   img: '/Texture 4 EXCL.webp',  desc: 'Breathable mineral wash in deep navy with old-world character.', tone: 'navy' },
 ];
 ---
-<Layout title="Nakkashi — Premium Painting & Texture Execution Partner">
+<Layout title="Nakkashi — Premium Painting & Texture Execution Partner" preloadHero={true}>
   <LeadPopup />
 
   {/* 1) BRAND/CONTRACTOR MARQUEE — hidden for now, re-enable by uncommenting */}
@@ -72,7 +22,14 @@ const trending = [
   <!-- 2) HERO -->
   <section class="hero" id="home">
     <div class="hero-img-overlay">
-      <img src={withBase('/hero section.png')} alt="" />
+      <img
+        src={withBase('/hero section.webp')}
+        alt=""
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
     <div class="hero-grain"></div>
     <div class="hero-glow"></div>
@@ -91,16 +48,16 @@ const trending = [
             </span>
           </div>
           <div class="hero-eyebrow eyebrow">
-            <span class="bar"></span> Premium Painting &amp; Texture Execution Partner
+            For Homes · Workspaces · Design Experts
           </div>
           <h1>
             <span class="accent">Transforming</span> Walls<br />
             Into Signature Spaces.
           </h1>
           <p class="lead">
-            We specialize in the execution of premium painting, textures, and
-            decorative finishes using trusted products from leading brands such
-            as Asian Paints, Berger, Dulux, Birla Opus, and Sirca.
+            Nakkashi is a premium painting &amp; texture execution partner —
+            trusted by homeowners, commercial spaces, and India's leading
+            designers for signature finishes delivered on time, every time.
           </p>
           <div class="hero-cta">
             <a href={withBase('/quote')} class="btn btn-gold">
@@ -121,15 +78,15 @@ const trending = [
         <div class="hero-visual">
           <div class="swatch-stack">
             <div class="swatch s1">
-              <div class="chip"><img src={withBase('/Texture 3.png')} alt="Aura Finish texture" /></div>
+              <div class="chip"><img src={withBase('/Texture 3.webp')} alt="Aura Finish texture"  loading="lazy" decoding="async" /></div>
               <div class="meta"><div class="h">Aura Finish</div><div class="c">Premium Finish</div></div>
             </div>
             <div class="swatch s3">
-              <div class="chip"><img src={withBase('/Texture 2.png')} alt="Raj Hans texture" /></div>
+              <div class="chip"><img src={withBase('/Texture 2.webp')} alt="Raj Hans texture"  loading="lazy" decoding="async" /></div>
               <div class="meta"><div class="h">Raj Hans</div><div class="c">Luxury Finish</div></div>
             </div>
             <div class="swatch s2">
-              <div class="chip"><img src={withBase('/Texture 1.png')} alt="Mandakini Finish texture" /></div>
+              <div class="chip"><img src={withBase('/Texture 1.webp')} alt="Mandakini Finish texture"  loading="lazy" decoding="async" /></div>
               <div class="meta"><div class="h">Mandakini Finish</div><div class="c">Signature Texture</div></div>
             </div>
           </div>
@@ -137,7 +94,7 @@ const trending = [
             <svg viewBox="0 0 24 24" fill="none" stroke="#E0AA3E" stroke-width="1.8">
               <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            100% On-Time Site Handovers
+            Late? — On-Time Guarantee
           </div>
           <div class="float-badge fb-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="#022044" stroke-width="1.8">
@@ -158,7 +115,7 @@ const trending = [
     <div class="wrap">
       <div class="content-grid">
         <div class="image-card reveal">
-          <img src={withBase('/About us page.png')} alt="Nakkashi craftsmanship" />
+          <img src={withBase('/About us page.webp')} alt="Nakkashi craftsmanship"  loading="lazy" decoding="async" />
         </div>
         <div class="reveal">
           <div class="eyebrow">About Nakkashi</div>
@@ -175,6 +132,10 @@ const trending = [
             builders, and businesses to create spaces that leave a lasting
             impression — from contemporary textures to timeless finishes.
           </p>
+          <p class="founder-hook">
+            <span class="fh-tag">Founder-led</span>
+            Trained with <strong>Asian Paints</strong> &amp; certified applicators for <strong>Birla Opus</strong> — 15+ years of hands-on execution before Nakkashi.
+          </p>
           <a href={withBase('/about')} class="btn btn-ghost" style="margin-top:.8rem">
             Discover Our Story
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -185,6 +146,136 @@ const trending = [
       </div>
     </div>
   </section>
+
+  <!-- WHO WE WORK WITH — 3-TIER AUDIENCE STORY -->
+  <section class="section bg-paper" id="who-we-work-with">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Who We Work With</div>
+        <h2>Three audiences. <em>One standard of craft.</em></h2>
+        <p>Whether you're finishing a home, opening a hotel, or specifying for a client — Nakkashi delivers the same premium execution, tailored to how you work.</p>
+      </div>
+
+      <div class="tier-grid">
+        {tiers.map(t => (
+          <div class={`tier-card tier-${t.key} reveal`}>
+            <div class="tier-label">{t.label}</div>
+            <h3>{t.tagline}</h3>
+            <p>{t.desc}</p>
+            <a href={withBase(t.key === 'trade' ? '/trade' : '/services')} class="more">
+              {t.key === 'residential' ? 'Explore for homes' : t.key === 'commercial' ? 'Explore commercial' : 'Join the trade program'}
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 2.5rem;
+    }
+    .tier-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s, box-shadow .35s, border-color .35s;
+    }
+    .tier-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+    }
+    .tier-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(224, 170, 62, .35);
+    }
+    .tier-card .tier-label {
+      font-size: .68rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gold-deep);
+      margin-bottom: .8rem;
+    }
+    .tier-card h3 {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+      line-height: 1.2;
+      margin-bottom: .8rem;
+    }
+    .tier-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .tier-card .more {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--gold-deep);
+      font-weight: 600;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: gap .2s, color .2s;
+    }
+    .tier-card .more svg {
+      width: 14px; height: 14px;
+      fill: none; stroke: currentColor; stroke-width: 2;
+    }
+    .tier-card .more:hover { color: var(--navy-deep); gap: .7rem; }
+    .tier-card.tier-trade {
+      background: linear-gradient(160deg, #fff, #FAF4E6);
+      border-color: rgba(224, 170, 62, .3);
+    }
+    @media (max-width: 900px) {
+      .tier-grid { grid-template-columns: 1fr; }
+    }
+
+    .founder-hook {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      margin-top: 1rem !important;
+      padding: .9rem 1.1rem;
+      background: rgba(224, 170, 62, .1);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      font-size: .92rem !important;
+      color: var(--navy-deep) !important;
+      line-height: 1.5;
+    }
+    .fh-tag {
+      flex-shrink: 0;
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gold-deep);
+      background: #fff;
+      padding: .25rem .55rem;
+      border-radius: 50px;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    .founder-hook strong { color: var(--gold-deep); }
+  </style>
 
   <!-- (1) OUR SIGNATURE SERVICES — TOP -->
   <section class="section bg-cream" id="services">
@@ -205,7 +296,7 @@ const trending = [
               <svg viewBox="0 0 24 24" set:html={s.icon}></svg>
             </div>
             <h3>{s.title}</h3>
-            <p>{s.desc}</p>
+            <p>{s.shortDesc}</p>
             <a href={withBase(s.href)} class="more">{s.label} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         ))}
@@ -227,13 +318,13 @@ const trending = [
           </p>
           <ul class="lead-perks">
             <li><span class="dot"></span>Free interior design consultation</li>
-            <li><span class="dot"></span>100% on-time site handovers</li>
-            <li><span class="dot"></span>Premium texture execution from ₹18/sq.ft.</li>
+            <li><span class="dot"></span><strong>Late? It's Free</strong> — written on-time guarantee</li>
+            <li><span class="dot"></span>Transparent, tier-based pricing after your site visit</li>
             <li><span class="dot"></span>50+ skilled craftsmen on hand</li>
           </ul>
         </div>
 
-        <form class="lead-form" id="inlineLeadForm" method="POST" action="YOUR_FORMSPREE_ENDPOINT">
+        <form class="lead-form" id="inlineLeadForm" method="POST" action="https://formspree.io/f/xlgypabo">
           <input type="hidden" name="_subject" value="New Lead — Nakkashi Free Site Visit" />
           <div class="lead-tag">Step 1 of 1 · 60-second form</div>
           <h3>Book a Free Site Visit</h3>
@@ -338,15 +429,15 @@ const trending = [
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="eyebrow">Trending This Season</div>
-        <h2>Trending textures <em>with offers.</em></h2>
-        <p>Limited-time pricing on our most-loved finishes — book before they go.</p>
+        <h2>The finishes clients <em>keep asking for.</em></h2>
+        <p>Our most-specified textures — the ones designers and homeowners come back to time after time.</p>
       </div>
       <div class="trend-grid">
         {trending.map(t => (
           <div class={`trend-card tone-${t.tone} reveal`}>
             <div class="trend-thumb">
-              <img src={withBase(t.img)} alt={t.title} />
-              <span class="trend-badge">{t.off}</span>
+              <img src={withBase(t.img)} alt={t.title}  loading="lazy" decoding="async" />
+              <span class="trend-badge">{t.badge}</span>
             </div>
             <div class="trend-body">
               <div class="trend-meta">
@@ -373,7 +464,7 @@ const trending = [
         </p>
       </div>
       <div class="palette-img reveal">
-        <img src={withBase('/paintpalatte.jpeg')} alt="The Nakkashi Signature Colour Palette" />
+        <img src={withBase('/paintpalatte.webp')} alt="The Nakkashi Signature Colour Palette"  loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
@@ -382,18 +473,21 @@ const trending = [
   <section class="section bg-paper" id="showcase">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="eyebrow">Recent Work</div>
-        <h2>Transformations, <em>signed by Nakkashi.</em></h2>
-        <p>A glimpse of homes, offices, and hospitality spaces where colour, craft and care came together.</p>
+        <div class="eyebrow">From Our Signature Collection</div>
+        <h2>Textures &amp; finishes <em>signed by Nakkashi.</em></h2>
+        <p>A closer look at the surface treatments our craftsmen apply on every project — from limewash to metallic accents.</p>
       </div>
       <div class="gallery reveal">
-        <div class="gtile g1"><img src={withBase('/Texture 8.png')} alt="Hillside Villa Exterior" /><div class="gmeta"><div class="t">Hillside Villa Exterior</div><div class="s">Exterior · Weather-shield</div></div></div>
-        <div class="gtile g2"><img src={withBase('/Texture 9.png')} alt="Gilded Living Room" /><div class="gmeta"><div class="t">Gilded Living Room</div><div class="s">Interior · Metallic Accent</div></div></div>
-        <div class="gtile g3"><img src={withBase('/Texture 10.png')} alt="Master Suite" /><div class="gmeta"><div class="t">Master Suite</div><div class="s">Interior · Royale</div></div></div>
-        <div class="gtile g4"><img src={withBase('/Texture 11.png')} alt="Feature Wall" /><div class="gmeta"><div class="t">Feature Wall</div><div class="s">Texture</div></div></div>
-        <div class="gtile g5"><img src={withBase('/Texture 12.png')} alt="Boutique Café Fit-out" /><div class="gmeta"><div class="t">Boutique Café Fit-out</div><div class="s">Commercial · Full Repaint</div></div></div>
+        <div class="gtile g1"><img src={withBase('/Texture 8.webp')} alt="Weather-shield exterior finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Weather-shield Exterior</div><div class="s">Texture · Exterior</div></div></div>
+        <div class="gtile g2"><img src={withBase('/Texture 9.webp')} alt="Metallic accent interior finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Metallic Accent</div><div class="s">Texture · Interior</div></div></div>
+        <div class="gtile g3"><img src={withBase('/Texture 10.webp')} alt="Royale stucco interior finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Royale Stucco</div><div class="s">Texture · Interior</div></div></div>
+        <div class="gtile g4"><img src={withBase('/Texture 11.webp')} alt="Signature feature wall texture sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Signature Feature Wall</div><div class="s">Texture</div></div></div>
+        <div class="gtile g5"><img src={withBase('/Texture 12.webp')} alt="Statement wall finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Statement Finish</div><div class="s">Texture · Commercial</div></div></div>
       </div>
-      <div style="text-align:center;margin-top:2rem">
+      <p style="text-align:center;margin-top:1.4rem;color:var(--muted);font-size:.88rem;font-style:italic">
+        Real project photography currently in production — client site photoshoots underway.
+      </p>
+      <div style="text-align:center;margin-top:1.2rem">
         <a href={withBase('/gallery')} class="btn btn-ghost">View Full Gallery</a>
       </div>
     </div>
@@ -411,21 +505,58 @@ const trending = [
           <div class="mark">"</div>
           <div class="stars">★★★★★</div>
           <p>The crew was punctual, tidy and genuinely skilled. Our home looks like something out of a magazine — the gold accent wall is everyone's favourite.</p>
-          <div class="who"><div class="av">RA</div><div><div class="nm">Riya Arora</div><div class="rl">Greater Kailash</div></div></div>
+          <div class="who">
+            <div class="av" data-photo="/testimonials/riya-arora.webp" data-initials="RA">RA</div>
+            <div>
+              <div class="nm">Riya Arora</div>
+              <div class="rl">3 BHK Renovation · Greater Kailash</div>
+            </div>
+          </div>
         </div>
         <div class="quote-card reveal">
           <div class="mark">"</div>
           <div class="stars">★★★★★</div>
           <p>From the colour consultation to the final coat, everything felt premium. No mess, no delays, and the finish is absolutely flawless.</p>
-          <div class="who"><div class="av">VM</div><div><div class="nm">Vikram Mehta</div><div class="rl">Dwarka</div></div></div>
+          <div class="who">
+            <div class="av" data-photo="/testimonials/vikram-mehta.webp" data-initials="VM">VM</div>
+            <div>
+              <div class="nm">Vikram Mehta</div>
+              <div class="rl">Villa Interiors · Dwarka</div>
+            </div>
+          </div>
         </div>
         <div class="quote-card reveal">
           <div class="mark">"</div>
           <div class="stars">★★★★★</div>
           <p>We had recurring seepage for years. Nakkashi's waterproofing fixed it completely and the exterior still looks fresh after two monsoons.</p>
-          <div class="who"><div class="av">SK</div><div><div class="nm">Sunita Kapoor</div><div class="rl">Rohini</div></div></div>
+          <div class="who">
+            <div class="av" data-photo="/testimonials/sunita-kapoor.webp" data-initials="SK">SK</div>
+            <div>
+              <div class="nm">Sunita Kapoor</div>
+              <div class="rl">Exterior &amp; Waterproofing · Rohini</div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <script is:inline>
+        // Progressive-enhance: if a real testimonial photo exists at the data-photo path,
+        // swap the avatar for the image. Falls back to initials otherwise (default).
+        (function () {
+          document.querySelectorAll('.who .av[data-photo]').forEach(function (av) {
+            var src = av.getAttribute('data-photo');
+            if (!src) return;
+            var img = new Image();
+            img.onload = function () {
+              av.style.backgroundImage = 'url(' + src + ')';
+              av.style.backgroundSize = 'cover';
+              av.style.backgroundPosition = 'center';
+              av.textContent = '';
+            };
+            img.src = src;
+          });
+        })();
+      </script>
     </div>
   </section>
 

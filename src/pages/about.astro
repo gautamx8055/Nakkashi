@@ -38,7 +38,7 @@ const principles = [
           </p>
         </div>
         <div class="image-card reveal">
-          <img src={withBase('/About-Nakkashi.png')} alt="Nakkashi craftsmanship at work" style="object-position: right top;" />
+          <img src={withBase('/About-Nakkashi.webp')} alt="Nakkashi craftsmanship at work" style="object-position: right top;"  loading="lazy" decoding="async" />
           <span class="overlay-tag">Turning ordinary walls into extraordinary experiences.</span>
         </div>
       </div>
@@ -109,7 +109,62 @@ const principles = [
             <div class="rl">Founder &amp; CEO, Nakkashi</div>
           </div>
         </div>
+
+        <div class="founder-cred">
+          <div class="fc-label">A background built inside India's biggest paint brands</div>
+          <div class="fc-brands">
+            <span class="fc-chip">Trained with <strong>Asian Paints</strong></span>
+            <span class="fc-chip">Certified applicator, <strong>Birla Opus</strong></span>
+            <span class="fc-chip">15+ years of hands-on execution</span>
+          </div>
+          <p class="fc-note">
+            Before founding Nakkashi, Shubham spent over a decade inside the training and
+            execution programs of India's leading paint manufacturers — learning premium
+            application techniques directly from the people who make the products. Nakkashi
+            was built to bring that professional-grade standard to every home and space.
+          </p>
+        </div>
       </div>
+
+      <style>
+        .founder-cred {
+          margin-top: 2.2rem;
+          padding-top: 1.8rem;
+          border-top: 1px solid rgba(224, 170, 62, .3);
+        }
+        .fc-label {
+          font-size: .72rem;
+          letter-spacing: .22em;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: var(--gold-deep);
+          margin-bottom: 1rem;
+        }
+        .fc-brands {
+          display: flex;
+          flex-wrap: wrap;
+          gap: .5rem;
+          margin-bottom: 1.1rem;
+        }
+        .fc-chip {
+          display: inline-flex;
+          align-items: center;
+          font-size: .82rem;
+          padding: .4rem .85rem;
+          border-radius: 50px;
+          background: rgba(224, 170, 62, .12);
+          border: 1px solid rgba(224, 170, 62, .3);
+          color: var(--navy-deep);
+        }
+        .fc-chip strong { margin-left: .35rem; color: var(--gold-deep); }
+        .fc-note {
+          font-size: .95rem;
+          line-height: 1.65;
+          color: var(--muted);
+          max-width: 62ch;
+          margin: 0;
+        }
+      </style>
     </div>
   </section>
 

@@ -9,6 +9,7 @@ const links = [
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/trade', label: 'For Designers' },
   { href: '/contact', label: 'Contact' },
 ];
 ---
@@ -16,7 +17,7 @@ const links = [
   <div class="wrap">
     <nav class="primary">
       <a href={withBase('/')} class="brand">
-        <img src={withBase('/Nakashi-logo-final-Transparent.png')} alt="Nakkashi Signature Painting" />
+        <img src={withBase('/Nakashi-logo-final-Transparent.webp')} alt="Nakkashi Signature Painting"  loading="lazy" decoding="async" />
       </a>
 
       <form class="nav-search" role="search" id="navSearch" autocomplete="off">
@@ -83,8 +84,9 @@ const links = [
           { kw: ['waterproof','seepage','leak'], to: '/services#waterproof' },
           { kw: ['statement','feature','mural','accent'], to: '/services#statement' },
           { kw: ['design','consult','consultation','consultancy'], to: '/services#consultancy' },
+          { kw: ['designer','architect','trade','studio wall','a&id','specification'], to: '/trade' },
           { kw: ['surface','luxury','venetian','marble'], to: '/services#artistry' },
-          { kw: ['partner','contractor','asian','berger','dulux','birla','sirca'], to: '/partners' },
+          { kw: ['partner','contractor','asian','berger','dulux','birla','sirca'], to: '/about' },
           { kw: ['gallery','project','work'], to: '/gallery' },
           { kw: ['about','story','founder'], to: '/about' },
           { kw: ['quote','price','cost','estimate'], to: '/quote' },

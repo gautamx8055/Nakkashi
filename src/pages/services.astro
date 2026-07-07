@@ -3,81 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTABand from '../components/CTABand.astro';
 import { withBase } from '../lib/url';
-
-const services = [
-  {
-    title: 'Signature Texture Collection',
-    tag: 'Texture',
-    desc: 'Artistic textures that bring depth, character, and sophistication — stucco, lime-wash, metallic, and exclusive Nakkashi-original patterns.',
-    bullets: [
-      'Royale-play & art-effect textures',
-      'Stucco, travertino & limewash',
-      'Custom motif & stencil patterns',
-      'Metallic & pearl finishes',
-    ],
-    icon: `<path d="M4 20l5-5"/><path d="M14 4l6 6-9 9H5v-6z"/><path d="M11 7l6 6"/>`,
-  },
-  {
-    title: 'Elite Interior Finishes',
-    tag: 'Interior',
-    desc: 'Premium smooth emulsion finishes for living spaces, bedrooms, and ceilings — low-odour, washable, and built to last.',
-    bullets: [
-      'Premium emulsion & enamel systems',
-      'Low-VOC, washable finishes',
-      'Designer colour matching',
-      'Furniture & ceiling refinishing',
-    ],
-    icon: `<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>`,
-  },
-  {
-    title: 'Luxury Surface Artistry',
-    tag: 'Decorative',
-    desc: 'Italian-inspired Raj Hans, bespoke metallic effects, and polished concrete — surfaces that feel as good as they look.',
-    bullets: [
-      'Raj Hans & marmorino',
-      'Metallic glazes & gold leaf',
-      'Polished concrete effects',
-      'Hand-applied colour layering',
-    ],
-    icon: `<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/><path d="M3 12h18"/>`,
-  },
-  {
-    title: 'Statement Wall Creations',
-    tag: 'Feature',
-    desc: 'Bespoke feature walls designed to anchor a room — custom murals, 3D textured panels, and architectural accent walls.',
-    bullets: [
-      'Architectural feature walls',
-      'Custom-designed murals',
-      '3D textured panels',
-      'Headboard & accent walls',
-    ],
-    icon: `<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>`,
-  },
-  {
-    title: 'ShieldPro Waterproofing',
-    tag: 'Protection',
-    desc: 'Terrace, bathroom, and crack-sealing solutions that stop seepage at the source and protect your structure for years.',
-    bullets: [
-      'Terrace & roof waterproofing',
-      'Bathroom & wet-area sealing',
-      'Crack-bridging coatings',
-      'Exterior weather-shield systems',
-    ],
-    icon: `<path d="M12 2s7 6 7 11a7 7 0 01-14 0c0-5 7-11 7-11z"/>`,
-  },
-  {
-    title: 'Bespoke Design & Consultancy',
-    tag: 'Bespoke',
-    desc: 'From free on-site colour consultation to architect-led R&D — we collaborate on your vision and engineer the finish that brings it to life.',
-    bullets: [
-      'Free on-site colour consultation',
-      'Digital palette & mock-up previews',
-      'Architect-led collaborations',
-      'Bespoke colour & texture formulations',
-    ],
-    icon: `<circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="11.5" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a3 3 0 003-3c0-1.5-3-4-3-4"/>`,
-  },
-];
+import { services, tiers } from '../data/services';
 
 const steps = [
   { n: '01', title: 'Consultation', desc: 'An in-depth conversation covering your vision, style, and what success looks like for the project.' },
@@ -132,7 +58,15 @@ const privileges = [
     <div class="wrap">
       <div class="sec-head center reveal wide">
         <div class="eyebrow">Our Signature Services</div>
-        <h2>Crafted for every space — <em>residential, commercial, hospitality.</em></h2>
+        <h2>Six services. Three audiences. <em>One standard.</em></h2>
+        <p>Every service below is delivered to the same premium standard — whether it's a home, a hotel, or a design specification.</p>
+      </div>
+
+      <div class="tier-legend reveal">
+        <span class="tl-label">Tag legend:</span>
+        {tiers.map(t => (
+          <span class={`tl-chip tl-${t.key}`}>{t.label.replace('For ', '')}</span>
+        ))}
       </div>
 
       <div class="sig-svc-grid">
@@ -150,6 +84,12 @@ const privileges = [
             <div class="ssc-body">
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
+              <div class="ssc-tiers" aria-label="Available for">
+                {s.tiers.map(tk => {
+                  const t = tiers.find(x => x.key === tk);
+                  return t ? <span class={`ssc-tier-chip tl-${tk}`}>{t.label.replace('For ', '')}</span> : null;
+                })}
+              </div>
               <ul class="ssc-bullets">
                 {s.bullets.map(b => (
                   <li>
@@ -328,6 +268,51 @@ const privileges = [
 
     @media (max-width: 900px) {
       .sig-svc-grid { grid-template-columns: 1fr; }
+    }
+
+    .tier-legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      margin: 0 auto 2.2rem;
+      max-width: 720px;
+    }
+    .tl-label {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-right: .4rem;
+    }
+    .tl-chip,
+    .ssc-tier-chip {
+      display: inline-flex;
+      align-items: center;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem .7rem;
+      border-radius: 50px;
+      border: 1px solid transparent;
+    }
+    .tl-residential { background: rgba(2, 32, 68, .08); color: var(--navy-deep); border-color: rgba(2, 32, 68, .2); }
+    .tl-commercial  { background: rgba(224, 170, 62, .14); color: var(--gold-deep); border-color: rgba(224, 170, 62, .35); }
+    .tl-trade       { background: linear-gradient(135deg, rgba(224, 170, 62, .18), rgba(2, 32, 68, .12)); color: var(--navy-deep); border-color: rgba(224, 170, 62, .4); }
+
+    .ssc-tiers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin: -.4rem 0 1.2rem;
+    }
+    .ssc-tier-chip {
+      font-size: .6rem;
+      padding: .22rem .55rem;
+      letter-spacing: .08em;
     }
   </style>
 

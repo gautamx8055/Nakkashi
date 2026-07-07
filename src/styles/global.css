@@ -127,18 +127,24 @@ section { position: relative; }
   white-space: nowrap;
 }
 .offer-cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
-.offer-marquee { display: none; }
+.offer-text-mobile { display: none; }
 @media (max-width: 640px) {
   .offer-label { display: none; }
-  .offer-strip { gap: .6rem; font-size: .76rem; }
+  .offer-strip { gap: .5rem; padding: .5rem .9rem; font-size: .72rem; flex-wrap: nowrap; }
   .offer-text { display: none; }
-  .offer-cta { display: none; }
+  .offer-cta { font-size: .7rem; padding: .28rem .7rem; flex-shrink: 0; }
   .offer-strip::after { display: none; }
-  .offer-marquee {
-    display: block; width: 100%;
-    color: rgba(247, 243, 234, .92); font-size: .78rem;
+  .offer-text-mobile {
+    display: inline-block;
+    color: rgba(247, 243, 234, .92);
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
   }
-  .offer-marquee strong { color: var(--gold); font-weight: 700; }
+  .offer-text-mobile strong { color: var(--gold); font-weight: 700; }
 }
 
 /* ============ HEADER / NAV ============ */

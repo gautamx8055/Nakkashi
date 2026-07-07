@@ -11,14 +11,14 @@ import { withBase } from '../lib/url';
     </svg>
   </button>
   <div class="promo-shimmer" aria-hidden="true"></div>
-  <div class="promo-tag">Exclusive Deal — Only For You</div>
+  <div class="promo-tag">India-First Commitment</div>
   <div class="promo-head">
-    Give us your paint work.<br />
-    <span class="promo-rate">We'll do your <span class="promo-num">Feature Wall</span> — complimentary.</span>
+    <span class="promo-rate"><span class="promo-num">Late? It's Free.</span></span><br />
+    We hand over on time — or your next room is on us.
   </div>
-  <div class="promo-sub">No catch. Book the painting, get a stunning signature wall on us.</div>
-  <a href={withBase('/quote')} class="promo-cta">
-    Yes, I Want This!
+  <div class="promo-sub">A written on-time guarantee, backed by planned execution.</div>
+  <a href="#lead" class="promo-cta">
+    Book a Free Site Visit
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
       <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
@@ -518,11 +518,8 @@ import { withBase } from '../lib/url';
       });
     }
 
-    if (!sessionStorage.getItem(KEY)) {
-      setTimeout(() => {
-        open();
-        sessionStorage.setItem(KEY, '1');
-      }, 15000);
-    }
+    // Auto-popup disabled — the inline homepage form is now the primary lead capture.
+    // The popup remains reachable programmatically (e.g. window.__openNakkashiLead()) if needed.
+    window.__openNakkashiLead = open;
   })();
 </script>
