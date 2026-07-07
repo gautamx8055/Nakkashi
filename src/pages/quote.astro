@@ -4,11 +4,11 @@ import PageHero from '../components/PageHero.astro';
 import { withBase } from '../lib/url';
 import { services } from '../data/services';
 ---
-<Layout title="Get a Free Quote — Nakkashi Signature Painting">
+<Layout title="Get a Free Quote   Nakkashi Signature Painting">
   <PageHero
     eyebrow="Get a Quote"
-    title="Tell us about your space — get a tailored quotation."
-    lead="Nakkashi doesn't sell off-the-shelf packages. Every quotation is custom-built around your space, your finish selection, and your timeline. Share a few details below — we'll respond within 24 hours."
+    title="Tell us about your space   get a tailored quotation."
+    lead="Nakkashi doesn't sell off-the-shelf packages. Every quotation is custom-built around your space, your finish selection, and your timeline. Share a few details below   we'll respond within 24 hours."
   />
 
   <!-- HOW IT WORKS -->
@@ -23,7 +23,7 @@ import { services } from '../data/services';
         <div class="quote-step reveal">
           <div class="step-n">1</div>
           <h4>Share Details</h4>
-          <p>Fill the form below or call us — takes 2 minutes.</p>
+          <p>Fill the form below or call us   takes 2 minutes.</p>
         </div>
         <div class="quote-step reveal">
           <div class="step-n">2</div>
@@ -51,7 +51,7 @@ import { services } from '../data/services';
         <div class="form-card reveal">
           <h3>Project Details</h3>
           <form id="quoteForm" name="quote" method="POST" action="https://formspree.io/f/maqgpaod">
-            <input type="hidden" name="_subject" value="New Quote Request — Nakkashi" />
+            <input type="hidden" name="_subject" value="New Quote Request   Nakkashi" />
             <div class="form-grid">
               <div class="field">
                 <label for="name">Full Name *</label>
@@ -69,11 +69,11 @@ import { services } from '../data/services';
                 <label for="property">Property Type *</label>
                 <select id="property" name="property" required>
                   <option value="">Select…</option>
-                  <option>Residential — Independent home / villa</option>
-                  <option>Residential — Apartment</option>
-                  <option>Commercial — Office</option>
-                  <option>Commercial — Retail / Showroom</option>
-                  <option>Hospitality — Hotel / Restaurant</option>
+                  <option>Residential   Independent home / villa</option>
+                  <option>Residential   Apartment</option>
+                  <option>Commercial   Office</option>
+                  <option>Commercial   Retail / Showroom</option>
+                  <option>Hospitality   Hotel / Restaurant</option>
                   <option>Institutional</option>
                   <option>Other</option>
                 </select>
@@ -85,7 +85,7 @@ import { services } from '../data/services';
                   {services.map(s => (
                     <option>{s.title}</option>
                   ))}
-                  <option>Not sure yet — need consultation</option>
+                  <option>Not sure yet   need consultation</option>
                 </select>
               </div>
               <div class="field">
@@ -104,7 +104,7 @@ import { services } from '../data/services';
               </div>
               <div class="field full">
                 <label for="address">Project Address / Locality</label>
-                <input id="address" name="address" type="text" placeholder="Area, city — full address shared after we connect" />
+                <input id="address" name="address" type="text" placeholder="Area, city   full address shared after we connect" />
               </div>
               <div class="field full">
                 <label for="message">Tell us about your project</label>
@@ -157,7 +157,7 @@ import { services } from '../data/services';
         <aside class="form-aside">
           <div class="aside-card reveal">
             <h4>Talk to us directly</h4>
-            <p>Prefer a quick call? Reach our project team — we're happy to answer questions before you fill out anything.</p>
+            <p>Prefer a quick call? Reach our project team   we're happy to answer questions before you fill out anything.</p>
             <div class="row">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span><strong>+91 74006 40093</strong><br /><span style="color:var(--muted);font-size:.88rem">Mon – Sat · 9am – 7pm</span></span>
@@ -181,11 +181,11 @@ import { services } from '../data/services';
               </li>
               <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
                 <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
-                <span>An <strong style="color:var(--gold-soft)">itemised proposal</strong> — never a vague lump sum</span>
+                <span>An <strong style="color:var(--gold-soft)">itemised proposal</strong>   never a vague lump sum</span>
               </li>
               <li style="display:flex;gap:.7rem;align-items:flex-start;font-size:.94rem">
                 <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-top:1px">✓</span>
-                <span><strong style="color:var(--gold-soft)">Zero obligation</strong> — no pressure to proceed</span>
+                <span><strong style="color:var(--gold-soft)">Zero obligation</strong>   no pressure to proceed</span>
               </li>
             </ul>
           </div>
@@ -213,21 +213,21 @@ import { services } from '../data/services';
             Is the site visit really free?
             <span style="color:var(--gold);font-weight:700">+</span>
           </summary>
-          <p style="color:var(--muted);margin-top:.8rem">Yes — and there's no obligation to proceed. We believe a good quotation can only come from seeing the space. So the visit, the measurement, and the initial recommendations are all complimentary.</p>
+          <p style="color:var(--muted);margin-top:.8rem">Yes   and there's no obligation to proceed. We believe a good quotation can only come from seeing the space. So the visit, the measurement, and the initial recommendations are all complimentary.</p>
         </details>
         <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
           <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
             How quickly do you respond?
             <span style="color:var(--gold);font-weight:700">+</span>
           </summary>
-          <p style="color:var(--muted);margin-top:.8rem">Within 24 hours, Monday to Saturday. For urgent projects, call us directly — we'll do our best to schedule a same-day or next-day visit.</p>
+          <p style="color:var(--muted);margin-top:.8rem">Within 24 hours, Monday to Saturday. For urgent projects, call us directly   we'll do our best to schedule a same-day or next-day visit.</p>
         </details>
         <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
           <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
             Why don't you publish standard prices?
             <span style="color:var(--gold);font-weight:700">+</span>
           </summary>
-          <p style="color:var(--muted);margin-top:.8rem">Premium decorative finishes vary widely based on surface area, condition, finish selection, material grade, and site complexity. A standard price card would force us to either overcharge simple projects or undercharge complex ones — neither matches our standard of honesty. Every quotation is built around your specific project.</p>
+          <p style="color:var(--muted);margin-top:.8rem">Premium decorative finishes vary widely based on surface area, condition, finish selection, material grade, and site complexity. A standard price card would force us to either overcharge simple projects or undercharge complex ones   neither matches our standard of honesty. Every quotation is built around your specific project.</p>
         </details>
         <details class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.6rem">
           <summary style="font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--navy-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">

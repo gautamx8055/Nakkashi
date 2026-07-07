@@ -13,10 +13,10 @@ const trending = [
   { title: 'Azure Limewash',   tag: 'Classic',   badge: 'New This Season',   img: '/Texture 4 EXCL.webp',  desc: 'Breathable mineral wash in deep navy with old-world character.', tone: 'navy' },
 ];
 ---
-<Layout title="Nakkashi — Premium Painting & Texture Execution Partner" preloadHero={true}>
+<Layout title="Nakkashi   Premium Painting & Texture Execution Partner" preloadHero={true}>
   <LeadPopup />
 
-  {/* 1) BRAND/CONTRACTOR MARQUEE — hidden for now, re-enable by uncommenting */}
+  {/* 1) BRAND/CONTRACTOR MARQUEE   hidden for now, re-enable by uncommenting */}
   {/* <ContractorMarquee /> */}
 
   <!-- 2) HERO -->
@@ -55,7 +55,7 @@ const trending = [
             Into Signature Spaces.
           </h1>
           <p class="lead">
-            Nakkashi is a premium painting &amp; texture execution partner —
+            Nakkashi is a premium painting &amp; texture execution partner  
             trusted by homeowners, commercial spaces, and India's leading
             designers for signature finishes delivered on time, every time.
           </p>
@@ -94,7 +94,7 @@ const trending = [
             <svg viewBox="0 0 24 24" fill="none" stroke="#E0AA3E" stroke-width="1.8">
               <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="9" />
             </svg>
-            Late? — On-Time Guarantee
+            Late?   On-Time Guarantee
           </div>
           <div class="float-badge fb-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="#022044" stroke-width="1.8">
@@ -110,6 +110,35 @@ const trending = [
     </svg>
   </section>
 
+  <!-- (4) TRENDING TEXTURES WITH OFFERS -->
+  <section class="section bg-paper" id="trending">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Trending This Season</div>
+        <h2>The finishes clients <em>keep asking for.</em></h2>
+        <p>Our most-specified textures   the ones designers and homeowners come back to time after time.</p>
+      </div>
+      <div class="trend-grid">
+        {trending.map(t => (
+          <div class={`trend-card tone-${t.tone} reveal`}>
+            <div class="trend-thumb">
+              <img src={withBase(t.img)} alt={t.title}  loading="lazy" decoding="async" />
+              <span class="trend-badge">{t.badge}</span>
+            </div>
+            <div class="trend-body">
+              <div class="trend-meta">
+                <span class="trend-tag">{t.tag}</span>
+              </div>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+              <a href={withBase('/quote')} class="trend-cta">Book this finish <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- INTRO / ABOUT SNIPPET -->
   <section class="section bg-paper" style="background: #E8E2D5;">
     <div class="wrap">
@@ -119,7 +148,7 @@ const trending = [
         </div>
         <div class="reveal">
           <div class="eyebrow">About Nakkashi</div>
-          <h2>Walls are more than surfaces — they're the <em>identity</em> of a space.</h2>
+          <h2>Walls are more than surfaces   they're the <em>identity</em> of a space.</h2>
           <p>
             Nakkashi is a premium end-to-end execution partner brand dedicated to
             transforming spaces through exceptional craftsmanship, innovative
@@ -130,11 +159,11 @@ const trending = [
           <p>
             We work closely with homeowners, architects, interior designers,
             builders, and businesses to create spaces that leave a lasting
-            impression — from contemporary textures to timeless finishes.
+            impression   from contemporary textures to timeless finishes.
           </p>
           <p class="founder-hook">
             <span class="fh-tag">Founder-led</span>
-            Trained with <strong>Asian Paints</strong> &amp; certified applicators for <strong>Birla Opus</strong> — 15+ years of hands-on execution before Nakkashi.
+            Trained with <strong>Asian Paints</strong> &amp; certified applicators for <strong>Birla Opus</strong>   15+ years of hands-on execution before Nakkashi.
           </p>
           <a href={withBase('/about')} class="btn btn-ghost" style="margin-top:.8rem">
             Discover Our Story
@@ -147,13 +176,13 @@ const trending = [
     </div>
   </section>
 
-  <!-- WHO WE WORK WITH — 3-TIER AUDIENCE STORY -->
+  <!-- WHO WE WORK WITH   3-TIER AUDIENCE STORY -->
   <section class="section bg-paper" id="who-we-work-with">
     <div class="wrap">
       <div class="sec-head center reveal">
         <div class="eyebrow">Who We Work With</div>
         <h2>Three audiences. <em>One standard of craft.</em></h2>
-        <p>Whether you're finishing a home, opening a hotel, or specifying for a client — Nakkashi delivers the same premium execution, tailored to how you work.</p>
+        <p>Whether you're finishing a home, opening a hotel, or specifying for a client   Nakkashi delivers the same premium execution, tailored to how you work.</p>
       </div>
 
       <div class="tier-grid">
@@ -277,14 +306,14 @@ const trending = [
     .founder-hook strong { color: var(--gold-deep); }
   </style>
 
-  <!-- (1) OUR SIGNATURE SERVICES — TOP -->
+  <!-- (1) OUR SIGNATURE SERVICES   TOP -->
   <section class="section bg-cream" id="services">
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="eyebrow">Our Signature Services</div>
         <h2>Where Every Wall Becomes a Masterpiece.</h2>
         <p>
-          Exclusive textures, luxury finishes, and uncompromising craftsmanship—creating 
+          Exclusive textures, luxury finishes, and uncompromising craftsmanship creating 
           spaces that are as unique as the people who live in them.
         </p>
       </div>
@@ -304,13 +333,13 @@ const trending = [
     </div>
   </section>
 
-  <!-- (2) LEAD FORM — MIDDLE OF HOMEPAGE -->
+  <!-- (2) LEAD FORM   MIDDLE OF HOMEPAGE -->
   <section class="section lead-section" id="lead">
     <div class="wrap">
       <div class="lead-card reveal">
         <div class="lead-side">
           <div class="lead-eyebrow">Get a Free Design Consultation</div>
-          <h2>Tell us about your space — <em>we'll handle the rest.</em></h2>
+          <h2>Tell us about your space   <em>we'll handle the rest.</em></h2>
           <p>
             Share a few details and our project team will call you within 24 hours
             with a curated recommendation, transparent pricing, and a complimentary
@@ -318,14 +347,14 @@ const trending = [
           </p>
           <ul class="lead-perks">
             <li><span class="dot"></span>Free interior design consultation</li>
-            <li><span class="dot"></span><strong>Late? It's Free</strong> — written on-time guarantee</li>
+            <li><span class="dot"></span><strong>Late? It's Free</strong>   written on-time guarantee</li>
             <li><span class="dot"></span>Transparent, tier-based pricing after your site visit</li>
             <li><span class="dot"></span>50+ skilled craftsmen on hand</li>
           </ul>
         </div>
 
         <form class="lead-form" id="inlineLeadForm" method="POST" action="https://formspree.io/f/xlgypabo">
-          <input type="hidden" name="_subject" value="New Lead — Nakkashi Free Site Visit" />
+          <input type="hidden" name="_subject" value="New Lead   Nakkashi Free Site Visit" />
           <div class="lead-tag">Step 1 of 1 · 60-second form</div>
           <h3>Book a Free Site Visit</h3>
 
@@ -380,7 +409,7 @@ const trending = [
             <div class="check">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>
             </div>
-            <h4>Thanks — we'll be in touch!</h4>
+            <h4>Thanks   we'll be in touch!</h4>
             <p>Our project team will reach out within 24 hours.</p>
           </div>
         </form>
@@ -424,35 +453,6 @@ const trending = [
     </div>
   </section>
 
-  <!-- (4) TRENDING TEXTURES WITH OFFERS -->
-  <section class="section bg-paper" id="trending">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Trending This Season</div>
-        <h2>The finishes clients <em>keep asking for.</em></h2>
-        <p>Our most-specified textures — the ones designers and homeowners come back to time after time.</p>
-      </div>
-      <div class="trend-grid">
-        {trending.map(t => (
-          <div class={`trend-card tone-${t.tone} reveal`}>
-            <div class="trend-thumb">
-              <img src={withBase(t.img)} alt={t.title}  loading="lazy" decoding="async" />
-              <span class="trend-badge">{t.badge}</span>
-            </div>
-            <div class="trend-body">
-              <div class="trend-meta">
-                <span class="trend-tag">{t.tag}</span>
-              </div>
-              <h3>{t.title}</h3>
-              <p>{t.desc}</p>
-              <a href={withBase('/quote')} class="trend-cta">Book this finish <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- (5) PALETTE -->
   <section class="section bg-cream" style="background: #E8E2D5;">
     <div class="wrap">
@@ -460,7 +460,7 @@ const trending = [
         <div class="eyebrow">The Signature Palette</div>
         <h2>Colours curated to live <em>beautifully</em> together.</h2>
         <p>
-          The shades that define a Nakkashi finish — from deep estate navies to warm, gilded golds.
+          The shades that define a Nakkashi finish   from deep estate navies to warm, gilded golds.
         </p>
       </div>
       <div class="palette-img reveal">
@@ -475,7 +475,7 @@ const trending = [
       <div class="sec-head reveal">
         <div class="eyebrow">From Our Signature Collection</div>
         <h2>Textures &amp; finishes <em>signed by Nakkashi.</em></h2>
-        <p>A closer look at the surface treatments our craftsmen apply on every project — from limewash to metallic accents.</p>
+        <p>A closer look at the surface treatments our craftsmen apply on every project   from limewash to metallic accents.</p>
       </div>
       <div class="gallery reveal">
         <div class="gtile g1"><img src={withBase('/Texture 8.webp')} alt="Weather-shield exterior finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Weather-shield Exterior</div><div class="s">Texture · Exterior</div></div></div>
@@ -485,7 +485,7 @@ const trending = [
         <div class="gtile g5"><img src={withBase('/Texture 12.webp')} alt="Statement wall finish sample"  loading="lazy" decoding="async" /><div class="gmeta"><div class="t">Statement Finish</div><div class="s">Texture · Commercial</div></div></div>
       </div>
       <p style="text-align:center;margin-top:1.4rem;color:var(--muted);font-size:.88rem;font-style:italic">
-        Real project photography currently in production — client site photoshoots underway.
+        Real project photography currently in production   client site photoshoots underway.
       </p>
       <div style="text-align:center;margin-top:1.2rem">
         <a href={withBase('/gallery')} class="btn btn-ghost">View Full Gallery</a>
@@ -504,7 +504,7 @@ const trending = [
         <div class="quote-card reveal">
           <div class="mark">"</div>
           <div class="stars">★★★★★</div>
-          <p>The crew was punctual, tidy and genuinely skilled. Our home looks like something out of a magazine — the gold accent wall is everyone's favourite.</p>
+          <p>The crew was punctual, tidy and genuinely skilled. Our home looks like something out of a magazine   the gold accent wall is everyone's favourite.</p>
           <div class="who">
             <div class="av" data-photo="/testimonials/riya-arora.webp" data-initials="RA">RA</div>
             <div>
@@ -568,8 +568,19 @@ const trending = [
       swatches.forEach(function (card) {
         card.addEventListener('click', function () {
           var isActive = card.classList.contains('active');
-          swatches.forEach(function (c) { c.classList.remove('active'); });
-          if (!isActive) card.classList.add('active');
+          swatches.forEach(function (c) {
+            if (c.classList.contains('active')) {
+              c.classList.remove('active');
+              c.classList.add('dismiss');
+              c.addEventListener('animationend', function () {
+                c.classList.remove('dismiss');
+              }, { once: true });
+            }
+          });
+          if (!isActive) {
+            card.classList.remove('dismiss');
+            card.classList.add('active');
+          }
         });
       });
     })();

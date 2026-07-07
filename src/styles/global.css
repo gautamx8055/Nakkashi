@@ -1,5 +1,5 @@
 /* ============================================
-   NAKKASHI — GLOBAL STYLES
+   NAKKASHI   GLOBAL STYLES
    ============================================ */
 
 :root {
@@ -22,7 +22,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   font-family: var(--body);
@@ -310,7 +310,7 @@ nav.primary {
   animation: rise .8s cubic-bezier(.2, .7, .3, 1) both;
 }
 
-/* India-first 6-month guarantee badge — hero */
+/* India-first 6-month guarantee badge   hero */
 .guarantee-badge {
   display: inline-flex; align-items: center; gap: .75rem;
   padding: .6rem 1.1rem .6rem .85rem;
@@ -352,7 +352,7 @@ nav.primary {
   .guarantee-badge .gb-text strong { font-size: .62rem; letter-spacing: .18em; }
 }
 
-/* Persistent guarantee strip — top of every page */
+/* Persistent guarantee strip   top of every page */
 .guarantee-strip {
   background: linear-gradient(90deg, var(--gold-deep), var(--gold) 50%, var(--gold-deep));
   color: var(--navy-deep);
@@ -414,7 +414,7 @@ nav.primary {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* hero visual — swatch fan */
+/* hero visual   swatch fan */
 .hero-visual {
   position: relative; height: 100%; min-height: 440px;
   display: flex; align-items: center; justify-content: center;
@@ -442,14 +442,40 @@ nav.primary {
 .swatch.s1 { transform: rotate(-13deg) translate(-46px, 18px); z-index: 1; }
 .swatch.s2 { transform: rotate(-1deg) translate(8px, -6px); z-index: 2; }
 .swatch.s3 { transform: rotate(12deg) translate(62px, 30px); z-index: 3; }
-.swatch-stack:hover .s1 { transform: rotate(-20deg) translate(-70px, 18px); }
-.swatch-stack:hover .s3 { transform: rotate(18deg) translate(86px, 30px); }
-.swatch-stack .swatch.active,
-.swatch-stack:hover .swatch.active {
-  transform: rotate(0deg) translate(0, -24px) scale(1.06);
-  z-index: 5;
-  box-shadow: 0 36px 60px -14px rgba(0, 0, 0, .65);
+.swatch-stack:hover .s1:not(.active) { transform: rotate(-20deg) translate(-70px, 18px); }
+.swatch-stack:hover .s3:not(.active) { transform: rotate(18deg) translate(86px, 30px); }
+@keyframes swatchLeftLift {
+  from { transform: rotate(-13deg) translate(-46px, 18px); }
+  to   { transform: rotate(-13deg) translate(-82px, -12px); }
 }
+@keyframes swatchCenterLift {
+  0%   { transform: rotate(-1deg) translate(8px, -6px); }
+  50%  { transform: rotate(-1deg) translate(8px, -62px); }
+  72%  { transform: rotate(-1deg) translate(8px, -36px); }
+  100% { transform: rotate(-1deg) translate(8px, -52px); }
+}
+@keyframes swatchRightLift {
+  from { transform: rotate(12deg) translate(62px, 30px); }
+  to   { transform: rotate(12deg) translate(98px, 0px); }
+}
+.swatch.s1.active { animation: swatchLeftLift .48s cubic-bezier(.2,.7,.3,1) forwards; z-index: 5; box-shadow: 0 36px 60px -14px rgba(0,0,0,.65); }
+.swatch.s2.active { animation: swatchCenterLift .6s ease-out forwards; z-index: 5; box-shadow: 0 36px 60px -14px rgba(0,0,0,.65); }
+.swatch.s3.active { animation: swatchRightLift .48s cubic-bezier(.2,.7,.3,1) forwards; z-index: 5; box-shadow: 0 36px 60px -14px rgba(0,0,0,.65); }
+@keyframes swatchLeftDown {
+  from { transform: rotate(-13deg) translate(-82px, -12px); }
+  to   { transform: rotate(-13deg) translate(-46px, 18px); }
+}
+@keyframes swatchCenterDown {
+  from { transform: rotate(-1deg) translate(8px, -52px); }
+  to   { transform: rotate(-1deg) translate(8px, -6px); }
+}
+@keyframes swatchRightDown {
+  from { transform: rotate(12deg) translate(98px, 0px); }
+  to   { transform: rotate(12deg) translate(62px, 30px); }
+}
+.swatch.s1.dismiss { animation: swatchLeftDown .42s cubic-bezier(.4,0,.6,1) forwards; z-index: 5; }
+.swatch.s2.dismiss { animation: swatchCenterDown .42s cubic-bezier(.4,0,.6,1) forwards; z-index: 5; }
+.swatch.s3.dismiss { animation: swatchRightDown .42s cubic-bezier(.4,0,.6,1) forwards; z-index: 5; }
 .float-badge {
   position: absolute; background: rgba(255, 255, 255, .96);
   color: var(--navy-deep); padding: .85rem 1.1rem;

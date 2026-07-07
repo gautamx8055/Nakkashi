@@ -10,19 +10,19 @@ export const tiers: {
     key: 'residential',
     label: 'For Homeowners',
     tagline: 'Signature finishes for the homes you live in.',
-    desc: 'Villas, apartments, and independent homes — premium textures, decorative finishes, and elite interior painting delivered by trained craftsmen.',
+    desc: 'Villas, apartments, and independent homes   premium textures, decorative finishes, and elite interior painting delivered by trained craftsmen.',
   },
   {
     key: 'commercial',
     label: 'For Commercial & Hospitality',
     tagline: 'Statement spaces built to be experienced.',
-    desc: 'Offices, retail, hotels, and restaurants — feature walls, waterproofing, and full-scale execution on tight commercial timelines.',
+    desc: 'Offices, retail, hotels, and restaurants   feature walls, waterproofing, and full-scale execution on tight commercial timelines.',
   },
   {
     key: 'trade',
     label: 'For Architects & Interior Designers',
     tagline: 'A trade partner your specifications can trust.',
-    desc: 'Priority scheduling, trade terms, and a complimentary Studio Wall — Nakkashi is built to be your execution partner on high-spec projects.',
+    desc: 'Priority scheduling, trade terms, and a complimentary Studio Wall   Nakkashi is built to be your execution partner on high-spec projects.',
   },
 ];
 
@@ -32,7 +32,7 @@ export const services = [
     title: 'Signature Texture Collection',
     tag: 'Texture',
     tiers: ['residential', 'commercial', 'trade'] as AudienceTier[],
-    desc: 'Artistic textures that bring depth, character, and sophistication — stucco, lime-wash, metallic, and exclusive Nakkashi-original patterns.',
+    desc: 'Artistic textures that bring depth, character, and sophistication   stucco, lime-wash, metallic, and exclusive Nakkashi-original patterns.',
     shortDesc: 'Artistic textures designed to bring depth, character, and sophistication to every surface.',
     bullets: [
       'Royale-play & art-effect textures',
@@ -49,7 +49,7 @@ export const services = [
     title: 'Elite Interior Finishes',
     tag: 'Interior',
     tiers: ['residential', 'commercial'] as AudienceTier[],
-    desc: 'Premium smooth emulsion finishes for living spaces, bedrooms, and ceilings — low-odour, washable, and built to last.',
+    desc: 'Premium smooth emulsion finishes for living spaces, bedrooms, and ceilings   low-odour, washable, and built to last.',
     shortDesc: 'Premium painting crafted to deliver flawless aesthetics and enduring beauty for every room.',
     bullets: [
       'Premium emulsion & enamel systems',
@@ -66,7 +66,7 @@ export const services = [
     title: 'Luxury Surface Artistry',
     tag: 'Decorative',
     tiers: ['residential', 'trade'] as AudienceTier[],
-    desc: 'Italian-inspired Raj Hans, bespoke metallic effects, and polished concrete — surfaces that feel as good as they look.',
+    desc: 'Italian-inspired Raj Hans, bespoke metallic effects, and polished concrete   surfaces that feel as good as they look.',
     shortDesc: 'Exclusive finishes inspired by contemporary architecture and high-end luxury interiors.',
     bullets: [
       'Raj Hans & marmorino',
@@ -83,7 +83,7 @@ export const services = [
     title: 'Statement Wall Creations',
     tag: 'Feature',
     tiers: ['residential', 'commercial', 'trade'] as AudienceTier[],
-    desc: 'Bespoke feature walls designed to anchor a room — custom murals, 3D textured panels, and architectural accent walls.',
+    desc: 'Bespoke feature walls designed to anchor a room   custom murals, 3D textured panels, and architectural accent walls.',
     shortDesc: 'Bespoke feature walls designed to become the focal point of exceptional, memorable spaces.',
     bullets: [
       'Architectural feature walls',
@@ -117,7 +117,7 @@ export const services = [
     title: 'Bespoke Design & Consultancy',
     tag: 'Bespoke',
     tiers: ['residential', 'commercial', 'trade'] as AudienceTier[],
-    desc: 'From free on-site colour consultation to architect-led R&D — we collaborate on your vision and engineer the finish that brings it to life.',
+    desc: 'From free on-site colour consultation to architect-led R&D   we collaborate on your vision and engineer the finish that brings it to life.',
     shortDesc: 'Expert guidance in selecting textures, finishes, and colour palettes that align with your vision.',
     bullets: [
       'Free on-site colour consultation',
