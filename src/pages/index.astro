@@ -105,9 +105,14 @@ const trending = [
         </div>
       </div>
     </div>
-    <svg class="hero-drip" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="currentColor" d="M0,40 C180,80 320,10 480,38 C600,60 660,30 760,42 C740,70 745,82 770,84 C795,86 800,72 782,52 C880,44 980,72 1120,46 C1280,18 1360,66 1440,44 L1440,90 L0,90 Z"/>
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+      <defs>
+        <clipPath id="heroWaveClip" clipPathUnits="objectBoundingBox">
+          <path d="M0,0.444 C0.125,0.889 0.222,0.111 0.333,0.422 C0.417,0.667 0.458,0.333 0.528,0.467 C0.514,0.778 0.517,0.911 0.535,0.933 C0.552,0.956 0.556,0.8 0.543,0.578 C0.611,0.489 0.681,0.8 0.778,0.511 C0.889,0.2 0.944,0.733 1,0.489 L1,1 L0,1 Z"/>
+        </clipPath>
+      </defs>
     </svg>
+    <div class="hero-drip"></div>
   </section>
 
   <!-- (4) TRENDING TEXTURES WITH OFFERS -->

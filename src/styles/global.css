@@ -491,18 +491,28 @@ nav.primary {
   50% { transform: translateY(-12px); }
 }
 .hero-drip {
-  display: block; width: 100%; color: #E8E2D5;
+  display: block; width: 100%; height: 90px;
   position: relative; z-index: 3; margin-top: -1px;
+  background:
+    linear-gradient(rgba(251, 249, 244, .91), rgba(251, 249, 244, .91)),
+    url('/Paint%203.png') center / cover;
+  clip-path: url(#heroWaveClip);
 }
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-eyebrow, .hero-cta, .hero-stats { justify-content: center; }
   .hero p.lead { margin-inline: auto; }
-  .hero-visual { min-height: 430px; margin-top: 1rem; }
+  .hero-visual { min-height: 430px; margin-top: 1rem; width: 100%; justify-content: center; }
+  /* s1 goes 46px left, s3 goes 62px right — shift right to balance the visual fan center */
+  .swatch-stack { margin-inline: auto; transform: translateX(45px); }
+  /* badges use negative offsets that bleed outside viewport — repin them inside bounds */
+  .fb-1 { right: 8px; top: 10px; font-size: .78rem; padding: .55rem .85rem; }
+  .fb-2 { left: 8px; bottom: 10px; font-size: .78rem; padding: .55rem .85rem; }
+  .float-badge svg { width: 22px; height: 22px; }
 }
 @media (max-width: 520px) {
   .swatch { width: 170px; height: 230px; }
-  .swatch-stack { width: 250px; height: 330px; }
+  .swatch-stack { width: 250px; height: 330px; transform: translateX(30px); }
   .hero-stats { gap: 1.6rem; }
 }
 
