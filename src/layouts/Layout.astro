@@ -81,8 +81,13 @@ import { withBase } from '../lib/url';
       rel="noopener"
       aria-label="Chat with Nakkashi on WhatsApp"
     >
-      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-        <path fill="currentColor" d="M20.5 3.5A11 11 0 003.6 17.3L2 22l4.8-1.6A11 11 0 1020.5 3.5zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.9 1 1-2.8-.2-.3A8 8 0 1120 12a8 8 0 01-8 8zm4.6-6c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/>
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M27.146 4.784A15.86 15.86 0 0 0 15.995.166C7.19.166.02 7.335.017 16.144a15.94 15.94 0 0 0 2.131 7.977L.02 31.834l7.888-2.069a15.94 15.94 0 0 0 7.62 1.942h.006c8.804 0 15.973-7.169 15.976-15.978a15.87 15.87 0 0 0-4.664-11.291zM15.994 29.11h-.005a13.26 13.26 0 0 1-6.759-1.851l-.485-.288-5.03 1.319 1.342-4.905-.316-.503a13.24 13.24 0 0 1-2.028-7.07c.003-7.322 5.961-13.28 13.286-13.28 3.548 0 6.883 1.383 9.39 3.893a13.19 13.19 0 0 1 3.886 9.397c-.003 7.323-5.961 13.288-13.28 13.288zm7.283-9.947c-.399-.2-2.361-1.166-2.727-1.299-.365-.133-.632-.199-.898.2-.266.399-1.031 1.299-1.264 1.565-.233.267-.466.3-.865.1-.399-.2-1.685-.621-3.211-1.982-1.186-1.058-1.987-2.365-2.22-2.764-.233-.399-.025-.615.175-.814.179-.179.399-.466.599-.699.199-.234.266-.4.4-.666.132-.266.066-.499-.033-.699-.1-.2-.898-2.164-1.231-2.963-.323-.777-.652-.672-.898-.684-.232-.011-.499-.014-.765-.014a1.47 1.47 0 0 0-1.064.499c-.365.399-1.398 1.365-1.398 3.329s1.431 3.862 1.63 4.128c.199.266 2.815 4.301 6.822 6.031.953.411 1.696.657 2.276.841.956.304 1.827.261 2.514.158.767-.114 2.361-.965 2.694-1.898.332-.932.332-1.731.232-1.898-.099-.166-.365-.266-.764-.466z"
+        />
       </svg>
     </a>
 
@@ -94,30 +99,30 @@ import { withBase } from '../lib/url';
         left: 1.2rem;
         bottom: 1.4rem;
         z-index: 1050;
-        width: 58px;
-        height: 58px;
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
         background: #25D366;
         color: #fff;
         display: grid;
         place-items: center;
-        box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .18);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, .35), 0 2px 6px rgba(0, 0, 0, .18);
         text-decoration: none;
         transition: transform .2s, box-shadow .2s;
-        animation: waFloatPulse 2.6s ease-in-out infinite;
+        animation: waFloatPulse 2.8s ease-in-out infinite;
       }
       .wa-float:hover {
-        transform: translateY(-3px) scale(1.06);
-        box-shadow: 0 16px 34px rgba(37, 211, 102, .55), 0 0 0 8px rgba(37, 211, 102, .22);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 12px 26px rgba(37, 211, 102, .5), 0 3px 8px rgba(0, 0, 0, .2);
       }
       .wa-float svg { display: block; }
       @keyframes waFloatPulse {
-        0%, 100% { box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .18), 0 0 0 0 rgba(37, 211, 102, 0); }
-        50%      { box-shadow: 0 12px 28px rgba(37, 211, 102, .45), 0 0 0 6px rgba(37, 211, 102, .28), 0 0 0 14px rgba(37, 211, 102, 0); }
+        0%, 100% { box-shadow: 0 8px 20px rgba(37, 211, 102, .35), 0 2px 6px rgba(0, 0, 0, .18), 0 0 0 0 rgba(37, 211, 102, 0); }
+        50%      { box-shadow: 0 8px 20px rgba(37, 211, 102, .35), 0 2px 6px rgba(0, 0, 0, .18), 0 0 0 10px rgba(37, 211, 102, 0); }
       }
       @media (max-width: 520px) {
-        .wa-float { left: .8rem; bottom: .9rem; width: 52px; height: 52px; }
-        .wa-float svg { width: 24px; height: 24px; }
+        .wa-float { left: .9rem; bottom: 1rem; width: 52px; height: 52px; }
+        .wa-float svg { width: 26px; height: 26px; }
       }
     </style>
 
