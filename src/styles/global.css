@@ -1032,11 +1032,15 @@ nav.primary {
   background: linear-gradient(135deg, var(--navy), var(--navy-deep));
   display: flex; align-items: flex-end; padding: 2rem; color: #fff;
 }
-.content-grid .image-card img,
-.content-grid .image-card video {
+.content-grid .image-card img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center top; display: block; z-index: 0;
+}
+.content-grid .image-card video {
+  position: absolute; left: 0; right: 0;
+  top: -12.5%; width: 100%; height: 125%;
+  object-fit: cover; object-position: center center; display: block; z-index: 0;
 }
 .content-grid .image-card .overlay-tag {
   font-family: var(--display); font-style: italic;
