@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import ContractorMarquee from '../components/ContractorMarquee.astro';
 import CTABand from '../components/CTABand.astro';
-import LeadPopup from '../components/LeadPopup.astro';
 import { withBase } from '../lib/url';
 import { services, tiers } from '../data/services';
 
@@ -14,8 +13,6 @@ const trending = [
 ];
 ---
 <Layout title="Nakkashi   Premium Painting & Texture Execution Partner" preloadHero={true}>
-  <LeadPopup />
-
   {/* 1) BRAND/CONTRACTOR MARQUEE   hidden for now, re-enable by uncommenting */}
   {/* <ContractorMarquee /> */}
 

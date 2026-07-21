@@ -518,8 +518,15 @@ import { withBase } from '../lib/url';
       });
     }
 
-    // Auto-popup disabled   the inline homepage form is now the primary lead capture.
-    // The popup remains reachable programmatically (e.g. window.__openNakkashiLead()) if needed.
+    // Auto-popup: show once per session after 3 seconds on any page.
+    if (!sessionStorage.getItem(KEY)) {
+      setTimeout(function () {
+        if (!sessionStorage.getItem(KEY)) {
+          open();
+          sessionStorage.setItem(KEY, '1');
+        }
+      }, 3000);
+    }
     window.__openNakkashiLead = open;
   })();
 </script>
