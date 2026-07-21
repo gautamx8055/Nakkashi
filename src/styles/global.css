@@ -504,7 +504,8 @@ nav.primary {
   .hero p.lead { margin-inline: auto; }
   .hero-visual { min-height: 430px; margin-top: 1rem; width: 100%; justify-content: center; }
   /* s1 goes 46px left, s3 goes 62px right — shift right to balance the visual fan center */
-  .swatch-stack { margin-inline: auto; transform: translateX(45px); }
+  .swatch-stack { margin-inline: auto; transform: translateX(20px); }
+  .hero-visual { overflow: hidden; }
   /* badges use negative offsets that bleed outside viewport — repin them inside bounds */
   .fb-1 { right: 8px; top: 10px; font-size: .78rem; padding: .55rem .85rem; }
   .fb-2 { left: 8px; bottom: 10px; font-size: .78rem; padding: .55rem .85rem; }
@@ -512,7 +513,8 @@ nav.primary {
 }
 @media (max-width: 520px) {
   .swatch { width: 170px; height: 230px; }
-  .swatch-stack { width: 250px; height: 330px; transform: translateX(30px); }
+  .swatch-stack { width: 250px; height: 330px; transform: translateX(0); }
+  .hero-visual { overflow: hidden; }
   .hero-stats { gap: 1.6rem; }
 }
 
